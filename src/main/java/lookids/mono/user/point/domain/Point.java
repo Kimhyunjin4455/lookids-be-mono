@@ -1,4 +1,4 @@
-package lookids.user.point.domain;
+package lookids.mono.user.point.domain;
 
 import java.time.LocalDateTime;
 

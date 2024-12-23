@@ -1,4 +1,4 @@
-package lookids.user.tier.presentation;
+package lookids.mono.user.tier.presentation;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.common.entity.BaseResponse;
-import lookids.user.common.entity.BaseResponseStatus;
-import lookids.user.tier.application.TierService;
-import lookids.user.tier.dto.in.TierRequestDto;
-import lookids.user.tier.vo.in.TierRequestVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.user.tier.application.TierService;
+import lookids.mono.user.tier.dto.in.TierRequestDto;
+import lookids.mono.user.tier.vo.in.TierRequestVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/write/tier")
+@RequestMapping("/user-service/write/tier")
 public class TierWriteController {
 
 	private final TierService tierService;

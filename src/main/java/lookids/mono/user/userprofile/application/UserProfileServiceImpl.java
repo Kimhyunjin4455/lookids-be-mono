@@ -1,4 +1,4 @@
-package lookids.user.userprofile.application;
+package lookids.mono.user.userprofile.application;
 
 import java.util.Random;
 
@@ -9,26 +9,26 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.common.entity.BaseResponseStatus;
-import lookids.user.common.exception.BaseException;
-import lookids.user.userprofile.domain.UserProfile;
-import lookids.user.userprofile.dto.in.UserProfileImgDto;
-import lookids.user.userprofile.dto.in.UserProfileNicknameDto;
-import lookids.user.userprofile.dto.in.UserProfileRequestDto;
-import lookids.user.userprofile.dto.in.UserProfileTierDto;
-import lookids.user.userprofile.dto.in.UserProfileUpdateDto;
-import lookids.user.userprofile.dto.out.FollowKafkaDto;
-import lookids.user.userprofile.dto.out.UserProfileKafkaDto;
-import lookids.user.userprofile.dto.out.UserProfileResponseDto;
-import lookids.user.userprofile.infrastructure.UserProfileRepository;
-import lookids.user.userprofile.vo.in.CommentEventVo;
-import lookids.user.userprofile.vo.in.FeedEventVo;
-import lookids.user.userprofile.vo.in.FollowEventVo;
-import lookids.user.userprofile.vo.in.ReplyEventVo;
-import lookids.user.userprofile.vo.out.FollowKafkaVo;
-import lookids.user.userprofile.vo.out.NicknameKafkaVo;
-import lookids.user.userprofile.vo.out.ProfileImageKafkaVo;
-import lookids.user.userprofile.vo.out.UserProfileKafkaVo;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.user.userprofile.domain.UserProfile;
+import lookids.mono.user.userprofile.dto.in.UserProfileImgDto;
+import lookids.mono.user.userprofile.dto.in.UserProfileNicknameDto;
+import lookids.mono.user.userprofile.dto.in.UserProfileRequestDto;
+import lookids.mono.user.userprofile.dto.in.UserProfileTierDto;
+import lookids.mono.user.userprofile.dto.in.UserProfileUpdateDto;
+import lookids.mono.user.userprofile.dto.out.FollowKafkaDto;
+import lookids.mono.user.userprofile.dto.out.UserProfileKafkaDto;
+import lookids.mono.user.userprofile.dto.out.UserProfileResponseDto;
+import lookids.mono.user.userprofile.infrastructure.UserProfileRepository;
+import lookids.mono.user.userprofile.vo.in.CommentEventVo;
+import lookids.mono.user.userprofile.vo.in.FeedEventVo;
+import lookids.mono.user.userprofile.vo.in.FollowEventVo;
+import lookids.mono.user.userprofile.vo.in.ReplyEventVo;
+import lookids.mono.user.userprofile.vo.out.FollowKafkaVo;
+import lookids.mono.user.userprofile.vo.out.NicknameKafkaVo;
+import lookids.mono.user.userprofile.vo.out.ProfileImageKafkaVo;
+import lookids.mono.user.userprofile.vo.out.UserProfileKafkaVo;
 
 @Service
 @RequiredArgsConstructor

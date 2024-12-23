@@ -1,12 +1,12 @@
-package lookids.user.petprofile.dto.in;
+package lookids.mono.user.petprofile.dto.in;
 
 import java.util.UUID;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.user.petprofile.domain.PetProfile;
-import lookids.user.petprofile.vo.in.PetProfileRequestVo;
+import lookids.mono.user.petprofile.domain.PetProfile;
+import lookids.mono.user.petprofile.vo.in.PetProfileRequestVo;
 
 @Getter
 @NoArgsConstructor

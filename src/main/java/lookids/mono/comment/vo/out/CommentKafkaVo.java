@@ -1,4 +1,4 @@
-package lookids.comment.comment.vo.out;
+package lookids.mono.comment.vo.out;
 
 import java.time.LocalDateTime;
 

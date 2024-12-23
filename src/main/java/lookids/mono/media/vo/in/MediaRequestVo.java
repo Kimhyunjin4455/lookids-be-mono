@@ -1,4 +1,4 @@
-package lookids.media.media.vo.in;
+package lookids.mono.media.vo.in;
 
 import lombok.Getter;
 import lombok.ToString;

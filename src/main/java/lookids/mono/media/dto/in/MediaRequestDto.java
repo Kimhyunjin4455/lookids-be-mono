@@ -1,4 +1,4 @@
-package lookids.media.media.dto.in;
+package lookids.mono.media.dto.in;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -6,8 +6,8 @@ import java.util.UUID;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.media.media.domain.Media;
-import lookids.media.media.vo.in.MediaRequestVo;
+import lookids.mono.media.domain.Media;
+import lookids.mono.media.vo.in.MediaRequestVo;
 
 @Getter
 @NoArgsConstructor

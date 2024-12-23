@@ -1,10 +1,10 @@
-package lookids.user.tier.dto.in;
+package lookids.mono.user.tier.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.user.tier.domain.Tier;
-import lookids.user.tier.vo.in.TierRequestVo;
+import lookids.mono.user.tier.domain.Tier;
+import lookids.mono.user.tier.vo.in.TierRequestVo;
 
 @Getter
 @NoArgsConstructor

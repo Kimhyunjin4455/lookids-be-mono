@@ -1,4 +1,4 @@
-package lookids.user.agreement.application;
+package lookids.mono.user.agreement.application;
 
 import java.util.List;
 
@@ -7,13 +7,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.agreement.domain.Agreement;
-import lookids.user.agreement.dto.in.AgreementRequestDto;
-import lookids.user.agreement.dto.in.AgreementUpdateDto;
-import lookids.user.agreement.dto.out.AgreementResponseDto;
-import lookids.user.agreement.infrastructure.AgreementRepository;
-import lookids.user.common.entity.BaseResponseStatus;
-import lookids.user.common.exception.BaseException;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.user.agreement.domain.Agreement;
+import lookids.mono.user.agreement.dto.in.AgreementRequestDto;
+import lookids.mono.user.agreement.dto.in.AgreementUpdateDto;
+import lookids.mono.user.agreement.dto.out.AgreementResponseDto;
+import lookids.mono.user.agreement.infrastructure.AgreementRepository;
 
 @Service
 @AllArgsConstructor

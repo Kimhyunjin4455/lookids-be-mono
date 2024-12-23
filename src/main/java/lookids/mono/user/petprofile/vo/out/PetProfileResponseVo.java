@@ -1,4 +1,4 @@
-package lookids.user.petprofile.vo.out;
+package lookids.mono.user.petprofile.vo.out;
 
 import lombok.Builder;
 import lombok.Getter;

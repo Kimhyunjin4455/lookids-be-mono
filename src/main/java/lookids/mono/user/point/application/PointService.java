@@ -1,9 +1,9 @@
-package lookids.user.point.application;
+package lookids.mono.user.point.application;
 
 import java.util.List;
 
-import lookids.user.point.dto.in.PointRequestDto;
-import lookids.user.point.dto.out.PointResponseDto;
+import lookids.mono.user.point.dto.in.PointRequestDto;
+import lookids.mono.user.point.dto.out.PointResponseDto;
 
 public interface PointService {
 	void createPoint(PointRequestDto pointRequestDto);

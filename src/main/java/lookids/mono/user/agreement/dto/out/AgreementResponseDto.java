@@ -1,12 +1,12 @@
-package lookids.user.agreement.dto.out;
+package lookids.mono.user.agreement.dto.out;
 
 import java.time.LocalDateTime;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.user.agreement.domain.Agreement;
-import lookids.user.agreement.vo.out.AgreementResponseVo;
+import lookids.mono.user.agreement.domain.Agreement;
+import lookids.mono.user.agreement.vo.out.AgreementResponseVo;
 
 @Getter
 @NoArgsConstructor

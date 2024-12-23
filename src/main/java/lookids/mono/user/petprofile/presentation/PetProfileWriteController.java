@@ -1,4 +1,4 @@
-package lookids.user.petprofile.presentation;
+package lookids.mono.user.petprofile.presentation;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,22 +12,22 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.common.entity.BaseResponse;
-import lookids.user.common.entity.BaseResponseStatus;
-import lookids.user.petprofile.application.PetProfileService;
-import lookids.user.petprofile.dto.in.PetProfileImgDto;
-import lookids.user.petprofile.dto.in.PetProfileRequestDto;
-import lookids.user.petprofile.dto.in.PetProfileUpdateDto;
-import lookids.user.petprofile.dto.in.PetProfileWeightDto;
-import lookids.user.petprofile.vo.in.PetProfileImgVo;
-import lookids.user.petprofile.vo.in.PetProfileRequestVo;
-import lookids.user.petprofile.vo.in.PetProfileUpdateVo;
-import lookids.user.petprofile.vo.in.PetProfileWeightVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.user.petprofile.application.PetProfileService;
+import lookids.mono.user.petprofile.dto.in.PetProfileImgDto;
+import lookids.mono.user.petprofile.dto.in.PetProfileRequestDto;
+import lookids.mono.user.petprofile.dto.in.PetProfileUpdateDto;
+import lookids.mono.user.petprofile.dto.in.PetProfileWeightDto;
+import lookids.mono.user.petprofile.vo.in.PetProfileImgVo;
+import lookids.mono.user.petprofile.vo.in.PetProfileRequestVo;
+import lookids.mono.user.petprofile.vo.in.PetProfileUpdateVo;
+import lookids.mono.user.petprofile.vo.in.PetProfileWeightVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/write/petprofile")
+@RequestMapping("/user-service/write/petprofile")
 public class PetProfileWriteController {
 
 	private final PetProfileService petProfileService;

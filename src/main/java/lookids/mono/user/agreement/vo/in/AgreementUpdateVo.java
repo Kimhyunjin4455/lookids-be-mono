@@ -1,4 +1,4 @@
-package lookids.user.agreement.vo.in;
+package lookids.mono.user.agreement.vo.in;
 
 import lombok.Getter;
 import lombok.ToString;

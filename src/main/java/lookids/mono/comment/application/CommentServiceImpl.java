@@ -1,30 +1,24 @@
-package lookids.comment.comment.application;
+package lookids.mono.comment.application;
 
-import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.comment.comment.domain.Comment;
-import lookids.comment.comment.dto.in.CommentDeleteDto;
-import lookids.comment.comment.dto.in.CommentRequestDto;
-import lookids.comment.comment.dto.in.ReplyRequestDto;
-import lookids.comment.comment.dto.out.CommentResponseDto;
-import lookids.comment.comment.infrastructure.CommentRepository;
-import lookids.comment.comment.vo.out.CommentKafkaVo;
-import lookids.comment.comment.vo.out.ReplyKafkaVo;
-import lookids.comment.common.dto.PageResponseDto;
-import lookids.comment.common.entity.BaseResponseStatus;
-import lookids.comment.common.exception.BaseException;
+import lookids.mono.comment.domain.Comment;
+import lookids.mono.comment.dto.in.CommentDeleteDto;
+import lookids.mono.comment.dto.in.CommentRequestDto;
+import lookids.mono.comment.dto.in.ReplyRequestDto;
+import lookids.mono.comment.dto.out.CommentResponseDto;
+import lookids.mono.comment.infrastructure.CommentRepository;
+import lookids.mono.comment.vo.out.CommentKafkaVo;
+import lookids.mono.comment.vo.out.ReplyKafkaVo;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
 
 @Slf4j
 @Transactional
@@ -65,27 +59,6 @@ public class CommentServiceImpl implements CommentService {
 		log.info("${reply.create}");
 		replykafkaTemplate.send(replyCreateTopic,
 			CommentResponseDto.toDto(comment).toReplyKafkaVo(replyRequestDto.getFeedUuid()));
-	}
-
-	@Override
-	public PageResponseDto getCommentList(String feedCode, int page, int size) {
-		Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
-		Page<Comment> commentList = commentRepository.findAllByFeedCodeAndCommentStatus(feedCode, true, pageable);
-
-		List<CommentResponseDto> responseDtoList = commentList.stream().map(CommentResponseDto::toDto).toList();
-
-		return PageResponseDto.toDto(page, commentList.getTotalPages(), commentList.hasNext(), responseDtoList);
-	}
-
-	@Override
-	public PageResponseDto readReplyList(String parentCommentCode, int page, int size) {
-		Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
-		Page<Comment> commentList = commentRepository.findAllByParentCommentCodeAndCommentStatus(parentCommentCode,
-			true, pageable);
-
-		List<CommentResponseDto> responseDtoList = commentList.stream().map(CommentResponseDto::toDto).toList();
-
-		return PageResponseDto.toDto(page, commentList.getTotalPages(), commentList.hasNext(), responseDtoList);
 	}
 
 	@Override

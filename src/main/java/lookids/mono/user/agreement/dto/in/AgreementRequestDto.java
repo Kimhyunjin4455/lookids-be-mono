@@ -1,10 +1,10 @@
-package lookids.user.agreement.dto.in;
+package lookids.mono.user.agreement.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.user.agreement.domain.Agreement;
-import lookids.user.agreement.vo.in.AgreementRequestVo;
+import lookids.mono.user.agreement.domain.Agreement;
+import lookids.mono.user.agreement.vo.in.AgreementRequestVo;
 
 @Getter
 @NoArgsConstructor

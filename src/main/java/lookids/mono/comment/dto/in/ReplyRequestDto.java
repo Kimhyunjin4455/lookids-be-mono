@@ -1,10 +1,10 @@
-package lookids.comment.comment.dto.in;
+package lookids.mono.comment.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.comment.comment.domain.Comment;
-import lookids.comment.comment.vo.in.ReplyRequestVo;
+import lookids.mono.comment.domain.Comment;
+import lookids.mono.comment.vo.in.ReplyRequestVo;
 
 @Getter
 @NoArgsConstructor

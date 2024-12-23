@@ -1,12 +1,12 @@
-package lookids.user.petprofile.application;
+package lookids.mono.user.petprofile.application;
 
 import java.util.List;
 
-import lookids.user.petprofile.dto.in.PetProfileImgDto;
-import lookids.user.petprofile.dto.in.PetProfileRequestDto;
-import lookids.user.petprofile.dto.in.PetProfileUpdateDto;
-import lookids.user.petprofile.dto.in.PetProfileWeightDto;
-import lookids.user.petprofile.dto.out.PetProfileResponseDto;
+import lookids.mono.user.petprofile.dto.in.PetProfileImgDto;
+import lookids.mono.user.petprofile.dto.in.PetProfileRequestDto;
+import lookids.mono.user.petprofile.dto.in.PetProfileUpdateDto;
+import lookids.mono.user.petprofile.dto.in.PetProfileWeightDto;
+import lookids.mono.user.petprofile.dto.out.PetProfileResponseDto;
 
 public interface PetProfileService {
 	void createPetProfile(PetProfileRequestDto petProfileRequestDto);

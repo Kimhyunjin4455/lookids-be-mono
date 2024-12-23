@@ -1,4 +1,4 @@
-package lookids.user.tier.vo.out;
+package lookids.mono.user.tier.vo.out;
 
 import lombok.Builder;
 import lombok.Getter;

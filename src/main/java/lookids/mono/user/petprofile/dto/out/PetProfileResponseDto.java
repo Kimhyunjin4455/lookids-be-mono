@@ -1,14 +1,14 @@
-package lookids.user.petprofile.dto.out;
+package lookids.mono.user.petprofile.dto.out;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.user.petprofile.domain.PetProfile;
-import lookids.user.petprofile.vo.out.PetProfileDeleteKafkaVo;
-import lookids.user.petprofile.vo.out.PetProfileKafkaVo;
-import lookids.user.petprofile.vo.out.PetProfileResponseVo;
-import lookids.user.petprofile.vo.out.PetProfileSearchKafkaVo;
-import lookids.user.userprofile.dto.out.UserProfileResponseDto;
+import lookids.mono.user.petprofile.domain.PetProfile;
+import lookids.mono.user.petprofile.vo.out.PetProfileDeleteKafkaVo;
+import lookids.mono.user.petprofile.vo.out.PetProfileKafkaVo;
+import lookids.mono.user.petprofile.vo.out.PetProfileResponseVo;
+import lookids.mono.user.petprofile.vo.out.PetProfileSearchKafkaVo;
+import lookids.mono.user.userprofile.dto.out.UserProfileResponseDto;
 
 @Getter
 @NoArgsConstructor

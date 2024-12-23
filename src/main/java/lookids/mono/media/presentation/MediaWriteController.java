@@ -1,4 +1,4 @@
-package lookids.media.media.presentation;
+package lookids.mono.media.presentation;
 
 import java.util.List;
 
@@ -12,21 +12,21 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.media.common.entity.BaseResponse;
-import lookids.media.common.entity.BaseResponseStatus;
-import lookids.media.media.application.MediaService;
-import lookids.media.media.dto.in.MediaDeleteDto;
-import lookids.media.media.dto.in.MediaRequestDto;
-import lookids.media.media.dto.in.MediaUpdateDto;
-import lookids.media.media.vo.in.MediaDeleteVo;
-import lookids.media.media.vo.in.MediaRequestVo;
-import lookids.media.media.vo.in.MediaUpdateVo;
-import lookids.media.media.vo.out.MediaListResponseVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.media.application.MediaService;
+import lookids.mono.media.dto.in.MediaDeleteDto;
+import lookids.mono.media.dto.in.MediaRequestDto;
+import lookids.mono.media.dto.in.MediaUpdateDto;
+import lookids.mono.media.vo.in.MediaDeleteVo;
+import lookids.mono.media.vo.in.MediaRequestVo;
+import lookids.mono.media.vo.in.MediaUpdateVo;
+import lookids.mono.media.vo.out.MediaListResponseVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/write/media")
+@RequestMapping("/media-service/write/media")
 public class MediaWriteController {
 
 	private final MediaService mediaService;

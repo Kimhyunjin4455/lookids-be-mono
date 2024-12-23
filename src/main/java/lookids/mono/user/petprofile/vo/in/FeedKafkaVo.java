@@ -1,4 +1,4 @@
-package lookids.user.petprofile.vo.in;
+package lookids.mono.user.petprofile.vo.in;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package lookids.user.userprofile.domain;
+package lookids.mono.user.userprofile.domain;
 
 import java.time.LocalDate;
 

@@ -1,4 +1,4 @@
-package lookids.comment.comment.domain;
+package lookids.mono.comment.domain;
 
 import java.time.LocalDateTime;
 

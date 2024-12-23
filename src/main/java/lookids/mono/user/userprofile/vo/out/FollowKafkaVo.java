@@ -1,4 +1,4 @@
-package lookids.user.userprofile.vo.out;
+package lookids.mono.user.userprofile.vo.out;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,7 +12,7 @@ public class FollowKafkaVo {
 	private String senderNickname;
 	private String senderTag;
 	private String senderImage;
-	
+
 	private String receiverUuid;
 	private String receiverNickname;
 	private String receiverTag;

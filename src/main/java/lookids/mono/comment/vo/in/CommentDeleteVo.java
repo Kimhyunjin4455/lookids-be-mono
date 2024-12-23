@@ -1,4 +1,4 @@
-package lookids.comment.comment.vo.in;
+package lookids.mono.comment.vo.in;
 
 import lombok.Getter;
 import lombok.ToString;

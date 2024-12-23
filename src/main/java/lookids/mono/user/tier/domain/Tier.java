@@ -1,4 +1,4 @@
-package lookids.user.tier.domain;
+package lookids.mono.user.tier.domain;
 
 import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.DynamicUpdate;

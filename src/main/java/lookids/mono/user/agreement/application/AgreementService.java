@@ -1,10 +1,10 @@
-package lookids.user.agreement.application;
+package lookids.mono.user.agreement.application;
 
 import java.util.List;
 
-import lookids.user.agreement.dto.in.AgreementRequestDto;
-import lookids.user.agreement.dto.in.AgreementUpdateDto;
-import lookids.user.agreement.dto.out.AgreementResponseDto;
+import lookids.mono.user.agreement.dto.in.AgreementRequestDto;
+import lookids.mono.user.agreement.dto.in.AgreementUpdateDto;
+import lookids.mono.user.agreement.dto.out.AgreementResponseDto;
 
 public interface AgreementService {
 	void createAgreement(AgreementRequestDto agreementRequestDto);

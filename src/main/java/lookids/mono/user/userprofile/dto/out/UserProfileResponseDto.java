@@ -1,12 +1,12 @@
-package lookids.user.userprofile.dto.out;
+package lookids.mono.user.userprofile.dto.out;
 
 import java.time.LocalDate;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.user.userprofile.domain.UserProfile;
-import lookids.user.userprofile.vo.out.UserProfileResponseVo;
+import lookids.mono.user.userprofile.domain.UserProfile;
+import lookids.mono.user.userprofile.vo.out.UserProfileResponseVo;
 
 @Getter
 @NoArgsConstructor

@@ -1,4 +1,4 @@
-package lookids.user.agreement.vo.out;
+package lookids.mono.user.agreement.vo.out;
 
 import java.time.LocalDateTime;
 

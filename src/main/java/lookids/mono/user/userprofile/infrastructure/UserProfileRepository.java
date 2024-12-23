@@ -1,10 +1,10 @@
-package lookids.user.userprofile.infrastructure;
+package lookids.mono.user.userprofile.infrastructure;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import lookids.user.userprofile.domain.UserProfile;
+import lookids.mono.user.userprofile.domain.UserProfile;
 
 public interface UserProfileRepository extends JpaRepository<UserProfile, Long> {
 

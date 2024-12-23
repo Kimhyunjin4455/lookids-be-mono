@@ -1,10 +1,10 @@
-package lookids.user.userprofile.dto.in;
+package lookids.mono.user.userprofile.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.user.userprofile.domain.UserProfile;
-import lookids.user.userprofile.vo.in.UserProfileTierVo;
+import lookids.mono.user.userprofile.domain.UserProfile;
+import lookids.mono.user.userprofile.vo.in.UserProfileTierVo;
 
 @Getter
 @NoArgsConstructor

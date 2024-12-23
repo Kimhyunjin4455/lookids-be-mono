@@ -1,10 +1,10 @@
-package lookids.user.point.dto.in;
+package lookids.mono.user.point.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.user.point.domain.Point;
-import lookids.user.point.vo.in.PointRequestVo;
+import lookids.mono.user.point.domain.Point;
+import lookids.mono.user.point.vo.in.PointRequestVo;
 
 @Getter
 @NoArgsConstructor

@@ -1,10 +1,10 @@
-package lookids.media.media.dto.out;
+package lookids.mono.media.dto.out;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.media.media.domain.Media;
-import lookids.media.media.vo.out.MediaResponseVo;
+import lookids.mono.media.domain.Media;
+import lookids.mono.media.vo.out.MediaResponseVo;
 
 @Getter
 @NoArgsConstructor

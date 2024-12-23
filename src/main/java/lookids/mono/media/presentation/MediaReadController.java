@@ -1,4 +1,4 @@
-package lookids.media.media.presentation;
+package lookids.mono.media.presentation;
 
 import java.util.List;
 
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.media.common.entity.BaseResponse;
-import lookids.media.media.application.MediaService;
-import lookids.media.media.dto.out.MediaResponseDto;
-import lookids.media.media.vo.out.MediaResponseVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.media.application.MediaService;
+import lookids.mono.media.dto.out.MediaResponseDto;
+import lookids.mono.media.vo.out.MediaResponseVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/read/media")
+@RequestMapping("/media-service/read/media")
 public class MediaReadController {
 
 	private final MediaService mediaService;

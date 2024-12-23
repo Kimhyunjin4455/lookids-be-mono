@@ -1,4 +1,4 @@
-package lookids.user.agreement.presentation;
+package lookids.mono.user.agreement.presentation;
 
 import java.util.List;
 
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.agreement.application.AgreementService;
-import lookids.user.agreement.dto.out.AgreementResponseDto;
-import lookids.user.agreement.vo.out.AgreementResponseVo;
-import lookids.user.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.user.agreement.application.AgreementService;
+import lookids.mono.user.agreement.dto.out.AgreementResponseDto;
+import lookids.mono.user.agreement.vo.out.AgreementResponseVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/read/agreement")
+@RequestMapping("/user-service/read/agreement")
 public class AgreementReadController {
 
 	private final AgreementService agreementService;

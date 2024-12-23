@@ -1,4 +1,4 @@
-package lookids.user.point.presentation;
+package lookids.mono.user.point.presentation;
 
 import java.util.List;
 
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.common.entity.BaseResponse;
-import lookids.user.point.application.PointService;
-import lookids.user.point.dto.out.PointResponseDto;
-import lookids.user.point.vo.out.PointResponseVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.user.point.application.PointService;
+import lookids.mono.user.point.dto.out.PointResponseDto;
+import lookids.mono.user.point.vo.out.PointResponseVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/read/point")
+@RequestMapping("/user-service/read/point")
 public class PointReadController {
 
 	private final PointService pointService;

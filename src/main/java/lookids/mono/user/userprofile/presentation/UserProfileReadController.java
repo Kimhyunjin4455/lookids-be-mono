@@ -1,4 +1,4 @@
-package lookids.user.userprofile.presentation;
+package lookids.mono.user.userprofile.presentation;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.common.entity.BaseResponse;
-import lookids.user.userprofile.application.UserProfileService;
-import lookids.user.userprofile.vo.out.UserProfileResponseVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.user.userprofile.application.UserProfileService;
+import lookids.mono.user.userprofile.vo.out.UserProfileResponseVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/read/userprofile")
+@RequestMapping("/user-service/read/userprofile")
 public class UserProfileReadController {
 
 	private final UserProfileService userProfileService;

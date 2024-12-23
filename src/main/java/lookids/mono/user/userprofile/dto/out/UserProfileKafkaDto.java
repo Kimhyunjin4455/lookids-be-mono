@@ -1,12 +1,12 @@
-package lookids.user.userprofile.dto.out;
+package lookids.mono.user.userprofile.dto.out;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.user.userprofile.domain.UserProfile;
-import lookids.user.userprofile.vo.out.NicknameKafkaVo;
-import lookids.user.userprofile.vo.out.ProfileImageKafkaVo;
-import lookids.user.userprofile.vo.out.UserProfileKafkaVo;
+import lookids.mono.user.userprofile.domain.UserProfile;
+import lookids.mono.user.userprofile.vo.out.NicknameKafkaVo;
+import lookids.mono.user.userprofile.vo.out.ProfileImageKafkaVo;
+import lookids.mono.user.userprofile.vo.out.UserProfileKafkaVo;
 
 @Getter
 @NoArgsConstructor

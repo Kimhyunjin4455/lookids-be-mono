@@ -1,11 +1,11 @@
-package lookids.user.agreement.infrastructure;
+package lookids.mono.user.agreement.infrastructure;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import lookids.user.agreement.domain.Agreement;
+import lookids.mono.user.agreement.domain.Agreement;
 
 public interface AgreementRepository extends JpaRepository<Agreement, Long> {
 

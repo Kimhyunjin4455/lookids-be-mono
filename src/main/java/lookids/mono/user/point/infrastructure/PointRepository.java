@@ -1,11 +1,11 @@
-package lookids.user.point.infrastructure;
+package lookids.mono.user.point.infrastructure;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import lookids.user.point.domain.Point;
+import lookids.mono.user.point.domain.Point;
 
 public interface PointRepository extends JpaRepository<Point, Long> {
 

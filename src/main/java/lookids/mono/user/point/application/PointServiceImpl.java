@@ -1,4 +1,4 @@
-package lookids.user.point.application;
+package lookids.mono.user.point.application;
 
 import java.util.List;
 
@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.common.entity.BaseResponseStatus;
-import lookids.user.common.exception.BaseException;
-import lookids.user.point.domain.Point;
-import lookids.user.point.dto.in.PointRequestDto;
-import lookids.user.point.dto.out.PointResponseDto;
-import lookids.user.point.infrastructure.PointRepository;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.user.point.domain.Point;
+import lookids.mono.user.point.dto.in.PointRequestDto;
+import lookids.mono.user.point.dto.out.PointResponseDto;
+import lookids.mono.user.point.infrastructure.PointRepository;
 
 @Service
 @AllArgsConstructor

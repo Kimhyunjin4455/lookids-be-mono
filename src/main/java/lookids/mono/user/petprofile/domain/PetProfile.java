@@ -1,4 +1,4 @@
-package lookids.user.petprofile.domain;
+package lookids.mono.user.petprofile.domain;
 
 import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.DynamicUpdate;

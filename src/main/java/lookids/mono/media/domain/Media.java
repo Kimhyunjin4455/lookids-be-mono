@@ -1,4 +1,4 @@
-package lookids.media.media.domain;
+package lookids.mono.media.domain;
 
 import java.time.LocalDateTime;
 

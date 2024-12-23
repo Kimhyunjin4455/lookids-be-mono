@@ -1,10 +1,10 @@
-package lookids.comment.comment.dto.in;
+package lookids.mono.comment.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.comment.comment.domain.Comment;
-import lookids.comment.comment.vo.in.CommentDeleteVo;
+import lookids.mono.comment.domain.Comment;
+import lookids.mono.comment.vo.in.CommentDeleteVo;
 
 @Getter
 @NoArgsConstructor
@@ -20,10 +20,7 @@ public class CommentDeleteDto {
 	}
 
 	public static CommentDeleteDto toDto(CommentDeleteVo commentDeleteVo, String userUuid) {
-		return CommentDeleteDto.builder()
-			.commentCode(commentDeleteVo.getCommentCode())
-			.userUuid(userUuid)
-			.build();
+		return CommentDeleteDto.builder().commentCode(commentDeleteVo.getCommentCode()).userUuid(userUuid).build();
 	}
 
 	public Comment toEntity(Comment comment) {

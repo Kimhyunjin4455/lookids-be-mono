@@ -1,9 +1,9 @@
-package lookids.user.tier.application;
+package lookids.mono.user.tier.application;
 
 import java.util.List;
 
-import lookids.user.tier.dto.in.TierRequestDto;
-import lookids.user.tier.dto.out.TierResponseDto;
+import lookids.mono.user.tier.dto.in.TierRequestDto;
+import lookids.mono.user.tier.dto.out.TierResponseDto;
 
 public interface TierService {
 	void createTier(TierRequestDto tierRequestDto);

@@ -1,4 +1,4 @@
-package lookids.user.tier.vo.in;
+package lookids.mono.user.tier.vo.in;
 
 import lombok.Getter;
 import lombok.ToString;

@@ -1,4 +1,4 @@
-package lookids.comment.comment.presentation;
+package lookids.mono.comment.presentation;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.comment.comment.application.CommentService;
-import lookids.comment.comment.dto.in.CommentDeleteDto;
-import lookids.comment.comment.dto.in.CommentRequestDto;
-import lookids.comment.comment.dto.in.ReplyRequestDto;
-import lookids.comment.comment.vo.in.CommentDeleteVo;
-import lookids.comment.comment.vo.in.CommentRequestVo;
-import lookids.comment.comment.vo.in.ReplyRequestVo;
-import lookids.comment.common.entity.BaseResponse;
-import lookids.comment.common.entity.BaseResponseStatus;
+import lookids.mono.comment.application.CommentService;
+import lookids.mono.comment.dto.in.CommentDeleteDto;
+import lookids.mono.comment.dto.in.CommentRequestDto;
+import lookids.mono.comment.dto.in.ReplyRequestDto;
+import lookids.mono.comment.vo.in.CommentDeleteVo;
+import lookids.mono.comment.vo.in.CommentRequestVo;
+import lookids.mono.comment.vo.in.ReplyRequestVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/write/comment")
+@RequestMapping("/comment-service/write/comment")
 public class CommentWriteController {
 
 	private final CommentService commentService;   //final들어가면 변경 불가능!!!!!!!

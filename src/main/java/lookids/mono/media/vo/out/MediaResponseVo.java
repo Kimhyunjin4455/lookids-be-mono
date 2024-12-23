@@ -1,4 +1,4 @@
-package lookids.media.media.vo.out;
+package lookids.mono.media.vo.out;
 
 import lombok.Builder;
 import lombok.Getter;

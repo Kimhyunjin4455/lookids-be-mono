@@ -1,4 +1,4 @@
-package lookids.media.media.application;
+package lookids.mono.media.application;
 
 import java.util.List;
 
@@ -6,15 +6,15 @@ import org.springframework.stereotype.Service;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.media.common.entity.BaseResponseStatus;
-import lookids.media.common.exception.BaseException;
-import lookids.media.media.domain.Media;
-import lookids.media.media.dto.in.MediaDeleteDto;
-import lookids.media.media.dto.in.MediaRequestDto;
-import lookids.media.media.dto.in.MediaUpdateDto;
-import lookids.media.media.dto.out.MediaListResponseDto;
-import lookids.media.media.dto.out.MediaResponseDto;
-import lookids.media.media.infrastructure.MediaRepository;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.media.domain.Media;
+import lookids.mono.media.dto.in.MediaDeleteDto;
+import lookids.mono.media.dto.in.MediaRequestDto;
+import lookids.mono.media.dto.in.MediaUpdateDto;
+import lookids.mono.media.dto.out.MediaListResponseDto;
+import lookids.mono.media.dto.out.MediaResponseDto;
+import lookids.mono.media.infrastructure.MediaRepository;
 
 @Service
 @AllArgsConstructor

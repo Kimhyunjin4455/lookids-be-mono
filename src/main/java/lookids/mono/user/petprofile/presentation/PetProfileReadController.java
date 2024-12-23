@@ -1,4 +1,4 @@
-package lookids.user.petprofile.presentation;
+package lookids.mono.user.petprofile.presentation;
 
 import java.util.List;
 
@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.common.entity.BaseResponse;
-import lookids.user.petprofile.application.PetProfileService;
-import lookids.user.petprofile.dto.out.PetProfileResponseDto;
-import lookids.user.petprofile.vo.out.PetProfileResponseVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.user.petprofile.application.PetProfileService;
+import lookids.mono.user.petprofile.dto.out.PetProfileResponseDto;
+import lookids.mono.user.petprofile.vo.out.PetProfileResponseVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/read/petprofile")
+@RequestMapping("/user-service/read/petprofile")
 public class PetProfileReadController {
 
 	private final PetProfileService petProfileService;

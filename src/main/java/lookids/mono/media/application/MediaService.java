@@ -1,12 +1,12 @@
-package lookids.media.media.application;
+package lookids.mono.media.application;
 
 import java.util.List;
 
-import lookids.media.media.dto.in.MediaDeleteDto;
-import lookids.media.media.dto.in.MediaRequestDto;
-import lookids.media.media.dto.in.MediaUpdateDto;
-import lookids.media.media.dto.out.MediaListResponseDto;
-import lookids.media.media.dto.out.MediaResponseDto;
+import lookids.mono.media.dto.in.MediaDeleteDto;
+import lookids.mono.media.dto.in.MediaRequestDto;
+import lookids.mono.media.dto.in.MediaUpdateDto;
+import lookids.mono.media.dto.out.MediaListResponseDto;
+import lookids.mono.media.dto.out.MediaResponseDto;
 
 public interface MediaService {
 	void createMedia(MediaRequestDto mediaRequestDto);

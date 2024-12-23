@@ -1,11 +1,11 @@
-package lookids.media.media.infrastructure;
+package lookids.mono.media.infrastructure;
 
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import lookids.media.media.domain.Media;
+import lookids.mono.media.domain.Media;
 
 public interface MediaRepository extends JpaRepository<Media, Long> {
 

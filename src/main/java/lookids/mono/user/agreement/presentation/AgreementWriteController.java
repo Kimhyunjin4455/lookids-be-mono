@@ -1,4 +1,4 @@
-package lookids.user.agreement.presentation;
+package lookids.mono.user.agreement.presentation;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.agreement.application.AgreementService;
-import lookids.user.agreement.dto.in.AgreementRequestDto;
-import lookids.user.agreement.dto.in.AgreementUpdateDto;
-import lookids.user.agreement.vo.in.AgreementRequestVo;
-import lookids.user.agreement.vo.in.AgreementUpdateVo;
-import lookids.user.common.entity.BaseResponse;
-import lookids.user.common.entity.BaseResponseStatus;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.user.agreement.application.AgreementService;
+import lookids.mono.user.agreement.dto.in.AgreementRequestDto;
+import lookids.mono.user.agreement.dto.in.AgreementUpdateDto;
+import lookids.mono.user.agreement.vo.in.AgreementRequestVo;
+import lookids.mono.user.agreement.vo.in.AgreementUpdateVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/write/agreement")
+@RequestMapping("/user-service/write/agreement")
 public class AgreementWriteController {
 
 	private final AgreementService agreementService;

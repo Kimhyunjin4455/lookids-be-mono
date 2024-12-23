@@ -1,4 +1,4 @@
-package lookids.user.point.presentation;
+package lookids.mono.user.point.presentation;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -10,16 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.common.entity.BaseResponse;
-import lookids.user.common.entity.BaseResponseStatus;
-import lookids.user.point.application.PointService;
-import lookids.user.point.dto.in.PointRequestDto;
-import lookids.user.point.vo.in.PointRequestVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.user.point.application.PointService;
+import lookids.mono.user.point.dto.in.PointRequestDto;
+import lookids.mono.user.point.vo.in.PointRequestVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/write/point")
+@RequestMapping("/user-service/write/point")
 public class PointWriteController {
 
 	private final PointService pointService;

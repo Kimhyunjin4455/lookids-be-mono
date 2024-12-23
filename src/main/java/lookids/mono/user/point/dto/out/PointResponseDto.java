@@ -1,12 +1,12 @@
-package lookids.user.point.dto.out;
+package lookids.mono.user.point.dto.out;
 
 import java.time.LocalDateTime;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.user.point.domain.Point;
-import lookids.user.point.vo.out.PointResponseVo;
+import lookids.mono.user.point.domain.Point;
+import lookids.mono.user.point.vo.out.PointResponseVo;
 
 @Getter
 @NoArgsConstructor

@@ -1,14 +1,14 @@
-package lookids.comment.comment.dto.out;
+package lookids.mono.comment.dto.out;
 
 import java.time.LocalDateTime;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.comment.comment.domain.Comment;
-import lookids.comment.comment.vo.out.CommentKafkaVo;
-import lookids.comment.comment.vo.out.CommentResponseVo;
-import lookids.comment.comment.vo.out.ReplyKafkaVo;
+import lookids.mono.comment.domain.Comment;
+import lookids.mono.comment.vo.out.CommentKafkaVo;
+import lookids.mono.comment.vo.out.CommentResponseVo;
+import lookids.mono.comment.vo.out.ReplyKafkaVo;
 
 @Getter
 @NoArgsConstructor

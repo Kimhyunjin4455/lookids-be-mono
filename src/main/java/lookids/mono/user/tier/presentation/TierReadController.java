@@ -1,4 +1,4 @@
-package lookids.user.tier.presentation;
+package lookids.mono.user.tier.presentation;
 
 import java.util.List;
 
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.common.entity.BaseResponse;
-import lookids.user.tier.application.TierService;
-import lookids.user.tier.dto.out.TierResponseDto;
-import lookids.user.tier.vo.out.TierResponseVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.user.tier.application.TierService;
+import lookids.mono.user.tier.dto.out.TierResponseDto;
+import lookids.mono.user.tier.vo.out.TierResponseVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/read/tier")
+@RequestMapping("/user-service/read/tier")
 public class TierReadController {
 
 	private final TierService tierService;

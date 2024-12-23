@@ -1,4 +1,4 @@
-package lookids.user.petprofile.infrastructure;
+package lookids.mono.user.petprofile.infrastructure;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import lookids.user.petprofile.domain.PetProfile;
+import lookids.mono.user.petprofile.domain.PetProfile;
 
 public interface PetProfileRepository extends JpaRepository<PetProfile, Long> {
 

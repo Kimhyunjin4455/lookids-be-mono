@@ -1,4 +1,4 @@
-package lookids.user.userprofile.presentation;
+package lookids.mono.user.userprofile.presentation;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -10,22 +10,22 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.user.common.entity.BaseResponse;
-import lookids.user.common.entity.BaseResponseStatus;
-import lookids.user.userprofile.application.UserProfileService;
-import lookids.user.userprofile.dto.in.UserProfileImgDto;
-import lookids.user.userprofile.dto.in.UserProfileNicknameDto;
-import lookids.user.userprofile.dto.in.UserProfileTierDto;
-import lookids.user.userprofile.dto.in.UserProfileUpdateDto;
-import lookids.user.userprofile.vo.in.UserProfileImgVo;
-import lookids.user.userprofile.vo.in.UserProfileNicknameVo;
-import lookids.user.userprofile.vo.in.UserProfileTierVo;
-import lookids.user.userprofile.vo.in.UserProfileUpdateVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.user.userprofile.application.UserProfileService;
+import lookids.mono.user.userprofile.dto.in.UserProfileImgDto;
+import lookids.mono.user.userprofile.dto.in.UserProfileNicknameDto;
+import lookids.mono.user.userprofile.dto.in.UserProfileTierDto;
+import lookids.mono.user.userprofile.dto.in.UserProfileUpdateDto;
+import lookids.mono.user.userprofile.vo.in.UserProfileImgVo;
+import lookids.mono.user.userprofile.vo.in.UserProfileNicknameVo;
+import lookids.mono.user.userprofile.vo.in.UserProfileTierVo;
+import lookids.mono.user.userprofile.vo.in.UserProfileUpdateVo;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/write/userprofile")
+@RequestMapping("/user-service/write/userprofile")
 public class UserProfileWriteController {
 
 	private final UserProfileService userProfileService;
