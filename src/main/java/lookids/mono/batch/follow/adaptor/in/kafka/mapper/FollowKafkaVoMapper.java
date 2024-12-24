@@ -1,4 +1,4 @@
-package lookids.batch.follow.adaptor.in.kafka.mapper;
+package lookids.mono.batch.follow.adaptor.in.kafka.mapper;
 
 import org.springframework.stereotype.Component;
 

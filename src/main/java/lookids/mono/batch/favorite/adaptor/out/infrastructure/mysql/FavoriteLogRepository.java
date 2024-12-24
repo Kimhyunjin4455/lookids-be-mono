@@ -1,11 +1,11 @@
-package lookids.batch.favorite.adaptor.out.infrastructure.mysql;
+package lookids.mono.batch.favorite.adaptor.out.infrastructure.mysql;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import lookids.batch.favorite.adaptor.out.infrastructure.entity.FavoriteLogEntity;
+import lookids.mono.batch.favorite.adaptor.out.infrastructure.entity.FavoriteLogEntity;
 
 @Repository
 public interface FavoriteLogRepository extends JpaRepository<FavoriteLogEntity, Long> {

@@ -1,14 +1,14 @@
-package lookids.batch.follow.application.mapper;
+package lookids.mono.batch.follow.application.mapper;
 
 import org.springframework.stereotype.Component;
 
-import lookids.batch.follow.adaptor.in.kafka.event.FollowEvent;
-import lookids.batch.follow.application.port.dto.FollowCountResponseDto;
-import lookids.batch.follow.application.port.dto.FollowCountSaveDto;
-import lookids.batch.follow.application.port.dto.FollowEventDto;
-import lookids.batch.follow.application.port.dto.FollowLogSaveDto;
-import lookids.batch.follow.domain.model.FollowCount;
-import lookids.batch.follow.domain.model.FollowLog;
+import lookids.mono.batch.follow.adaptor.in.kafka.event.FollowEvent;
+import lookids.mono.batch.follow.application.port.dto.FollowCountResponseDto;
+import lookids.mono.batch.follow.application.port.dto.FollowCountSaveDto;
+import lookids.mono.batch.follow.application.port.dto.FollowEventDto;
+import lookids.mono.batch.follow.application.port.dto.FollowLogSaveDto;
+import lookids.mono.batch.follow.domain.model.FollowCount;
+import lookids.mono.batch.follow.domain.model.FollowLog;
 
 @Component
 public class FollowDtoMapper {

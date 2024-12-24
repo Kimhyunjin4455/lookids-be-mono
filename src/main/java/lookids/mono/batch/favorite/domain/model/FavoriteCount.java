@@ -1,4 +1,4 @@
-package lookids.batch.favorite.domain.model;
+package lookids.mono.batch.favorite.domain.model;
 
 import java.time.LocalDateTime;
 
@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.batch.favorite.domain.FavoriteType;
+import lookids.mono.batch.favorite.domain.FavoriteType;
 
 @ToString
 @NoArgsConstructor

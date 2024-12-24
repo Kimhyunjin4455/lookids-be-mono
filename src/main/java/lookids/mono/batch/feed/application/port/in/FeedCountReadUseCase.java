@@ -1,6 +1,6 @@
-package lookids.batch.feed.application.port.in;
+package lookids.mono.batch.feed.application.port.in;
 
-import lookids.batch.feed.application.port.dto.FeedCountResponseDto;
+import lookids.mono.batch.feed.application.port.dto.FeedCountResponseDto;
 
 public interface FeedCountReadUseCase {
 	FeedCountResponseDto readFeedCount(String uuid);

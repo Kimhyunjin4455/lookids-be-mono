@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.auth.auth.service.CancelAccountService;
+import lookids.mono.auth.service.CancelAccountService;
+import lookids.mono.common.entity.BaseResponse;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/auth-service/auth")
 public class CancelAccountController {
 	private final CancelAccountService cancelAccountService;
 

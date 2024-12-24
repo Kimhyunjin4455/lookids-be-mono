@@ -1,4 +1,4 @@
-package lookids.batch.favorite.adaptor.out.infrastructure.mysql;
+package lookids.mono.batch.favorite.adaptor.out.infrastructure.mysql;
 
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import lookids.batch.favorite.adaptor.out.infrastructure.entity.FavoriteCountEntity;
-import lookids.batch.favorite.domain.FavoriteType;
+import lookids.mono.batch.favorite.adaptor.out.infrastructure.entity.FavoriteCountEntity;
+import lookids.mono.batch.favorite.domain.FavoriteType;
 
 public interface FavoriteCountRepository extends JpaRepository<FavoriteCountEntity, Long> {
 	Optional<FavoriteCountEntity> findByTargetCodeAndType(String targetCode, FavoriteType type);

@@ -1,13 +1,13 @@
-package lookids.batch.feed.adaptor.out.infrastructure.mapper;
+package lookids.mono.batch.feed.adaptor.out.infrastructure.mapper;
 
 import org.springframework.stereotype.Component;
 
-import lookids.batch.feed.adaptor.out.infrastructure.entity.FeedCountEntity;
-import lookids.batch.feed.adaptor.out.infrastructure.entity.FeedLogEntity;
-import lookids.batch.feed.application.port.dto.FeedCountSaveDto;
-import lookids.batch.feed.application.port.dto.FeedLogSaveDto;
-import lookids.batch.feed.domain.model.FeedCount;
-import lookids.batch.feed.domain.model.FeedLog;
+import lookids.mono.batch.feed.adaptor.out.infrastructure.entity.FeedCountEntity;
+import lookids.mono.batch.feed.adaptor.out.infrastructure.entity.FeedLogEntity;
+import lookids.mono.batch.feed.application.port.dto.FeedCountSaveDto;
+import lookids.mono.batch.feed.application.port.dto.FeedLogSaveDto;
+import lookids.mono.batch.feed.domain.model.FeedCount;
+import lookids.mono.batch.feed.domain.model.FeedLog;
 
 @Component
 public class FeedEntityMapper {

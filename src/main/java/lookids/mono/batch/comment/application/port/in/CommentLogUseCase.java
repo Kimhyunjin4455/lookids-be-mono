@@ -1,9 +1,9 @@
-package lookids.batch.comment.application.port.in;
+package lookids.mono.batch.comment.application.port.in;
 
 import java.util.List;
 
-import lookids.batch.comment.application.port.dto.CommentCreateEventDto;
-import lookids.batch.comment.application.port.dto.ReplyCreateEventDto;
+import lookids.mono.batch.comment.application.port.dto.CommentCreateEventDto;
+import lookids.mono.batch.comment.application.port.dto.ReplyCreateEventDto;
 
 public interface CommentLogUseCase {
 	void commentCreateLog(List<CommentCreateEventDto> commentCreateEventDtoList);

@@ -28,12 +28,12 @@ public class SwaggerConfig {
 
 		return new OpenAPI().addSecurityItem(securityRequirement)
 			.components(components)
-			.addServersItem(new Server().url("/favorite-service"))
+			.addServersItem(new Server().url(""))
 			.info(apiInfo());
 	}
 
 	private Info apiInfo() {
-		return new Info().title("FAVORITE SERVICE 문서").description("lookids API 테스트를 위한 Swagger UI").version("1.0.0");
+		return new Info().title("lookids API 문서").description("lookids API 테스트를 위한 Swagger UI").version("1.0.0");
 	}
 
 }

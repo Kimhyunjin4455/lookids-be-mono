@@ -1,4 +1,4 @@
-package lookids.batch.favorite.application.port.dto;
+package lookids.mono.batch.favorite.application.port.dto;
 
 import lombok.Builder;
 import lombok.Getter;

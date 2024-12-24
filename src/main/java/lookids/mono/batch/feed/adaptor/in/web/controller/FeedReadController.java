@@ -1,4 +1,4 @@
-package lookids.batch.feed.adaptor.in.web.controller;
+package lookids.mono.batch.feed.adaptor.in.web.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.batch.common.entity.BaseResponse;
-import lookids.batch.feed.adaptor.in.web.mapper.FeedWebVoMapper;
-import lookids.batch.feed.adaptor.in.web.out.FeedCountResponseVo;
-import lookids.batch.feed.application.port.in.FeedCountReadUseCase;
+import lookids.mono.batch.feed.adaptor.in.web.mapper.FeedWebVoMapper;
+import lookids.mono.batch.feed.adaptor.in.web.out.FeedCountResponseVo;
+import lookids.mono.batch.feed.application.port.in.FeedCountReadUseCase;
+import lookids.mono.common.entity.BaseResponse;
 
 @Slf4j
 @RequiredArgsConstructor

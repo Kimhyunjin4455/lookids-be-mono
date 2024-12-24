@@ -1,10 +1,10 @@
-package lookids.auth.auth.dto.out;
+package lookids.mono.auth.dto.out;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.auth.auth.vo.out.KeyResponseVo;
+import lookids.mono.auth.vo.out.KeyResponseVo;
 
 @Getter
 @Builder
@@ -14,8 +14,6 @@ public class KeyResponseDto {
 	private Boolean verification;
 
 	public static KeyResponseVo toVo(KeyResponseDto keyResponseDto) {
-		return KeyResponseVo.builder()
-			.verification(keyResponseDto.getVerification())
-			.build();
+		return KeyResponseVo.builder().verification(keyResponseDto.getVerification()).build();
 	}
 }

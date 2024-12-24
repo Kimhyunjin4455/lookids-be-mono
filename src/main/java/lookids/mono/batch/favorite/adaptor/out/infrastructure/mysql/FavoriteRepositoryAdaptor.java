@@ -1,4 +1,4 @@
-package lookids.batch.favorite.adaptor.out.infrastructure.mysql;
+package lookids.mono.batch.favorite.adaptor.out.infrastructure.mysql;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,16 +11,16 @@ import org.springframework.stereotype.Repository;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.batch.favorite.adaptor.out.infrastructure.entity.FavoriteCountEntity;
-import lookids.batch.favorite.adaptor.out.infrastructure.entity.FavoriteLogEntity;
-import lookids.batch.favorite.adaptor.out.infrastructure.mapper.FavoriteEntityMapper;
-import lookids.batch.favorite.application.port.dto.FavoriteBatchDto;
-import lookids.batch.favorite.application.port.dto.FavoriteCountSaveDto;
-import lookids.batch.favorite.application.port.dto.FavoriteLogSaveDto;
-import lookids.batch.favorite.application.port.out.FavoriteRepositoryPort;
-import lookids.batch.favorite.domain.FavoriteType;
-import lookids.batch.favorite.domain.model.FavoriteCount;
-import lookids.batch.favorite.domain.model.FavoriteLog;
+import lookids.mono.batch.favorite.adaptor.out.infrastructure.entity.FavoriteCountEntity;
+import lookids.mono.batch.favorite.adaptor.out.infrastructure.entity.FavoriteLogEntity;
+import lookids.mono.batch.favorite.adaptor.out.infrastructure.mapper.FavoriteEntityMapper;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteBatchDto;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteCountSaveDto;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteLogSaveDto;
+import lookids.mono.batch.favorite.application.port.out.FavoriteRepositoryPort;
+import lookids.mono.batch.favorite.domain.FavoriteType;
+import lookids.mono.batch.favorite.domain.model.FavoriteCount;
+import lookids.mono.batch.favorite.domain.model.FavoriteLog;
 
 @Slf4j
 @Repository

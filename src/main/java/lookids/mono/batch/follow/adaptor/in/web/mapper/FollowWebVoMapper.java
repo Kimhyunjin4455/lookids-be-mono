@@ -1,9 +1,9 @@
-package lookids.batch.follow.adaptor.in.web.mapper;
+package lookids.mono.batch.follow.adaptor.in.web.mapper;
 
 import org.springframework.stereotype.Component;
 
-import lookids.batch.follow.adaptor.in.web.out.FollowCountResponseVo;
-import lookids.batch.follow.application.port.dto.FollowCountResponseDto;
+import lookids.mono.batch.follow.adaptor.in.web.out.FollowCountResponseVo;
+import lookids.mono.batch.follow.application.port.dto.FollowCountResponseDto;
 
 @Component
 public class FollowWebVoMapper {

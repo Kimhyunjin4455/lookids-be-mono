@@ -1,4 +1,4 @@
-package lookids.batch.favorite.adaptor.in.web.controller;
+package lookids.mono.batch.favorite.adaptor.in.web.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.batch.common.entity.BaseResponse;
-import lookids.batch.favorite.adaptor.in.web.mapper.FavoriteWebVoMapper;
-import lookids.batch.favorite.adaptor.in.web.out.FavoriteCountResponseVo;
-import lookids.batch.favorite.application.port.in.FavoriteCountReadUseCase;
-import lookids.batch.favorite.domain.FavoriteType;
+import lookids.mono.batch.favorite.adaptor.in.web.mapper.FavoriteWebVoMapper;
+import lookids.mono.batch.favorite.adaptor.in.web.out.FavoriteCountResponseVo;
+import lookids.mono.batch.favorite.application.port.in.FavoriteCountReadUseCase;
+import lookids.mono.batch.favorite.domain.FavoriteType;
+import lookids.mono.common.entity.BaseResponse;
 
 @Slf4j
 @RequiredArgsConstructor

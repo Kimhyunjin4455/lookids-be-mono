@@ -1,4 +1,4 @@
-package lookids.batch.follow.adaptor.in.kafka.config;
+package lookids.mono.batch.follow.adaptor.in.kafka.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +16,7 @@ import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import lookids.batch.follow.adaptor.in.kafka.event.FollowEvent;
+import lookids.mono.batch.follow.adaptor.in.kafka.event.FollowEvent;
 
 @EnableKafka
 @Configuration

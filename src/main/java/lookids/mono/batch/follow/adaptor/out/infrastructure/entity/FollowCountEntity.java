@@ -1,4 +1,4 @@
-package lookids.batch.follow.adaptor.out.infrastructure.entity;
+package lookids.mono.batch.follow.adaptor.out.infrastructure.entity;
 
 import java.time.LocalDateTime;
 

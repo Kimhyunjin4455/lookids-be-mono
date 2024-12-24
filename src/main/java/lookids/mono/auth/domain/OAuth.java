@@ -1,4 +1,4 @@
-package lookids.auth.auth.domain;
+package lookids.mono.auth.domain;
 
 import java.time.LocalDateTime;
 
@@ -34,16 +34,9 @@ public class OAuth {
 	@Column
 	private LocalDateTime deletedAt;
 
-
 	@Builder
-	public OAuth(
-		Long id,
-		String uuid,
-		String provider,
-		String providerAccountId,
-		boolean isState,
-		LocalDateTime deletedAt
-	) {
+	public OAuth(Long id, String uuid, String provider, String providerAccountId, boolean isState,
+		LocalDateTime deletedAt) {
 		this.id = id;
 		this.uuid = uuid;
 		this.provider = provider;

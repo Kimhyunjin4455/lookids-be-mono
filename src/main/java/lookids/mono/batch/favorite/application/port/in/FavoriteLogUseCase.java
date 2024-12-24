@@ -1,6 +1,6 @@
-package lookids.batch.favorite.application.port.in;
+package lookids.mono.batch.favorite.application.port.in;
 
-import lookids.batch.favorite.application.port.dto.FavoriteUpdateEventDto;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteUpdateEventDto;
 
 public interface FavoriteLogUseCase {
 

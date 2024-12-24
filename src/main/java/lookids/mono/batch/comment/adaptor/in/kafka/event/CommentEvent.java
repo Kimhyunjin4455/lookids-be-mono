@@ -1,4 +1,4 @@
-package lookids.batch.comment.adaptor.in.kafka.event;
+package lookids.mono.batch.comment.adaptor.in.kafka.event;
 
 import java.time.LocalDateTime;
 

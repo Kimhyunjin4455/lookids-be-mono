@@ -1,4 +1,4 @@
-package lookids.auth.auth.vo.out;
+package lookids.mono.auth.vo.out;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

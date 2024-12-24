@@ -1,4 +1,4 @@
-package lookids.batch.comment.application.service;
+package lookids.mono.batch.comment.application.service;
 
 import java.util.List;
 
@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.batch.comment.application.mapper.CommentDtoMapper;
-import lookids.batch.comment.application.port.dto.CommentCreateEventDto;
-import lookids.batch.comment.application.port.dto.ReplyCreateEventDto;
-import lookids.batch.comment.application.port.in.CommentLogUseCase;
-import lookids.batch.comment.application.port.out.CommentRepositoryPort;
-import lookids.batch.comment.domain.model.CommentLog;
+import lookids.mono.batch.comment.application.mapper.CommentDtoMapper;
+import lookids.mono.batch.comment.application.port.dto.CommentCreateEventDto;
+import lookids.mono.batch.comment.application.port.dto.ReplyCreateEventDto;
+import lookids.mono.batch.comment.application.port.in.CommentLogUseCase;
+import lookids.mono.batch.comment.application.port.out.CommentRepositoryPort;
+import lookids.mono.batch.comment.domain.model.CommentLog;
 
 @Slf4j
 @Service

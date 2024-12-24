@@ -10,6 +10,8 @@ import lookids.mono.user.userprofile.dto.out.UserProfileResponseDto;
 public interface UserProfileService {
 	void createUserProfile(UserProfileRequestDto userProfileRequestDto);
 
+	void createUserProfileService(String uuid, String nickname);
+
 	void updateUserProfile(UserProfileUpdateDto userProfileUpdateDto);
 
 	void updateUserProfileImage(UserProfileImgDto userProfileImgDto);

@@ -1,4 +1,4 @@
-package lookids.auth.auth.service;
+package lookids.mono.auth.service;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.http.HttpStatus;
@@ -10,13 +10,14 @@ import feign.FeignException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.auth.auth.dto.in.PostUserRequestDto;
-import lookids.auth.auth.dto.in.SignUpRequestDto;
-import lookids.auth.auth.repository.AuthRepository;
-import lookids.auth.common.entity.BaseResponse;
-import lookids.auth.common.entity.BaseResponseStatus;
-import lookids.auth.common.exception.BaseException;
-import lookids.auth.common.utils.UuidGenerator;
+import lookids.mono.auth.dto.in.PostUserRequestDto;
+import lookids.mono.auth.dto.in.SignUpRequestDto;
+import lookids.mono.auth.repository.AuthRepository;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.common.utils.UuidGenerator;
+import lookids.mono.user.userprofile.application.UserProfileService;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -28,6 +29,9 @@ public class SignUpServiceImpl implements SignUpService {
 	private final PasswordEncoder passwordEncoder;
 	private final RedisTemplate<String, String> redisTemplate;
 	private final int TRY_CNT_LIMIT = 3;
+
+	//페인 클라이언트 대신 유저 서비스 호출
+	private final UserProfileService userProfileService;
 
 	// Todo: 무조건 하나의 과정으로 다 끝내기보단 회원가입 처리를 먼저 끝내고 redis등을 이용해 uuid, nickname을 저장한 후 로그인 시 외부 api에 값 전달 의견
 	@Override
@@ -49,18 +53,16 @@ public class SignUpServiceImpl implements SignUpService {
 			throw new BaseException(BaseResponseStatus.ATTEMPT_LIMIT_EXCEEDED);
 		}
 
-
 		// 개선안 -> 닉네임 입력시 redis에 먼저 그 값을 저장하는 방식으로 동시성 처리(중복 방지) 가능
 		// 외부 api에 값 전달
-		writeUserProfile(createdUuid, loginRequestDto.getNickname());
+		//writeUserProfile(createdUuid, loginRequestDto.getNickname());
+		userProfileService.createUserProfileService(createdUuid, loginRequestDto.getNickname());
 
 		authRepository.save(loginRequestDto.toEntity(passwordEncoder, createdUuid));
 
 		// 회원가입 후 redis에서 아이디 삭제
 		redisTemplate.delete(loginRequestDto.getLoginId());
 	}
-
-
 
 	// User 서비스에 전달할 데이터 생성
 	public void writeUserProfile(String uuid, String nickname) {

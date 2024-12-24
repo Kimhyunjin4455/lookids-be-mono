@@ -1,16 +1,16 @@
-package lookids.batch.favorite.application.port.out;
+package lookids.mono.batch.favorite.application.port.out;
 
 import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import lookids.batch.favorite.application.port.dto.FavoriteBatchDto;
-import lookids.batch.favorite.application.port.dto.FavoriteCountSaveDto;
-import lookids.batch.favorite.application.port.dto.FavoriteLogSaveDto;
-import lookids.batch.favorite.domain.FavoriteType;
-import lookids.batch.favorite.domain.model.FavoriteCount;
-import lookids.batch.favorite.domain.model.FavoriteLog;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteBatchDto;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteCountSaveDto;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteLogSaveDto;
+import lookids.mono.batch.favorite.domain.FavoriteType;
+import lookids.mono.batch.favorite.domain.model.FavoriteCount;
+import lookids.mono.batch.favorite.domain.model.FavoriteLog;
 
 public interface FavoriteRepositoryPort {
 	void createLog(FavoriteLogSaveDto favoriteLogSaveDto);

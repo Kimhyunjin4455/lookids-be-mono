@@ -1,10 +1,10 @@
-package lookids.auth.auth.dto.in;
+package lookids.mono.auth.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.auth.auth.vo.in.EmailVerifyRequestVo;
+import lookids.mono.auth.vo.in.EmailVerifyRequestVo;
 
 @Getter
 @NoArgsConstructor
@@ -14,10 +14,7 @@ public class EmailVerifyRequestDto {
 	private String key;
 
 	@Builder
-	public EmailVerifyRequestDto(
-		String email,
-		String key
-	) {
+	public EmailVerifyRequestDto(String email, String key) {
 		this.email = email;
 		this.key = key;
 	}

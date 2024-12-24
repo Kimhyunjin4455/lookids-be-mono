@@ -1,4 +1,4 @@
-package lookids.batch.comment.adaptor.in.kafka.controller;
+package lookids.mono.batch.comment.adaptor.in.kafka.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -10,11 +10,11 @@ import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.batch.comment.adaptor.in.kafka.event.CommentEvent;
-import lookids.batch.comment.adaptor.in.kafka.event.ReplyEvent;
-import lookids.batch.comment.adaptor.in.kafka.mapper.CommentKafkaVoMapper;
-import lookids.batch.comment.application.mapper.CommentDtoMapper;
-import lookids.batch.comment.application.port.in.CommentLogUseCase;
+import lookids.mono.batch.comment.adaptor.in.kafka.event.CommentEvent;
+import lookids.mono.batch.comment.adaptor.in.kafka.event.ReplyEvent;
+import lookids.mono.batch.comment.adaptor.in.kafka.mapper.CommentKafkaVoMapper;
+import lookids.mono.batch.comment.application.mapper.CommentDtoMapper;
+import lookids.mono.batch.comment.application.port.in.CommentLogUseCase;
 
 @Slf4j
 @RequiredArgsConstructor

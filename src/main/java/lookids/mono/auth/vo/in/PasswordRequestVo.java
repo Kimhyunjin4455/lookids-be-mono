@@ -1,4 +1,4 @@
-package lookids.auth.auth.vo.in;
+package lookids.mono.auth.vo.in;
 
 import lombok.Getter;
 import lombok.ToString;

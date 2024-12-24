@@ -1,4 +1,4 @@
-package lookids.auth.auth.userdetails;
+package lookids.mono.auth.userdetails;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,7 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-import lookids.auth.auth.domain.OAuth;
+import lookids.mono.auth.domain.OAuth;
 
 @ToString
 @Slf4j
@@ -38,7 +38,9 @@ public class OAuthUserDetail implements UserDetails {
 	}
 
 	@Override
-	public String getUsername() { return this.providerAccountId; }
+	public String getUsername() {
+		return this.providerAccountId;
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {

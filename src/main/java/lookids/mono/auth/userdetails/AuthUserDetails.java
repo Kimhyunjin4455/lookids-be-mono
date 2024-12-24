@@ -1,4 +1,4 @@
-package lookids.auth.auth.userdetails;
+package lookids.mono.auth.userdetails;
 
 import java.util.Collection;
 
@@ -9,7 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-import lookids.auth.auth.domain.Auth;
+import lookids.mono.auth.domain.Auth;
 
 @ToString
 @Slf4j

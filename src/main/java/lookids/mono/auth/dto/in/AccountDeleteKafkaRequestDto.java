@@ -1,4 +1,4 @@
-package lookids.auth.auth.dto.in;
+package lookids.mono.auth.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,9 +12,7 @@ public class AccountDeleteKafkaRequestDto {
 	String uuid;
 
 	@Builder
-	public AccountDeleteKafkaRequestDto(
-		String uuid
-	) {
+	public AccountDeleteKafkaRequestDto(String uuid) {
 		this.uuid = uuid;
 	}
 }

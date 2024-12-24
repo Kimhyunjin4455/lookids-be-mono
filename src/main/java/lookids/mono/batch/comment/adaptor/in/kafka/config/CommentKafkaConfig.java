@@ -1,4 +1,4 @@
-package lookids.batch.comment.adaptor.in.kafka.config;
+package lookids.mono.batch.comment.adaptor.in.kafka.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,8 +16,8 @@ import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import lookids.batch.comment.adaptor.in.kafka.event.CommentEvent;
-import lookids.batch.comment.adaptor.in.kafka.event.ReplyEvent;
+import lookids.mono.batch.comment.adaptor.in.kafka.event.CommentEvent;
+import lookids.mono.batch.comment.adaptor.in.kafka.event.ReplyEvent;
 
 @EnableKafka
 @Configuration

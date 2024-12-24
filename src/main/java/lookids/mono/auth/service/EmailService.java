@@ -1,7 +1,6 @@
-package lookids.auth.auth.service;
+package lookids.mono.auth.service;
 
-import lookids.auth.auth.dto.out.KeyResponseDto;
-import lookids.auth.auth.vo.out.KeyResponseVo;
+import lookids.mono.auth.dto.out.KeyResponseDto;
 
 public interface EmailService {
 	KeyResponseDto sendSimpleEmail(String to);

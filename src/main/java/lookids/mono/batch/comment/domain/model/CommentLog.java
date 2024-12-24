@@ -1,4 +1,4 @@
-package lookids.batch.comment.domain.model;
+package lookids.mono.batch.comment.domain.model;
 
 import java.time.LocalDateTime;
 

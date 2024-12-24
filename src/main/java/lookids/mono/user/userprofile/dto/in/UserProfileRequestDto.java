@@ -26,6 +26,10 @@ public class UserProfileRequestDto {
 			.build();
 	}
 
+	public static UserProfileRequestDto toDtoString(String uuid, String nickname) {
+		return UserProfileRequestDto.builder().userUuid(uuid).nickname(nickname).build();
+	}
+
 	public UserProfile toEntity(String tag, String image) {
 		return UserProfile.builder()
 			.userUuid(userUuid)

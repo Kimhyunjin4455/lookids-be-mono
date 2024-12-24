@@ -1,12 +1,10 @@
-package lookids.auth.auth.dto.in;
+package lookids.mono.auth.dto.in;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.auth.auth.domain.OAuth;
-import lookids.auth.auth.vo.in.OAuthSignInRequestVo;
+import lookids.mono.auth.vo.in.OAuthSignInRequestVo;
 
 @Getter
 @NoArgsConstructor
@@ -15,12 +13,8 @@ public class OAuthSignInRequestDto {
 	private String provider;
 	private String providerAccountId;
 
-
 	@Builder
-	public OAuthSignInRequestDto(
-		String provider,
-		String providerAccountId
-	) {
+	public OAuthSignInRequestDto(String provider, String providerAccountId) {
 		this.provider = provider;
 		this.providerAccountId = providerAccountId;
 	}

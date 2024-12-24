@@ -1,4 +1,4 @@
-package lookids.batch.comment.adaptor.in.kafka.mapper;
+package lookids.mono.batch.comment.adaptor.in.kafka.mapper;
 
 import org.springframework.stereotype.Component;
 

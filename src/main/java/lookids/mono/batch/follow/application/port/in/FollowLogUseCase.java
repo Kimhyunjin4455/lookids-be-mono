@@ -1,8 +1,8 @@
-package lookids.batch.follow.application.port.in;
+package lookids.mono.batch.follow.application.port.in;
 
 import java.util.List;
 
-import lookids.batch.follow.application.port.dto.FollowEventDto;
+import lookids.mono.batch.follow.application.port.dto.FollowEventDto;
 
 public interface FollowLogUseCase {
 

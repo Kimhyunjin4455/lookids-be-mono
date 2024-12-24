@@ -1,7 +1,7 @@
-package lookids.batch.favorite.application.port.in;
+package lookids.mono.batch.favorite.application.port.in;
 
-import lookids.batch.favorite.application.port.dto.FavoriteCountResponseDto;
-import lookids.batch.favorite.domain.FavoriteType;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteCountResponseDto;
+import lookids.mono.batch.favorite.domain.FavoriteType;
 
 public interface FavoriteCountReadUseCase {
 

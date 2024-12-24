@@ -1,13 +1,13 @@
-package lookids.batch.follow.adaptor.out.infrastructure.mapper;
+package lookids.mono.batch.follow.adaptor.out.infrastructure.mapper;
 
 import org.springframework.stereotype.Component;
 
-import lookids.batch.follow.adaptor.out.infrastructure.entity.FollowCountEntity;
-import lookids.batch.follow.adaptor.out.infrastructure.entity.FollowLogEntity;
-import lookids.batch.follow.application.port.dto.FollowCountSaveDto;
-import lookids.batch.follow.application.port.dto.FollowLogSaveDto;
-import lookids.batch.follow.domain.model.FollowCount;
-import lookids.batch.follow.domain.model.FollowLog;
+import lookids.mono.batch.follow.adaptor.out.infrastructure.entity.FollowCountEntity;
+import lookids.mono.batch.follow.adaptor.out.infrastructure.entity.FollowLogEntity;
+import lookids.mono.batch.follow.application.port.dto.FollowCountSaveDto;
+import lookids.mono.batch.follow.application.port.dto.FollowLogSaveDto;
+import lookids.mono.batch.follow.domain.model.FollowCount;
+import lookids.mono.batch.follow.domain.model.FollowLog;
 
 @Component
 public class FollowEntityMapper {

@@ -1,4 +1,4 @@
-package lookids.batch.feed.adaptor.in.web.out;
+package lookids.mono.batch.feed.adaptor.in.web.out;
 
 import lombok.Builder;
 import lombok.Getter;

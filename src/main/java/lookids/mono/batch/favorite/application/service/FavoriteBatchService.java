@@ -1,4 +1,4 @@
-package lookids.batch.favorite.application.service;
+package lookids.mono.batch.favorite.application.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -14,13 +14,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.batch.favorite.application.mapper.FavoriteDtoMapper;
-import lookids.batch.favorite.application.port.dto.FavoriteBatchDto;
-import lookids.batch.favorite.application.port.in.FavoriteBatchUseCase;
-import lookids.batch.favorite.application.port.out.FavoriteRepositoryPort;
-import lookids.batch.favorite.domain.model.FavoriteCount;
-import lookids.batch.favorite.domain.model.FavoriteLog;
-import lookids.batch.favorite.domain.model.TargetKey;
+import lookids.mono.batch.favorite.application.mapper.FavoriteDtoMapper;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteBatchDto;
+import lookids.mono.batch.favorite.application.port.in.FavoriteBatchUseCase;
+import lookids.mono.batch.favorite.application.port.out.FavoriteRepositoryPort;
+import lookids.mono.batch.favorite.domain.model.FavoriteCount;
+import lookids.mono.batch.favorite.domain.model.FavoriteLog;
+import lookids.mono.batch.favorite.domain.model.TargetKey;
 
 @Slf4j
 @Service

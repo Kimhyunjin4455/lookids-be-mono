@@ -1,11 +1,11 @@
-package lookids.batch.favorite.application.port.dto;
+package lookids.mono.batch.favorite.application.port.dto;
 
 import java.time.LocalDateTime;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.batch.favorite.domain.FavoriteType;
+import lookids.mono.batch.favorite.domain.FavoriteType;
 
 @Getter
 @NoArgsConstructor

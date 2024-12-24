@@ -1,16 +1,21 @@
-package lookids.auth.auth.service;
+package lookids.mono.auth.service;
 
-import lookids.auth.auth.dto.in.EmailVerifyRequestDto;
-import lookids.auth.auth.dto.in.KeyRequestDto;
-import lookids.auth.auth.dto.in.PasswordRequestDto;
-import lookids.auth.auth.dto.out.KeyResponseDto;
-import lookids.auth.auth.dto.out.LoginIdFindResponseDto;
+import lookids.mono.auth.dto.in.EmailVerifyRequestDto;
+import lookids.mono.auth.dto.in.KeyRequestDto;
+import lookids.mono.auth.dto.in.PasswordRequestDto;
+import lookids.mono.auth.dto.out.KeyResponseDto;
+import lookids.mono.auth.dto.out.LoginIdFindResponseDto;
 
 public interface CheckService {
 	KeyResponseDto verifyPassword(PasswordRequestDto passwordRequestDto);
+
 	KeyResponseDto verifyEmail(KeyRequestDto keyRequestDto);
+
 	KeyResponseDto verifyLoginId(KeyRequestDto keyRequestDto);
+
 	KeyResponseDto checkVerificationCode(EmailVerifyRequestDto emailVerifyRequestDto);
+
 	LoginIdFindResponseDto findIdByEmail(KeyRequestDto keyRequestDto);
+
 	void putPassword(PasswordRequestDto passwordRequestDto);
 }

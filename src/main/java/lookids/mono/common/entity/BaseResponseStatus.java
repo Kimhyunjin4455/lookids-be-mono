@@ -27,7 +27,10 @@ public enum BaseResponseStatus {
 	 * 900: 기타 에러
 	 */
 	INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, false, 900, "Internal server error"), SSE_SEND_FAIL(
-		HttpStatus.INTERNAL_SERVER_ERROR, false, 901, "알림 전송에 실패하였습니다."),
+		HttpStatus.INTERNAL_SERVER_ERROR, false, 901, "알림 전송에 실패하였습니다."), MESSAGE_SEND_FAILED(
+		HttpStatus.INTERNAL_SERVER_ERROR, false, 902, "메시지 전송에 실패하였습니다."), EXTERNAL_API_ERROR(HttpStatus.BAD_GATEWAY,
+		false, 903, "유저 정보 전송에 실패하였습니다."), ATTEMPT_LIMIT_EXCEEDED(HttpStatus.TOO_MANY_REQUESTS, false, 904,
+		"시도 횟수를 초과하였습니다."),
 
 	/**
 	 * 2000: users service error
@@ -47,8 +50,10 @@ public enum BaseResponseStatus {
 		"지원하지 않는 플랫폼입니다"), DUPLICATED_NICKNAME(HttpStatus.CONFLICT, false, 2010, "이미 사용중인 닉네임입니다."), SAME_NICKNAME(
 		HttpStatus.CONFLICT, false, 2011, "현재 사용중인 닉네임입니다."), INVALID_EMAIL_ADDRESS(HttpStatus.BAD_REQUEST, false, 2012,
 		"이메일을 다시 확인해주세요."), NO_EXIST_FAVORITE(HttpStatus.NOT_FOUND, false, 2013, "좋아요 정보가 존재하지 않습니다"), DUPLICATED_TAG(
-		HttpStatus.CONFLICT, false, 2011, "태그 생성 실패"),
-
+		HttpStatus.CONFLICT, false, 2011, "태그 생성 실패"), DUPLICATED_EMAIL(HttpStatus.CONFLICT, false, 2013,
+		"이미 사용중인 이메일입니다."), NO_EXIST_SIZE(HttpStatus.NOT_FOUND, false, 2018, "사용자 사이즈 정보가 존재하지 않습니다."), NO_EXIST_CODE(
+		HttpStatus.NOT_FOUND, false, 2019, "인증 코드가 존재하지 않습니다."), ALREADY_USED_ID(HttpStatus.CONFLICT, false, 2020,
+		"이미 사용중인 아이디입니다."),
 	/**
 	 * 3000: product service error
 	 */

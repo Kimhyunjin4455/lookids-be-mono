@@ -1,6 +1,6 @@
-package lookids.auth.auth.service;
+package lookids.mono.auth.service;
 
-import lookids.auth.auth.dto.in.SignUpRequestDto;
+import lookids.mono.auth.dto.in.SignUpRequestDto;
 
 public interface SignUpService {
 	void signUp(SignUpRequestDto loginRequestDto);

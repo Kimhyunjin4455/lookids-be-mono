@@ -1,6 +1,6 @@
-package lookids.batch.follow.application.port.in;
+package lookids.mono.batch.follow.application.port.in;
 
-import lookids.batch.follow.application.port.dto.FollowCountResponseDto;
+import lookids.mono.batch.follow.application.port.dto.FollowCountResponseDto;
 
 public interface FollowCountReadUseCase {
 

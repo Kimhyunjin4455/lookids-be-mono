@@ -1,13 +1,13 @@
-package lookids.batch.comment.application.mapper;
+package lookids.mono.batch.comment.application.mapper;
 
 import org.springframework.stereotype.Component;
 
-import lookids.batch.comment.adaptor.in.kafka.event.CommentEvent;
-import lookids.batch.comment.adaptor.in.kafka.event.ReplyEvent;
-import lookids.batch.comment.application.port.dto.CommentCreateEventDto;
-import lookids.batch.comment.application.port.dto.CommentLogSaveDto;
-import lookids.batch.comment.application.port.dto.ReplyCreateEventDto;
-import lookids.batch.comment.domain.model.CommentLog;
+import lookids.mono.batch.comment.adaptor.in.kafka.event.CommentEvent;
+import lookids.mono.batch.comment.adaptor.in.kafka.event.ReplyEvent;
+import lookids.mono.batch.comment.application.port.dto.CommentCreateEventDto;
+import lookids.mono.batch.comment.application.port.dto.CommentLogSaveDto;
+import lookids.mono.batch.comment.application.port.dto.ReplyCreateEventDto;
+import lookids.mono.batch.comment.domain.model.CommentLog;
 
 @Component
 public class CommentDtoMapper {

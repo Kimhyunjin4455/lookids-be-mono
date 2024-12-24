@@ -1,4 +1,4 @@
-package lookids.auth.auth.service;
+package lookids.mono.auth.service;
 
 import java.time.LocalDateTime;
 
@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.auth.auth.domain.Auth;
-import lookids.auth.auth.domain.OAuth;
-import lookids.auth.auth.dto.in.AccountDeleteKafkaRequestDto;
-import lookids.auth.auth.repository.AuthRepository;
-import lookids.auth.auth.repository.OAuthRepository;
-import lookids.auth.common.entity.BaseResponseStatus;
-import lookids.auth.common.exception.BaseException;
+import lookids.mono.auth.domain.Auth;
+import lookids.mono.auth.domain.OAuth;
+import lookids.mono.auth.dto.in.AccountDeleteKafkaRequestDto;
+import lookids.mono.auth.repository.AuthRepository;
+import lookids.mono.auth.repository.OAuthRepository;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -29,9 +29,8 @@ public class CancelAccountServiceImpl implements CancelAccountService {
 
 	@Override
 	public void deleteAccountState(String uuid) {
-		Auth auth = authRepository.findByUuid(uuid).orElseThrow(
-			() -> new BaseException(BaseResponseStatus.NO_EXIST_USER)
-		);
+		Auth auth = authRepository.findByUuid(uuid)
+			.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_USER));
 
 		Auth softDeletedUser = Auth.builder()
 			.id(auth.getId())
@@ -48,7 +47,6 @@ public class CancelAccountServiceImpl implements CancelAccountService {
 		kafkaAccountDeleteTemplate.send(accountDeleteTopic, softDeleteUser);
 		log.info("send success delete user: {}", softDeleteUser.getUuid());
 
-
 	}
 
 	// 정책(3개월) 지난 후 스케줄러를 통해 일괄처리 예정, 현재 구현여부 미확정
@@ -59,9 +57,8 @@ public class CancelAccountServiceImpl implements CancelAccountService {
 
 	@Override
 	public void deleteSocialAccountState(String uuid) {
-		OAuth oAuth = oAuthRepository.findByUuid(uuid).orElseThrow(
-			() -> new BaseException(BaseResponseStatus.NO_EXIST_USER)
-		);
+		OAuth oAuth = oAuthRepository.findByUuid(uuid)
+			.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_USER));
 
 		OAuth softDeletedUser = OAuth.builder()
 			.id(oAuth.getId())

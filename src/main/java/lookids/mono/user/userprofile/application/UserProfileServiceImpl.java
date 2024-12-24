@@ -59,6 +59,15 @@ public class UserProfileServiceImpl implements UserProfileService {
 	}
 
 	@Override
+	public void createUserProfileService(String uuid, String nickname) {
+		UserProfileRequestDto userProfileRequestDto = UserProfileRequestDto.toDtoString(uuid, nickname);
+		UserProfile userProfile = userProfileRepository.save(
+			userProfileRequestDto.toEntity(generateUniqueTag(userProfileRequestDto.getNickname()),
+				generateRandomImage()));
+		sendMessage(profileCreateTopic, UserProfileKafkaDto.toDto(userProfile).toVo());
+	}
+
+	@Override
 	public void updateUserProfile(UserProfileUpdateDto userProfileUpdateDto) {
 		UserProfile userProfile = userProfileRepository.findByUserUuid(userProfileUpdateDto.getUserUuid())
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_DATA));

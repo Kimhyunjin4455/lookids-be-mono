@@ -1,4 +1,4 @@
-package lookids.batch.follow.adaptor.out.infrastructure.mysql;
+package lookids.mono.batch.follow.adaptor.out.infrastructure.mysql;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,15 +8,15 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import lombok.AllArgsConstructor;
-import lookids.batch.follow.adaptor.out.infrastructure.entity.FollowCountEntity;
-import lookids.batch.follow.adaptor.out.infrastructure.entity.FollowLogEntity;
-import lookids.batch.follow.adaptor.out.infrastructure.mapper.FollowEntityMapper;
-import lookids.batch.follow.application.port.dto.FollowBatchDto;
-import lookids.batch.follow.application.port.dto.FollowCountSaveDto;
-import lookids.batch.follow.application.port.dto.FollowLogSaveDto;
-import lookids.batch.follow.application.port.out.FollowRepositoryPort;
-import lookids.batch.follow.domain.model.FollowCount;
-import lookids.batch.follow.domain.model.FollowLog;
+import lookids.mono.batch.follow.adaptor.out.infrastructure.entity.FollowCountEntity;
+import lookids.mono.batch.follow.adaptor.out.infrastructure.entity.FollowLogEntity;
+import lookids.mono.batch.follow.adaptor.out.infrastructure.mapper.FollowEntityMapper;
+import lookids.mono.batch.follow.application.port.dto.FollowBatchDto;
+import lookids.mono.batch.follow.application.port.dto.FollowCountSaveDto;
+import lookids.mono.batch.follow.application.port.dto.FollowLogSaveDto;
+import lookids.mono.batch.follow.application.port.out.FollowRepositoryPort;
+import lookids.mono.batch.follow.domain.model.FollowCount;
+import lookids.mono.batch.follow.domain.model.FollowLog;
 
 @Repository
 @AllArgsConstructor

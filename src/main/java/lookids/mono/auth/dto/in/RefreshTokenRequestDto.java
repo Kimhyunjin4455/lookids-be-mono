@@ -1,4 +1,4 @@
-package lookids.auth.auth.dto.in;
+package lookids.mono.auth.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -14,19 +14,13 @@ public class RefreshTokenRequestDto {
 	private String uuid;
 
 	@Builder
-	public RefreshTokenRequestDto(
-		String refreshToken,
-		String uuid
-	) {
+	public RefreshTokenRequestDto(String refreshToken, String uuid) {
 		this.refreshToken = refreshToken;
 		this.uuid = uuid;
 	}
 
 	public static RefreshTokenRequestDto toDto(String refreshToken, String uuid) {
-		return RefreshTokenRequestDto.builder()
-			.refreshToken(refreshToken)
-			.uuid(uuid)
-			.build();
+		return RefreshTokenRequestDto.builder().refreshToken(refreshToken).uuid(uuid).build();
 	}
 
 }

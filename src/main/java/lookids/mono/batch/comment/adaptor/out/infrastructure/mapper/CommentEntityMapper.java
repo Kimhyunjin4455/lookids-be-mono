@@ -1,9 +1,9 @@
-package lookids.batch.comment.adaptor.out.infrastructure.mapper;
+package lookids.mono.batch.comment.adaptor.out.infrastructure.mapper;
 
 import org.springframework.stereotype.Component;
 
-import lookids.batch.comment.adaptor.out.infrastructure.entity.CommentLogEntity;
-import lookids.batch.comment.application.port.dto.CommentLogSaveDto;
+import lookids.mono.batch.comment.adaptor.out.infrastructure.entity.CommentLogEntity;
+import lookids.mono.batch.comment.application.port.dto.CommentLogSaveDto;
 
 @Component
 public class CommentEntityMapper {

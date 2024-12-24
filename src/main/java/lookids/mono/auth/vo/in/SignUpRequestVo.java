@@ -1,6 +1,4 @@
-package lookids.auth.auth.vo.in;
-
-import java.time.LocalDateTime;
+package lookids.mono.auth.vo.in;
 
 import lombok.Getter;
 import lombok.ToString;

@@ -1,4 +1,4 @@
-package lookids.batch.favorite.adaptor.out.infrastructure.entity;
+package lookids.mono.batch.favorite.adaptor.out.infrastructure.entity;
 
 import java.time.LocalDateTime;
 
@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.batch.favorite.domain.FavoriteType;
+import lookids.mono.batch.favorite.domain.FavoriteType;
 
 @Getter
 @Entity

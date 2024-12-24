@@ -1,11 +1,11 @@
-package lookids.batch.feed.adaptor.in.scheduler;
+package lookids.mono.batch.feed.adaptor.in.scheduler;
 
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.batch.feed.application.port.in.FeedBatchUseCase;
+import lookids.mono.batch.feed.application.port.in.FeedBatchUseCase;
 
 @Slf4j
 @Component

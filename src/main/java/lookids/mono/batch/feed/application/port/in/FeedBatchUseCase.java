@@ -1,4 +1,4 @@
-package lookids.batch.feed.application.port.in;
+package lookids.mono.batch.feed.application.port.in;
 
 public interface FeedBatchUseCase {
 	void batchFeedCount();

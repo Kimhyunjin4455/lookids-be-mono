@@ -1,4 +1,4 @@
-package lookids.batch.feed.domain.model;
+package lookids.mono.batch.feed.domain.model;
 
 import java.time.LocalDateTime;
 import java.util.List;

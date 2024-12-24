@@ -1,4 +1,4 @@
-package lookids.batch.feed.adaptor.in.kafka.config;
+package lookids.mono.batch.feed.adaptor.in.kafka.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,8 +16,8 @@ import org.springframework.kafka.listener.ContainerProperties;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import lookids.batch.feed.adaptor.in.kafka.event.FeedDeleteEvent;
-import lookids.batch.feed.adaptor.in.kafka.event.FeedEvent;
+import lookids.mono.batch.feed.adaptor.in.kafka.event.FeedDeleteEvent;
+import lookids.mono.batch.feed.adaptor.in.kafka.event.FeedEvent;
 
 @EnableKafka
 @Configuration

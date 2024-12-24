@@ -1,4 +1,4 @@
-package lookids.batch.favorite.domain;
+package lookids.mono.batch.favorite.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;

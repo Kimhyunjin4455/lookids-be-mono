@@ -1,4 +1,4 @@
-package lookids.batch.feed.application.port.dto;
+package lookids.mono.batch.feed.application.port.dto;
 
 import java.time.LocalDateTime;
 

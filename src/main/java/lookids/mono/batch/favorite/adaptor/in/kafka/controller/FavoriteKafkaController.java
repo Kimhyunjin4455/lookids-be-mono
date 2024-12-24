@@ -1,4 +1,4 @@
-package lookids.batch.favorite.adaptor.in.kafka.controller;
+package lookids.mono.batch.favorite.adaptor.in.kafka.controller;
 
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -6,10 +6,10 @@ import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.batch.favorite.adaptor.in.kafka.event.FavoriteEvent;
-import lookids.batch.favorite.adaptor.in.kafka.mapper.FavoriteKafkaVoMapper;
-import lookids.batch.favorite.application.mapper.FavoriteDtoMapper;
-import lookids.batch.favorite.application.port.in.FavoriteLogUseCase;
+import lookids.mono.batch.favorite.adaptor.in.kafka.event.FavoriteEvent;
+import lookids.mono.batch.favorite.adaptor.in.kafka.mapper.FavoriteKafkaVoMapper;
+import lookids.mono.batch.favorite.application.mapper.FavoriteDtoMapper;
+import lookids.mono.batch.favorite.application.port.in.FavoriteLogUseCase;
 
 @Slf4j
 @RequiredArgsConstructor

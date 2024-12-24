@@ -1,9 +1,9 @@
-package lookids.batch.favorite.domain.model;
+package lookids.mono.batch.favorite.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lookids.batch.favorite.domain.FavoriteType;
+import lookids.mono.batch.favorite.domain.FavoriteType;
 
 @Data
 @AllArgsConstructor

@@ -1,4 +1,4 @@
-package lookids.batch.favorite.domain;
+package lookids.mono.batch.favorite.domain;
 
 public class FavoriteCountJob {
 }

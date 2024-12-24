@@ -1,13 +1,13 @@
-package lookids.batch.feed.application.service;
+package lookids.mono.batch.feed.application.service;
 
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.batch.feed.application.mapper.FeedDtoMapper;
-import lookids.batch.feed.application.port.dto.FeedCountResponseDto;
-import lookids.batch.feed.application.port.in.FeedCountReadUseCase;
-import lookids.batch.feed.application.port.out.FeedRepositoryPort;
+import lookids.mono.batch.feed.application.mapper.FeedDtoMapper;
+import lookids.mono.batch.feed.application.port.dto.FeedCountResponseDto;
+import lookids.mono.batch.feed.application.port.in.FeedCountReadUseCase;
+import lookids.mono.batch.feed.application.port.out.FeedRepositoryPort;
 
 @Slf4j
 @Service

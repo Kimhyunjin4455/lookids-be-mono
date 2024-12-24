@@ -1,4 +1,4 @@
-package lookids.batch.favorite.application.port.in;
+package lookids.mono.batch.favorite.application.port.in;
 
 public interface FavoriteBatchUseCase {
 	void batchFavoriteCount();

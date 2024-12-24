@@ -1,4 +1,4 @@
-package lookids.batch.follow.application.service;
+package lookids.mono.batch.follow.application.service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,12 +17,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.batch.follow.application.mapper.FollowDtoMapper;
-import lookids.batch.follow.application.port.dto.FollowBatchDto;
-import lookids.batch.follow.application.port.in.FollowBatchUseCase;
-import lookids.batch.follow.application.port.out.FollowRepositoryPort;
-import lookids.batch.follow.domain.model.FollowCount;
-import lookids.batch.follow.domain.model.FollowLog;
+import lookids.mono.batch.follow.application.mapper.FollowDtoMapper;
+import lookids.mono.batch.follow.application.port.dto.FollowBatchDto;
+import lookids.mono.batch.follow.application.port.in.FollowBatchUseCase;
+import lookids.mono.batch.follow.application.port.out.FollowRepositoryPort;
+import lookids.mono.batch.follow.domain.model.FollowCount;
+import lookids.mono.batch.follow.domain.model.FollowLog;
 
 @Slf4j
 @Service

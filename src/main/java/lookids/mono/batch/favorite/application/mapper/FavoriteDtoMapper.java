@@ -1,16 +1,16 @@
-package lookids.batch.favorite.application.mapper;
+package lookids.mono.batch.favorite.application.mapper;
 
 import org.springframework.stereotype.Component;
 
-import lookids.batch.favorite.adaptor.in.kafka.event.FavoriteEvent;
-import lookids.batch.favorite.application.port.dto.FavoriteBatchDto;
-import lookids.batch.favorite.application.port.dto.FavoriteCountResponseDto;
-import lookids.batch.favorite.application.port.dto.FavoriteCountSaveDto;
-import lookids.batch.favorite.application.port.dto.FavoriteLogSaveDto;
-import lookids.batch.favorite.application.port.dto.FavoriteUpdateEventDto;
-import lookids.batch.favorite.domain.model.FavoriteCount;
-import lookids.batch.favorite.domain.model.FavoriteLog;
-import lookids.batch.favorite.domain.model.TargetKey;
+import lookids.mono.batch.favorite.adaptor.in.kafka.event.FavoriteEvent;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteBatchDto;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteCountResponseDto;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteCountSaveDto;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteLogSaveDto;
+import lookids.mono.batch.favorite.application.port.dto.FavoriteUpdateEventDto;
+import lookids.mono.batch.favorite.domain.model.FavoriteCount;
+import lookids.mono.batch.favorite.domain.model.FavoriteLog;
+import lookids.mono.batch.favorite.domain.model.TargetKey;
 
 @Component
 public class FavoriteDtoMapper {

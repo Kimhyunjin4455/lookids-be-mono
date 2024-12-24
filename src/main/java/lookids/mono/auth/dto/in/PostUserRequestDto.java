@@ -1,4 +1,4 @@
-package lookids.auth.auth.dto.in;
+package lookids.mono.auth.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -13,18 +13,12 @@ public class PostUserRequestDto {
 	private String nickname;
 
 	@Builder
-	public PostUserRequestDto(
-		String uuid,
-		String nickname
-	) {
+	public PostUserRequestDto(String uuid, String nickname) {
 		this.uuid = uuid;
 		this.nickname = nickname;
 	}
 
 	public static PostUserRequestDto toDto(String uuid, String nickname) {
-		return PostUserRequestDto.builder()
-			.uuid(uuid)
-			.nickname(nickname)
-			.build();
+		return PostUserRequestDto.builder().uuid(uuid).nickname(nickname).build();
 	}
 }

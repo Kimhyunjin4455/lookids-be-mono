@@ -1,13 +1,13 @@
-package lookids.batch.follow.application.service;
+package lookids.mono.batch.follow.application.service;
 
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.batch.follow.application.mapper.FollowDtoMapper;
-import lookids.batch.follow.application.port.dto.FollowCountResponseDto;
-import lookids.batch.follow.application.port.in.FollowCountReadUseCase;
-import lookids.batch.follow.application.port.out.FollowRepositoryPort;
+import lookids.mono.batch.follow.application.mapper.FollowDtoMapper;
+import lookids.mono.batch.follow.application.port.dto.FollowCountResponseDto;
+import lookids.mono.batch.follow.application.port.in.FollowCountReadUseCase;
+import lookids.mono.batch.follow.application.port.out.FollowRepositoryPort;
 
 @Slf4j
 @Service
