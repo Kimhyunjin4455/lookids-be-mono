@@ -1,4 +1,4 @@
-package com.lookids.event.attendance.vo;
+package lookids.mono.event.attendance.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

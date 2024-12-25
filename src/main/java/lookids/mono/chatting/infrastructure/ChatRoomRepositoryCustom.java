@@ -1,13 +1,8 @@
-package lookids.chatting.chatting.infrastructure;
+package lookids.mono.chatting.infrastructure;
 
-import lookids.chatting.chatting.domain.ChatRoom;
-import lookids.chatting.common.utils.CursorPage;
+import lookids.mono.chatting.domain.ChatRoom;
+import lookids.mono.common.utils.CursorPage;
 
 public interface ChatRoomRepositoryCustom {
-	CursorPage<ChatRoom> getChatRoom(
-		String roomId,
-		String lastId,
-		Integer pageSize,
-		Integer page
-	);
+	CursorPage<ChatRoom> getChatRoom(String roomId, String lastId, Integer pageSize, Integer page);
 }

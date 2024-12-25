@@ -1,7 +1,7 @@
-package com.lookids.event.attendance.dto;
+package lookids.mono.event.attendance.dto;
 
-import com.lookids.event.attendance.domain.Attendance;
-import com.lookids.event.attendance.vo.AttendanceResponseVo;
+import lookids.mono.event.attendance.domain.Attendance;
+import lookids.mono.event.attendance.vo.AttendanceResponseVo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

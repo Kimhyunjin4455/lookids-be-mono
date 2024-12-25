@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.dto.out;
+package lookids.mono.chatting.dto.out;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -10,9 +10,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.chatting.chatting.domain.ChatMessage;
-import lookids.chatting.chatting.domain.MessageType;
-import lookids.chatting.chatting.vo.out.ChattingResponseVo;
+import lookids.mono.chatting.domain.ChatMessage;
+import lookids.mono.chatting.domain.MessageType;
+import lookids.mono.chatting.vo.out.ChattingResponseVo;
 
 @Getter
 @NoArgsConstructor
@@ -35,10 +35,8 @@ public class ChattingResponseDto {
 			.messageType(MessageType.valueOf(document.getString("messageType")))
 			.message(document.getString("message"))
 			.senderId(document.getString("senderId"))
-			.createdAt(LocalDateTime.ofInstant(document.getDate("createdAt")
-				.toInstant(), ZoneId.of("Asia/Seoul")))
-			.updatedAt(LocalDateTime.ofInstant(document.getDate("updatedAt")
-				.toInstant(), ZoneId.of("Asia/Seoul")))
+			.createdAt(LocalDateTime.ofInstant(document.getDate("createdAt").toInstant(), ZoneId.of("Asia/Seoul")))
+			.updatedAt(LocalDateTime.ofInstant(document.getDate("updatedAt").toInstant(), ZoneId.of("Asia/Seoul")))
 			.build();
 	}
 

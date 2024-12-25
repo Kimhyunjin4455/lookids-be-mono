@@ -1,4 +1,4 @@
-package lookids.elasticsearch.infrastructure;
+package lookids.mono.elasticsearch.infrastructure;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 
-import lookids.elasticsearch.domain.SearchUser;
+import lookids.mono.elasticsearch.domain.SearchUser;
 
 @Repository
 public interface SearchUserRepository extends ElasticsearchRepository<SearchUser, String> {

@@ -1,18 +1,18 @@
-package lookids.report.report.application;
+package lookids.mono.report.application;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lookids.report.common.entity.BaseResponseStatus;
-import lookids.report.common.exception.BaseException;
-import lookids.report.report.domain.RequestType;
-import lookids.report.report.domain.TargetType;
-import lookids.report.report.dto.in.ReportRequestDto;
-import lookids.report.report.dto.out.ReportListResponseDto;
-import lookids.report.report.dto.out.ReportResponseDto;
-import lookids.report.report.infrastructure.ReportRepository;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.report.domain.RequestType;
+import lookids.mono.report.domain.TargetType;
+import lookids.mono.report.dto.in.ReportRequestDto;
+import lookids.mono.report.dto.out.ReportListResponseDto;
+import lookids.mono.report.dto.out.ReportResponseDto;
+import lookids.mono.report.infrastructure.ReportRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -28,8 +28,7 @@ public class ReportServiceImpl implements ReportService {
 	public Page<ReportListResponseDto> readUserReportList(String uuid, TargetType targetType, RequestType requestType,
 		Pageable pageable) {
 		return reportRepository.findByUuidAndTargetTypeAndRequestTypeOrderByCreatedAtDesc(uuid, targetType, requestType,
-				pageable)
-			.map(ReportListResponseDto::toDto);
+			pageable).map(ReportListResponseDto::toDto);
 	}
 
 	@Override

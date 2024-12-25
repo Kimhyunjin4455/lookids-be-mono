@@ -1,4 +1,4 @@
-package lookids.feedread.vo.out;
+package lookids.mono.feedread.vo.out;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -1,4 +1,4 @@
-package lookids.report.report.dto.in;
+package lookids.mono.report.dto.in;
 
 import java.time.LocalDateTime;
 
@@ -7,10 +7,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.report.report.domain.Report;
-import lookids.report.report.domain.RequestType;
-import lookids.report.report.domain.TargetType;
-import lookids.report.report.vo.in.UserReportRequestVo;
+import lookids.mono.report.domain.Report;
+import lookids.mono.report.domain.RequestType;
+import lookids.mono.report.domain.TargetType;
+import lookids.mono.report.vo.in.UserReportRequestVo;
 
 @Getter
 @Builder

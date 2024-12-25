@@ -1,9 +1,9 @@
-package lookids.elasticsearch.dto.out;
+package lookids.mono.elasticsearch.dto.out;
 
 import lombok.Builder;
 import lombok.Getter;
-import lookids.elasticsearch.domain.SearchUser;
-import lookids.elasticsearch.vo.SearchUserResponseVo;
+import lookids.mono.elasticsearch.domain.SearchUser;
+import lookids.mono.elasticsearch.vo.SearchUserResponseVo;
 
 @Getter
 public class SearchUserResponseDto {

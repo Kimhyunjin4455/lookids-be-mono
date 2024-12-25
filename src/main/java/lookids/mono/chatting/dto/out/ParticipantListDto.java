@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.dto.out;
+package lookids.mono.chatting.dto.out;
 
 import java.util.List;
 
@@ -7,9 +7,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.chatting.chatting.domain.ChatRoom;
-import lookids.chatting.chatting.domain.Participant;
-import lookids.chatting.chatting.vo.out.ParticipantListVo;
+import lookids.mono.chatting.domain.ChatRoom;
+import lookids.mono.chatting.domain.Participant;
+import lookids.mono.chatting.vo.out.ParticipantListVo;
 
 @Getter
 @NoArgsConstructor
@@ -22,9 +22,7 @@ public class ParticipantListDto {
 	private List<String> participants;
 
 	public static ParticipantListDto toDto(ChatRoom chatRoom) {
-		List<String> participantIds = chatRoom.getParticipants().stream()
-			.map(Participant::getUserId)
-			.toList();
+		List<String> participantIds = chatRoom.getParticipants().stream().map(Participant::getUserId).toList();
 
 		return ParticipantListDto.builder()
 			.roomId(chatRoom.getId())
@@ -34,10 +32,6 @@ public class ParticipantListDto {
 	}
 
 	public ParticipantListVo toVo() {
-		return ParticipantListVo.builder()
-			.roomId(roomId)
-			.roomName(roomName)
-			.participants(participants)
-			.build();
+		return ParticipantListVo.builder().roomId(roomId).roomName(roomName).participants(participants).build();
 	}
 }

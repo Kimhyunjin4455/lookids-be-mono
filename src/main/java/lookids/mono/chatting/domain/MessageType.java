@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.domain;
+package lookids.mono.chatting.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -9,8 +9,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum MessageType {
-	IMAGE("이미지"),
-	TEXT("텍스트");
+	IMAGE("이미지"), TEXT("텍스트");
 
 	private final String messageType;
 

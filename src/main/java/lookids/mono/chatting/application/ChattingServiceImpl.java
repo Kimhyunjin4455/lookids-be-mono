@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.application;
+package lookids.mono.chatting.application;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -18,28 +18,28 @@ import com.mongodb.client.model.changestream.OperationType;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.chatting.chatting.domain.ChatMessage;
-import lookids.chatting.chatting.domain.ChatRoom;
-import lookids.chatting.chatting.domain.Participant;
-import lookids.chatting.chatting.dto.in.ChatRoomNameUpdateRequestDto;
-import lookids.chatting.chatting.dto.in.ChatRoomRequestDto;
-import lookids.chatting.chatting.dto.in.ChatRoomUpdateRequestDto;
-import lookids.chatting.chatting.dto.in.ChattingRequestDto;
-import lookids.chatting.chatting.dto.in.ChattingUpdateRequestDto;
-import lookids.chatting.chatting.dto.out.ChatRoomResponseDto;
-import lookids.chatting.chatting.dto.out.ChattingResponseDto;
-import lookids.chatting.chatting.dto.out.CheckOneToOneChatResponseDto;
-import lookids.chatting.chatting.dto.out.LastReadChatMessageResponseDto;
-import lookids.chatting.chatting.dto.out.ParticipantListDto;
-import lookids.chatting.chatting.dto.out.RoomIdResponseDto;
-import lookids.chatting.chatting.infrastructure.ChatMessageRepository;
-import lookids.chatting.chatting.infrastructure.ChatMessageRepositoryCustom;
-import lookids.chatting.chatting.infrastructure.ChatRoomRepository;
-import lookids.chatting.chatting.infrastructure.ChatRoomRepositoryCustom;
-import lookids.chatting.common.entity.BaseResponseStatus;
-import lookids.chatting.common.exception.BaseException;
-import lookids.chatting.common.kafka.dto.out.NotificationKafkaRequestDto;
-import lookids.chatting.common.utils.CursorPage;
+import lookids.mono.chatting.domain.ChatMessage;
+import lookids.mono.chatting.domain.ChatRoom;
+import lookids.mono.chatting.domain.Participant;
+import lookids.mono.chatting.dto.in.ChatRoomNameUpdateRequestDto;
+import lookids.mono.chatting.dto.in.ChatRoomRequestDto;
+import lookids.mono.chatting.dto.in.ChatRoomUpdateRequestDto;
+import lookids.mono.chatting.dto.in.ChattingRequestDto;
+import lookids.mono.chatting.dto.in.ChattingUpdateRequestDto;
+import lookids.mono.chatting.dto.out.ChatRoomResponseDto;
+import lookids.mono.chatting.dto.out.ChattingResponseDto;
+import lookids.mono.chatting.dto.out.CheckOneToOneChatResponseDto;
+import lookids.mono.chatting.dto.out.LastReadChatMessageResponseDto;
+import lookids.mono.chatting.dto.out.NotificationKafkaRequestDto;
+import lookids.mono.chatting.dto.out.ParticipantListDto;
+import lookids.mono.chatting.dto.out.RoomIdResponseDto;
+import lookids.mono.chatting.infrastructure.ChatMessageRepository;
+import lookids.mono.chatting.infrastructure.ChatMessageRepositoryCustom;
+import lookids.mono.chatting.infrastructure.ChatRoomRepository;
+import lookids.mono.chatting.infrastructure.ChatRoomRepositoryCustom;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.common.utils.CursorPage;
 import reactor.core.publisher.Flux;
 
 @Slf4j
@@ -66,7 +66,8 @@ public class ChattingServiceImpl implements ChattingService {
 		// ChatRoom 조회 및 처리
 		chatRoomRepository.findById(savedChatMessage.getRoomId()).ifPresent(chatRoom -> {
 			// Kafka 알림을 보낼 사용자 목록 (isOnline이 false인 경우)
-			List<String> offlineReceiverUuids = chatRoom.getParticipants().stream()
+			List<String> offlineReceiverUuids = chatRoom.getParticipants()
+				.stream()
 				.filter(participant -> !participant.getIsOnline()) // 온라인 상태가 아닌 사용자만 필터링
 				.map(Participant::getUserId)
 				.filter(userId -> !userId.equals(savedChatMessage.getSenderId())) // 메시지 보낸 사람 제외
@@ -100,30 +101,23 @@ public class ChattingServiceImpl implements ChattingService {
 	}
 
 	@Override // 커서 페이징 처리. 유저 id에 맞는 방 리스트 가져오기
-	public CursorPage<ChatRoomResponseDto> readChatRoomsByUserIdCursorPage(
-		String userId, String lastId, int size, int page) {
+	public CursorPage<ChatRoomResponseDto> readChatRoomsByUserIdCursorPage(String userId, String lastId, int size,
+		int page) {
 		CursorPage<ChatRoom> chatRoomCursorPage = chatRoomRepositoryCustom.getChatRoom(userId, lastId, size, page);
 		List<ChatRoomResponseDto> dtoList = chatRoomCursorPage.getContent()
 			.stream()
 			.map(chatRoom -> ChatRoomResponseDto.toDto(chatRoom, userId)) // userId를 함께 전달
 			.toList();
 
-		return new CursorPage<>(
-			dtoList,
-			chatRoomCursorPage.getNextCursor(),
-			chatRoomCursorPage.hasNext(),
-			chatRoomCursorPage.getPageSize(),
-			chatRoomCursorPage.getPage()
-		);
+		return new CursorPage<>(dtoList, chatRoomCursorPage.getNextCursor(), chatRoomCursorPage.hasNext(),
+			chatRoomCursorPage.getPageSize(), chatRoomCursorPage.getPage());
 	}
 
 	@Override // db의 변화를 감지해서 api 실행 후에 생긴 새로운 채팅방들만 출력하는 api
 	public Flux<ChatRoomResponseDto> readReactiveChatRoomsByUserId(String userId) {
 		ChangeStreamOptions options = ChangeStreamOptions.builder()
-			.filter(Aggregation.newAggregation(
-				Aggregation.match(Criteria.where("operationType")
-					.in(OperationType.REPLACE.getValue(), OperationType.INSERT.getValue()))
-			))
+			.filter(Aggregation.newAggregation(Aggregation.match(
+				Criteria.where("operationType").in(OperationType.REPLACE.getValue(), OperationType.INSERT.getValue()))))
 			.build();
 
 		return reactiveMongoTemplate.changeStream("chat_room", options, Document.class)
@@ -133,8 +127,7 @@ public class ChattingServiceImpl implements ChattingService {
 
 	@Override // 일반 페이징 처리. 특정 채팅방의 채팅내용을 가져오는 api
 	public Page<ChattingResponseDto> readChatMessageByRoomIdPage(String roomId, Pageable pageable) {
-		return chatMessageRepository.findByRoomId(roomId, pageable)
-			.map(ChattingResponseDto::toDto);
+		return chatMessageRepository.findByRoomId(roomId, pageable).map(ChattingResponseDto::toDto);
 	}
 
 	@Override // 커서 페이징 처리. 특정 채팅방의 채팅 내용을 가져오는 api
@@ -147,23 +140,16 @@ public class ChattingServiceImpl implements ChattingService {
 			.map(ChattingResponseDto::toDto) // ChatMessage -> ChattingResponseDto 변환
 			.toList();
 
-		return new CursorPage<>(
-			dtoList,
-			chatMessageCursorPage.getNextCursor(),
-			chatMessageCursorPage.hasNext(),
-			chatMessageCursorPage.getPageSize(),
-			chatMessageCursorPage.getPage()
-		);
+		return new CursorPage<>(dtoList, chatMessageCursorPage.getNextCursor(), chatMessageCursorPage.hasNext(),
+			chatMessageCursorPage.getPageSize(), chatMessageCursorPage.getPage());
 	}
 
 	@Override // db의 변화를 감지해서 api 실행 후에 생긴 새로운 메세지들만 출력하는 api
 	public Flux<ChattingResponseDto> readReactiveChatMessageByRoomId(String roomId) {
 		ChangeStreamOptions options = ChangeStreamOptions.builder()
-			.filter(Aggregation.newAggregation(
-				Aggregation.match(Criteria.where("operationType")
-					.in(OperationType.INSERT.getValue(), OperationType.REPLACE.getValue())),
-				Aggregation.match(Criteria.where("fullDocument.roomId").is(roomId))
-			))
+			.filter(Aggregation.newAggregation(Aggregation.match(
+					Criteria.where("operationType").in(OperationType.INSERT.getValue(), OperationType.REPLACE.getValue())),
+				Aggregation.match(Criteria.where("fullDocument.roomId").is(roomId))))
 			.build();
 
 		return reactiveMongoTemplate.changeStream("chat_message", options, Document.class)
@@ -191,8 +177,8 @@ public class ChattingServiceImpl implements ChattingService {
 	public void updateChatRoomName(ChatRoomNameUpdateRequestDto chatRoomNameUpdateRequestDto) {
 		ChatRoom chatRoom = chatRoomRepository.findById(chatRoomNameUpdateRequestDto.getId())
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_CHATROOM));
-		chatRoomRepository.save(ChatRoomNameUpdateRequestDto.toEntity(chatRoom,
-			chatRoomNameUpdateRequestDto.getRoomName()));
+		chatRoomRepository.save(
+			ChatRoomNameUpdateRequestDto.toEntity(chatRoom, chatRoomNameUpdateRequestDto.getRoomName()));
 	}
 
 	@Override // 마지막 읽은 메세지가 무엇인지 체크하는 api
@@ -221,13 +207,13 @@ public class ChattingServiceImpl implements ChattingService {
 		ChatRoom chatRoom = chatRoomRepository.findById(roomId)
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_CHATROOM));
 
-		Participant participant = chatRoom.getParticipants().stream()
+		Participant participant = chatRoom.getParticipants()
+			.stream()
 			.filter(p -> p.getUserId().equals(userId))
 			.findFirst()
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NOT_IN_USER));
 
-		ChatMessage lastMessage = chatMessageRepository.findTopByRoomIdOrderByCreatedAtDesc(roomId)
-			.orElse(null);
+		ChatMessage lastMessage = chatMessageRepository.findTopByRoomIdOrderByCreatedAtDesc(roomId).orElse(null);
 		participant.updateLastLeaveTime(LocalDateTime.now());
 		if (lastMessage != null) {
 			participant.updateLastReadChatMessage(lastMessage.getId());
@@ -243,13 +229,13 @@ public class ChattingServiceImpl implements ChattingService {
 		ChatRoom chatRoom = chatRoomRepository.findById(roomId)
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_CHATROOM));
 
-		Participant participant = chatRoom.getParticipants().stream()
+		Participant participant = chatRoom.getParticipants()
+			.stream()
 			.filter(p -> p.getUserId().equals(userId))
 			.findFirst()
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NOT_IN_USER));
 
-		ChatMessage lastMessage = chatMessageRepository.findTopByRoomIdOrderByCreatedAtDesc(roomId)
-			.orElse(null);
+		ChatMessage lastMessage = chatMessageRepository.findTopByRoomIdOrderByCreatedAtDesc(roomId).orElse(null);
 		participant.updateLastLeaveTime(LocalDateTime.now());
 
 		if (lastMessage != null) {

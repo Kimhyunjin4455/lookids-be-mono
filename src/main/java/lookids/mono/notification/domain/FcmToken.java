@@ -1,4 +1,4 @@
-package lookids.alarm.notification.domain;
+package lookids.mono.notification.domain;
 
 import java.util.List;
 
@@ -22,11 +22,7 @@ public class FcmToken {
 	private List<String> fcmTokenList;
 
 	@Builder
-	public FcmToken(
-		ObjectId id,
-		String uuid,
-		List<String> fcmTokenList
-	) {
+	public FcmToken(ObjectId id, String uuid, List<String> fcmTokenList) {
 		this.id = id;
 		this.uuid = uuid;
 		this.fcmTokenList = fcmTokenList;

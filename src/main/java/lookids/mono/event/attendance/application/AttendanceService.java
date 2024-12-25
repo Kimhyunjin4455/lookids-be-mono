@@ -1,6 +1,6 @@
-package com.lookids.event.attendance.application;
+package lookids.mono.event.attendance.application;
 
-import com.lookids.event.attendance.dto.AttendanceResponseDto;
+import lookids.mono.event.attendance.dto.AttendanceResponseDto;
 
 public interface AttendanceService {
 	void createAttendance(String uuid, String eventCode);

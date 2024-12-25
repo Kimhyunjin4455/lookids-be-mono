@@ -1,6 +1,4 @@
-package lookids.feedread.vo.out;
-
-
+package lookids.mono.feedread.vo.out;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

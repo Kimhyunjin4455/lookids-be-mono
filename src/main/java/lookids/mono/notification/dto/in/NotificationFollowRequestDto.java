@@ -1,4 +1,4 @@
-package lookids.alarm.notification.dto.in;
+package lookids.mono.notification.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,11 +12,7 @@ public class NotificationFollowRequestDto {
 	private String type;
 
 	@Builder
-	public NotificationFollowRequestDto(
-		String senderUuid,
-		String receiverUuid,
-		String type
-	) {
+	public NotificationFollowRequestDto(String senderUuid, String receiverUuid, String type) {
 		this.senderUuid = senderUuid;
 		this.receiverUuid = receiverUuid;
 		this.type = type;

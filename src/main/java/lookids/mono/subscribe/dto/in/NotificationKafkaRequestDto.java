@@ -1,6 +1,7 @@
-package lookids.subscribe.subscribe.dto.in;
+package lookids.mono.subscribe.dto.in;
 
 import java.util.List;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,14 +17,8 @@ public class NotificationKafkaRequestDto {
 	private String type;
 
 	@Builder
-	public NotificationKafkaRequestDto(
-		String senderUuid,
-		List<String> receiverUuidList,
-		String feedCode,
-		String content,
-		String mediaUrl,
-		String type
-	) {
+	public NotificationKafkaRequestDto(String senderUuid, List<String> receiverUuidList, String feedCode,
+		String content, String mediaUrl, String type) {
 		this.senderUuid = senderUuid;
 		this.receiverUuidList = receiverUuidList;
 		this.feedCode = feedCode;
@@ -32,7 +27,8 @@ public class NotificationKafkaRequestDto {
 		this.type = type;
 	}
 
-	public static NotificationKafkaRequestDto toDto(FeedKafkaRequestDto kafkaFeedRequestDto, List<String> receiverUuidList, String splitedContent, String type) {
+	public static NotificationKafkaRequestDto toDto(FeedKafkaRequestDto kafkaFeedRequestDto,
+		List<String> receiverUuidList, String splitedContent, String type) {
 		return NotificationKafkaRequestDto.builder()
 			.senderUuid(kafkaFeedRequestDto.getUuid())
 			.receiverUuidList(receiverUuidList)

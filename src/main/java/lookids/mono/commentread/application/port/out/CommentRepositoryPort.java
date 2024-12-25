@@ -1,15 +1,15 @@
-package lookids.commentread.comment.application.port.out;
+package lookids.mono.commentread.application.port.out;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import lookids.commentread.comment.application.port.dto.CommentDeleteSaveDto;
-import lookids.commentread.comment.application.port.dto.CommentReadSaveDto;
-import lookids.commentread.comment.application.port.dto.CommentReadUpdateDto;
-import lookids.commentread.comment.application.port.dto.ReplyDeleteDto;
-import lookids.commentread.comment.application.port.dto.UserProfileUpdateSaveDto;
-import lookids.commentread.comment.domain.model.CommentForRead;
-import lookids.commentread.comment.domain.model.FeedCount;
+import lookids.mono.commentread.application.port.dto.CommentDeleteSaveDto;
+import lookids.mono.commentread.application.port.dto.CommentReadSaveDto;
+import lookids.mono.commentread.application.port.dto.CommentReadUpdateDto;
+import lookids.mono.commentread.application.port.dto.ReplyDeleteDto;
+import lookids.mono.commentread.application.port.dto.UserProfileUpdateSaveDto;
+import lookids.mono.commentread.domain.model.CommentForRead;
+import lookids.mono.commentread.domain.model.FeedCount;
 
 public interface CommentRepositoryPort {
 

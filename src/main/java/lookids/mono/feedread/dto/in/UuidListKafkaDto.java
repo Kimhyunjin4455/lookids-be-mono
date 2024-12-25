@@ -1,4 +1,4 @@
-package lookids.feedread.dto.in;
+package lookids.mono.feedread.dto.in;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class UuidListKafkaDto {
 	private List<String> uuid;
 
 	@Builder
-	public UuidListKafkaDto(List<String>uuid) {
+	public UuidListKafkaDto(List<String> uuid) {
 		this.uuid = uuid;
 	}
 }

@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.dto.in;
+package lookids.mono.chatting.dto.in;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -8,9 +8,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.chatting.chatting.domain.ChatRoom;
-import lookids.chatting.chatting.domain.Participant;
-import lookids.chatting.chatting.vo.in.ChatRoomRequestVo;
+import lookids.mono.chatting.domain.ChatRoom;
+import lookids.mono.chatting.domain.Participant;
+import lookids.mono.chatting.vo.in.ChatRoomRequestVo;
 
 @ToString
 @Getter
@@ -24,26 +24,22 @@ public class ChatRoomRequestDto {
 	public static ChatRoomRequestDto toDto(ChatRoomRequestVo chatRoomRequestVo) {
 		return ChatRoomRequestDto.builder()
 			.roomName(chatRoomRequestVo.getRoomName())
-			.participants(
-				chatRoomRequestVo.getParticipants().stream()
-					.map(vo -> Participant.builder()
-						.userId(vo.getUserId())
-						.unreadCount(0L)
-						.isOnline(false)
-						.lastReadChatMessage(null)
-						.lastEnterTime(LocalDateTime.now())
-						.lastLeaveTime(LocalDateTime.now())
-						.build()
-					).toList()
-			)
+			.participants(chatRoomRequestVo.getParticipants()
+				.stream()
+				.map(vo -> Participant.builder()
+					.userId(vo.getUserId())
+					.unreadCount(0L)
+					.isOnline(false)
+					.lastReadChatMessage(null)
+					.lastEnterTime(LocalDateTime.now())
+					.lastLeaveTime(LocalDateTime.now())
+					.build())
+				.toList())
 			.build();
 	}
 
 	public ChatRoom toEntity() {
-		return ChatRoom.builder()
-			.roomName(roomName)
-			.participants(participants)
-			.build();
+		return ChatRoom.builder().roomName(roomName).participants(participants).build();
 	}
 
 }

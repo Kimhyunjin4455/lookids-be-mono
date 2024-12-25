@@ -1,4 +1,4 @@
-package lookids.map.map.dto.in;
+package lookids.mono.map.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -11,7 +11,6 @@ public class PinReadDto {
 	private Double pa; // 우상단 위도
 	private Double oa; // 우상단 경도
 
-
 	@Builder
 	public PinReadDto(Double ha, Double qa, Double pa, Double oa) {
 		this.ha = ha;
@@ -21,12 +20,7 @@ public class PinReadDto {
 	}
 
 	public static PinReadDto toDto(Double ha, Double oa, Double pa, Double qa) {
-		return PinReadDto.builder()
-			.ha(ha)
-			.oa(oa)
-			.pa(pa)
-			.qa(qa)
-			.build();
+		return PinReadDto.builder().ha(ha).oa(oa).pa(pa).qa(qa).build();
 
 	}
 

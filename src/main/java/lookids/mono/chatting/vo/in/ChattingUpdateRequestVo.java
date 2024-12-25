@@ -1,8 +1,8 @@
-package lookids.chatting.chatting.vo.in;
+package lookids.mono.chatting.vo.in;
 
 import lombok.Getter;
 import lombok.ToString;
-import lookids.chatting.chatting.domain.MessageType;
+import lookids.mono.chatting.domain.MessageType;
 
 @ToString
 @Getter

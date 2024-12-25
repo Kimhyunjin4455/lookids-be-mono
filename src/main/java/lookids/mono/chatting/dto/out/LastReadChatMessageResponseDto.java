@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.dto.out;
+package lookids.mono.chatting.dto.out;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-import lookids.chatting.chatting.vo.out.LastReadMessageResponseVo;
+import lookids.mono.chatting.vo.out.LastReadMessageResponseVo;
 
 @Slf4j
 @Getter
@@ -26,9 +26,6 @@ public class LastReadChatMessageResponseDto {
 	}
 
 	public LastReadMessageResponseVo toVo() {
-		return LastReadMessageResponseVo.builder()
-			.userId(userId)
-			.lastReadChatMessageId(lastReadChatMessageId)
-			.build();
+		return LastReadMessageResponseVo.builder().userId(userId).lastReadChatMessageId(lastReadChatMessageId).build();
 	}
 }

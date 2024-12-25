@@ -1,12 +1,12 @@
-package lookids.favorite.favorite.dto;
+package lookids.mono.favorite.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.favorite.favorite.domain.Favorite;
-import lookids.favorite.favorite.domain.FavoriteType;
-import lookids.favorite.favorite.vo.FavoriteRequestVo;
+import lookids.mono.favorite.domain.Favorite;
+import lookids.mono.favorite.domain.FavoriteType;
+import lookids.mono.favorite.vo.FavoriteRequestVo;
 
 @Builder
 @NoArgsConstructor

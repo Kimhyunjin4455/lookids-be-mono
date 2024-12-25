@@ -1,9 +1,9 @@
-package lookids.alarm.notification.repository;
+package lookids.mono.notification.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import lookids.alarm.notification.domain.Notification;
+import lookids.mono.notification.domain.Notification;
 
 @Repository
 public interface NotificationRepository extends MongoRepository<Notification, String> {

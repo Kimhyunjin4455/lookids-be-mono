@@ -1,4 +1,4 @@
-package lookids.alarm.notification.domain;
+package lookids.mono.notification.domain;
 
 public enum NotificationStatus {
 	PENDING, // 대기 상태

@@ -1,4 +1,4 @@
-package lookids.alarm.notification.service;
+package lookids.mono.notification.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -10,17 +10,17 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.alarm.notification.domain.FcmToken;
-import lookids.alarm.notification.domain.Notification;
-import lookids.alarm.notification.domain.NotificationType;
-import lookids.alarm.notification.dto.in.NotificationChattingRequestDto;
-import lookids.alarm.notification.dto.in.NotificationCommentReplyRequestDto;
-import lookids.alarm.notification.dto.in.NotificationCommentRequestDto;
-import lookids.alarm.notification.dto.in.NotificationFavoriteRequestDto;
-import lookids.alarm.notification.dto.in.NotificationFeedRequestDto;
-import lookids.alarm.notification.dto.in.NotificationFollowRequestDto;
-import lookids.alarm.notification.repository.FcmTokenRepository;
-import lookids.alarm.notification.repository.NotificationRepository;
+import lookids.mono.notification.domain.FcmToken;
+import lookids.mono.notification.domain.Notification;
+import lookids.mono.notification.domain.NotificationType;
+import lookids.mono.notification.dto.in.NotificationChattingRequestDto;
+import lookids.mono.notification.dto.in.NotificationCommentReplyRequestDto;
+import lookids.mono.notification.dto.in.NotificationCommentRequestDto;
+import lookids.mono.notification.dto.in.NotificationFavoriteRequestDto;
+import lookids.mono.notification.dto.in.NotificationFeedRequestDto;
+import lookids.mono.notification.dto.in.NotificationFollowRequestDto;
+import lookids.mono.notification.repository.FcmTokenRepository;
+import lookids.mono.notification.repository.NotificationRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -31,11 +31,7 @@ public class NotificationKafkaListener {
 	private final NotificationSseService sseService;
 	private final NotificationPushService pushService;
 
-	@KafkaListener(
-		topics = "${topic.feed.create}",
-		groupId = "${consumer-group-id.feed}",
-		concurrency = "50",
-		containerFactory = "notificationFeedEventListenerContainerFactory")
+	@KafkaListener(topics = "${topic.feed.create}", groupId = "${consumer-group-id.feed}", concurrency = "50", containerFactory = "notificationFeedEventListenerContainerFactory")
 	public void consumeFeedNotificationEvent(NotificationFeedRequestDto notificationFeedRequestDto) {
 		log.info("consumeNotificationEvent: {}", notificationFeedRequestDto.getType().toUpperCase());
 		log.info("consumeNotificationEvent: {}", notificationFeedRequestDto.getContent());
@@ -80,17 +76,13 @@ public class NotificationKafkaListener {
 		}
 	}
 
-	@KafkaListener(
-		topics = "${topic.chatting.create}",
-		groupId = "${consumer-group-id.chatting}",
-		containerFactory = "notificationChattingEventListenerContainerFactory")
+	@KafkaListener(topics = "${topic.chatting.create}", groupId = "${consumer-group-id.chatting}", containerFactory = "notificationChattingEventListenerContainerFactory")
 	public void consumeChattingNotificationEvent(NotificationChattingRequestDto notificationChattingRequestDto) {
 
 		String chatContent = notificationChattingRequestDto.getContent();
 
 		log.info("consumeNotificationEvent: {}", notificationChattingRequestDto.getType().toUpperCase());
 		log.info("consumeNotificationEvent: {}", chatContent);
-
 
 		String splitedChatContent = chatContent.length() > 20 ? chatContent.substring(0, 20) + "..." : chatContent;
 
@@ -120,10 +112,7 @@ public class NotificationKafkaListener {
 
 	}
 
-	@KafkaListener(
-		topics = "${topic.feed.favorite}",
-		groupId = "${consumer-group-id.favorite}",
-		containerFactory = "notificationFavoriteEventListenerContainerFactory")
+	@KafkaListener(topics = "${topic.feed.favorite}", groupId = "${consumer-group-id.favorite}", containerFactory = "notificationFavoriteEventListenerContainerFactory")
 	public void consumeFeedFavoriteNotificationEvent(NotificationFavoriteRequestDto notificationFavoriteRequestDto) {
 		log.info("consumeNotificationEvent: {}", notificationFavoriteRequestDto.getType().toUpperCase());
 		log.info("consumeNotificationEvent: {}", "게시글 좋아요");
@@ -155,10 +144,7 @@ public class NotificationKafkaListener {
 
 	}
 
-	@KafkaListener(
-		topics = "${topic.comment.favorite}",
-		groupId = "${consumer-group-id.favorite}",
-		containerFactory = "notificationFavoriteEventListenerContainerFactory")
+	@KafkaListener(topics = "${topic.comment.favorite}", groupId = "${consumer-group-id.favorite}", containerFactory = "notificationFavoriteEventListenerContainerFactory")
 	public void consumeCommentFavoriteNotificationEvent(NotificationFavoriteRequestDto notificationFavoriteRequestDto) {
 		log.info("consumeNotificationEvent: {}", notificationFavoriteRequestDto.getType().toUpperCase());
 		log.info("consumeNotificationEvent: {}", "댓글 좋아요");
@@ -189,10 +175,7 @@ public class NotificationKafkaListener {
 
 	}
 
-	@KafkaListener(
-		topics = "${topic.follow.create}",
-		groupId = "${consumer-group-id.follow}",
-		containerFactory = "notificationFollowEventListenerContainerFactory")
+	@KafkaListener(topics = "${topic.follow.create}", groupId = "${consumer-group-id.follow}", containerFactory = "notificationFollowEventListenerContainerFactory")
 	public void consumeFollowNotificationEvent(NotificationFollowRequestDto notificationFollowRequestDto) {
 		log.info("consumeNotificationEvent: {}", notificationFollowRequestDto.getType().toUpperCase());
 		log.info("consumeNotificationEvent: {}", "팔로우");
@@ -222,10 +205,7 @@ public class NotificationKafkaListener {
 
 	}
 
-	@KafkaListener(
-		topics = "${topic.comment.create}",
-		groupId = "${consumer-group-id.comment}",
-		containerFactory = "notificationCommentEventListenerContainerFactory")
+	@KafkaListener(topics = "${topic.comment.create}", groupId = "${consumer-group-id.comment}", containerFactory = "notificationCommentEventListenerContainerFactory")
 	public void consumeCommentNotificationEvent(NotificationCommentRequestDto notificationCommentRequestDto) {
 		try {
 
@@ -273,20 +253,18 @@ public class NotificationKafkaListener {
 			throw new KafkaException("Notification event processing failed", e);  // 전체 처리 실패 시
 		}
 
-
 	}
 
-	@KafkaListener(
-		topics = "${topic.comment.reply.create}",
-		groupId = "${consumer-group-id.comment-reply}",
-		containerFactory = "notificationCommentReplyEventListenerContainerFactory")
-	public void consumeCommentReplyNotificationEvent(NotificationCommentReplyRequestDto notificationCommentReplyRequestDto) {
+	@KafkaListener(topics = "${topic.comment.reply.create}", groupId = "${consumer-group-id.comment-reply}", containerFactory = "notificationCommentReplyEventListenerContainerFactory")
+	public void consumeCommentReplyNotificationEvent(
+		NotificationCommentReplyRequestDto notificationCommentReplyRequestDto) {
 
 		String replyCommentContent = notificationCommentReplyRequestDto.getContent();
 
 		log.info("consumeNotificationEvent: {}", replyCommentContent);
 
-		String splitedReplyCommentContent = replyCommentContent.length() > 20 ? replyCommentContent.substring(0, 20) + "..." : replyCommentContent;
+		String splitedReplyCommentContent =
+			replyCommentContent.length() > 20 ? replyCommentContent.substring(0, 20) + "..." : replyCommentContent;
 
 		// 알람 저장
 		Notification notification = Notification.builder()

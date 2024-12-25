@@ -1,4 +1,4 @@
-package lookids.commentread.comment.application.port.dto;
+package lookids.mono.commentread.application.port.dto;
 
 import java.time.Instant;
 import java.time.LocalDateTime;

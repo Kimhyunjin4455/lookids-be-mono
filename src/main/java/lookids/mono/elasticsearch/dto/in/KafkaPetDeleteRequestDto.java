@@ -1,4 +1,4 @@
-package lookids.elasticsearch.dto.in;
+package lookids.mono.elasticsearch.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;

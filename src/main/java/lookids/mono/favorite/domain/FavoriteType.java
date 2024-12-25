@@ -1,4 +1,4 @@
-package lookids.favorite.favorite.domain;
+package lookids.mono.favorite.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -10,8 +10,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum FavoriteType {
 
-	FEED("피드"),
-	COMMENT("댓글");
+	FEED("피드"), COMMENT("댓글");
 
 	private final String favoriteType;
 

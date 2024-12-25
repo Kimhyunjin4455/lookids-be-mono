@@ -1,4 +1,4 @@
-package lookids.manager.event.presention;
+package lookids.mono.manager.event.presention;
 
 import java.util.List;
 
@@ -13,19 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import lookids.manager.common.entity.BaseResponse;
-import lookids.manager.common.entity.BaseResponseStatus;
-import lookids.manager.event.application.EventService;
-import lookids.manager.event.dto.in.EventRequestDto;
-import lookids.manager.event.dto.in.EventUpdateRequestDto;
-import lookids.manager.event.dto.out.EventResponseDto;
-import lookids.manager.event.vo.in.EventRequestVo;
-import lookids.manager.event.vo.in.EventUpdateRequestVo;
-import lookids.manager.event.vo.out.EventResponseVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.manager.event.application.EventService;
+import lookids.mono.manager.event.dto.in.EventRequestDto;
+import lookids.mono.manager.event.dto.in.EventUpdateRequestDto;
+import lookids.mono.manager.event.dto.out.EventResponseDto;
+import lookids.mono.manager.event.vo.in.EventRequestVo;
+import lookids.mono.manager.event.vo.in.EventUpdateRequestVo;
+import lookids.mono.manager.event.vo.out.EventResponseVo;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1/event")
+@RequestMapping("/manager-service/event")
 public class EventController {
 
 	private final EventService eventService;
@@ -43,6 +43,7 @@ public class EventController {
 		List<EventResponseDto> readGoingEventList = eventService.readGoingEventList();
 		return new BaseResponse<>(readGoingEventList.stream().map(EventResponseDto::toVo).toList());
 	}
+
 	@Operation(summary = "마감된 event 리스트 조회 API", description = "마감된 event 리스트 조회 API 입니다.", tags = {"Event"})
 	@GetMapping("/expired")
 	public BaseResponse<List<EventResponseVo>> readExpiredEventList() {
@@ -58,8 +59,7 @@ public class EventController {
 
 	@Operation(summary = "event 수정 API", description = "event 수정 API 입니다.", tags = {"Event"})
 	@PutMapping()
-	public BaseResponse<Void> updateEvent(
-		@RequestParam String eventCode,
+	public BaseResponse<Void> updateEvent(@RequestParam String eventCode,
 		@RequestBody EventUpdateRequestVo eventUpdateRequestVo) {
 		eventService.updateEvent(eventCode, EventUpdateRequestDto.toDto(eventCode, eventUpdateRequestVo));
 		return new BaseResponse<>(BaseResponseStatus.SUCCESS);

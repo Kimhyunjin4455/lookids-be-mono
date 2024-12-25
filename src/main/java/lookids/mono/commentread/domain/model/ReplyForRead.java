@@ -1,4 +1,4 @@
-package lookids.commentread.comment.domain.model;
+package lookids.mono.commentread.domain.model;
 
 import java.time.Instant;
 

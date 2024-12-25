@@ -1,11 +1,11 @@
-package lookids.chatting.chatting.dto.out;
+package lookids.mono.chatting.dto.out;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.chatting.chatting.vo.out.RoomIdResponseVo;
+import lookids.mono.chatting.vo.out.RoomIdResponseVo;
 
 @Getter
 @NoArgsConstructor
@@ -16,14 +16,10 @@ public class RoomIdResponseDto {
 	private String roomId;
 
 	public static RoomIdResponseDto toDto(String roomId) {
-		return RoomIdResponseDto.builder()
-			.roomId(roomId)
-			.build();
+		return RoomIdResponseDto.builder().roomId(roomId).build();
 	}
 
 	public RoomIdResponseVo toVo() {
-		return RoomIdResponseVo.builder()
-			.roomId(roomId)
-			.build();
+		return RoomIdResponseVo.builder().roomId(roomId).build();
 	}
 }

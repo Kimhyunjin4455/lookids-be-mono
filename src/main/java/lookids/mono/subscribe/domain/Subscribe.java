@@ -1,4 +1,4 @@
-package lookids.subscribe.subscribe.domain;
+package lookids.mono.subscribe.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -16,7 +16,7 @@ public class Subscribe {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	@Column(nullable = false)
 	private String authorUuid;
 
@@ -24,13 +24,9 @@ public class Subscribe {
 	private String subscriberUuid;
 
 	@Builder
-	public Subscribe(
-		String authorUuid,
-		String subscriberUuid
-	) {
+	public Subscribe(String authorUuid, String subscriberUuid) {
 		this.authorUuid = authorUuid;
 		this.subscriberUuid = subscriberUuid;
 	}
-
 
 }

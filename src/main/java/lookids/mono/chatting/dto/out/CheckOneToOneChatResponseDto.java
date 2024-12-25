@@ -1,11 +1,11 @@
-package lookids.chatting.chatting.dto.out;
+package lookids.mono.chatting.dto.out;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.chatting.chatting.vo.out.CheckOneToOneChatResponseVo;
+import lookids.mono.chatting.vo.out.CheckOneToOneChatResponseVo;
 
 @Builder
 @NoArgsConstructor
@@ -17,16 +17,10 @@ public class CheckOneToOneChatResponseDto {
 	private String roomId;
 
 	public static CheckOneToOneChatResponseDto toDto(Boolean result, String roomId) {
-		return CheckOneToOneChatResponseDto.builder()
-			.result(result)
-			.roomId(roomId)
-			.build();
+		return CheckOneToOneChatResponseDto.builder().result(result).roomId(roomId).build();
 	}
 
 	public CheckOneToOneChatResponseVo toVo() {
-		return CheckOneToOneChatResponseVo.builder()
-			.result(result)
-			.roomId(roomId)
-			.build();
+		return CheckOneToOneChatResponseVo.builder().result(result).roomId(roomId).build();
 	}
 }

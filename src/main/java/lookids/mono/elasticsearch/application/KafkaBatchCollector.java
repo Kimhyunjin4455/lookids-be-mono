@@ -1,4 +1,4 @@
-package lookids.elasticsearch.application;
+package lookids.mono.elasticsearch.application;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +8,9 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
-import lookids.elasticsearch.domain.SearchFeed;
-import lookids.elasticsearch.domain.SearchPet;
-import lookids.elasticsearch.domain.SearchUser;
+import lookids.mono.elasticsearch.domain.SearchFeed;
+import lookids.mono.elasticsearch.domain.SearchPet;
+import lookids.mono.elasticsearch.domain.SearchUser;
 
 @Slf4j
 @Component

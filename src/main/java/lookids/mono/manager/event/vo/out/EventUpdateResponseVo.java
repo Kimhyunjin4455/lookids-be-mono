@@ -1,4 +1,4 @@
-package lookids.manager.event.vo.out;
+package lookids.mono.manager.event.vo.out;
 
 import java.time.LocalDateTime;
 

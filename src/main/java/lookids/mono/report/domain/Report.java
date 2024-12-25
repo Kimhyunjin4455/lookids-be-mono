@@ -1,4 +1,4 @@
-package lookids.report.report.domain;
+package lookids.mono.report.domain;
 
 import java.time.LocalDateTime;
 

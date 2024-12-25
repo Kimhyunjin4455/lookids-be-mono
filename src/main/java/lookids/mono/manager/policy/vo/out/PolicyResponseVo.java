@@ -1,4 +1,4 @@
-package lookids.manager.policy.vo.out;
+package lookids.mono.manager.policy.vo.out;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,10 +12,7 @@ public class PolicyResponseVo {
 	private String content;
 
 	@Builder
-	public PolicyResponseVo(
-		String policyName,
-		String content
-	) {
+	public PolicyResponseVo(String policyName, String content) {
 		this.policyName = policyName;
 		this.content = content;
 	}

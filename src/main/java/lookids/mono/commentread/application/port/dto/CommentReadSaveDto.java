@@ -1,4 +1,4 @@
-package lookids.commentread.comment.application.port.dto;
+package lookids.mono.commentread.application.port.dto;
 
 import java.time.Instant;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.commentread.comment.domain.model.ReplyForRead;
+import lookids.mono.commentread.domain.model.ReplyForRead;
 
 @Getter
 @NoArgsConstructor

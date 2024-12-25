@@ -1,8 +1,6 @@
-package lookids.feedread.application;
+package lookids.mono.feedread.application;
 
 import java.util.List;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 import org.springframework.kafka.annotation.KafkaListener;
@@ -13,22 +11,17 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-import lookids.common.entity.BaseResponseStatus;
-import lookids.common.exception.BaseException;
-import lookids.feedread.domain.FeedRead;
-import lookids.feedread.dto.in.BlockKafkaDto;
-import lookids.feedread.dto.in.FeedDeleteKafkaDto;
-import lookids.feedread.dto.in.FeedKafkaDto;
-import lookids.feedread.dto.in.PetImageKafkaDto;
-import lookids.feedread.dto.in.TargetKafkaDto;
-import lookids.feedread.dto.in.TargetRequestKafkaDto;
-import lookids.feedread.dto.in.UserImageKafkaDto;
-import lookids.feedread.dto.in.UserKafkaDto;
-import lookids.feedread.dto.in.UserNickNameKafkaDto;
-import lookids.feedread.dto.in.UuidKafkaDto;
-import lookids.feedread.dto.out.FavoriteResponseDto;
-import lookids.feedread.dto.out.FollowResponseDto;
-import lookids.feedread.infrastructure.FeedReadRepository;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.feedread.domain.FeedRead;
+import lookids.mono.feedread.dto.in.FeedDeleteKafkaDto;
+import lookids.mono.feedread.dto.in.PetImageKafkaDto;
+import lookids.mono.feedread.dto.in.TargetKafkaDto;
+import lookids.mono.feedread.dto.in.TargetRequestKafkaDto;
+import lookids.mono.feedread.dto.in.UserImageKafkaDto;
+import lookids.mono.feedread.dto.in.UserNickNameKafkaDto;
+import lookids.mono.feedread.dto.in.UuidKafkaDto;
+import lookids.mono.feedread.infrastructure.FeedReadRepository;
 
 @Slf4j
 @Service
@@ -47,7 +40,8 @@ public class FeedKafkaListener {
 		if (findUuid.isEmpty()) {
 			throw new BaseException(BaseResponseStatus.NO_EXIST_FEED);
 		}
-		List<FeedRead> nickNameUpdate = findUuid.stream().map(userNickNameKafkaDto::toNickNameUpdate)
+		List<FeedRead> nickNameUpdate = findUuid.stream()
+			.map(userNickNameKafkaDto::toNickNameUpdate)
 			.collect(Collectors.toList());
 		feedReadRepository.saveAll(nickNameUpdate);
 	}
@@ -59,7 +53,8 @@ public class FeedKafkaListener {
 		if (findUuid.isEmpty()) {
 			throw new BaseException(BaseResponseStatus.NO_EXIST_FEED);
 		}
-		List<FeedRead> ImageUpdate = findUuid.stream().map(userImageKafkaDto::toImageUpdate)
+		List<FeedRead> ImageUpdate = findUuid.stream()
+			.map(userImageKafkaDto::toImageUpdate)
 			.collect(Collectors.toList());
 		feedReadRepository.saveAll(ImageUpdate);
 	}
@@ -76,10 +71,9 @@ public class FeedKafkaListener {
 	@KafkaListener(topics = "recommend-user", groupId = "feed-read-group", containerFactory = "recommendEventListenerContainerFactory")
 	public void recommendTarget(TargetKafkaDto targetKafkaDto) {
 		List<FeedRead> findUuidList = feedReadRepository.findByFeedCodeIn(targetKafkaDto.getTargetCode());
-		List<String> uuidList = findUuidList.stream()
-			.map(FeedRead::getUuid)
-			.collect(Collectors.toList());
-		TargetRequestKafkaDto targetRequestKafkaDto = TargetRequestKafkaDto.toDto(targetKafkaDto.getAuthorUuid(), uuidList);
+		List<String> uuidList = findUuidList.stream().map(FeedRead::getUuid).collect(Collectors.toList());
+		TargetRequestKafkaDto targetRequestKafkaDto = TargetRequestKafkaDto.toDto(targetKafkaDto.getAuthorUuid(),
+			uuidList);
 		recommendKafkaTemplate.send("recommend-user-response", targetRequestKafkaDto);
 	}
 
@@ -90,7 +84,8 @@ public class FeedKafkaListener {
 		if (findPetCode.isEmpty()) {
 			throw new BaseException(BaseResponseStatus.NO_EXIST_FEED);
 		}
-		List<FeedRead> ImageUpdate = findPetCode.stream().map(petImageKafkaDto::toImageUpdate)
+		List<FeedRead> ImageUpdate = findPetCode.stream()
+			.map(petImageKafkaDto::toImageUpdate)
 			.collect(Collectors.toList());
 		feedReadRepository.saveAll(ImageUpdate);
 	}
@@ -101,8 +96,7 @@ public class FeedKafkaListener {
 		if (findUuid.isEmpty()) {
 			throw new BaseException(BaseResponseStatus.NO_EXIST_FEED);
 		}
-		List<FeedRead> feedDelete = findUuid.stream().map(uuidKafkaDto::toDelete)
-			.collect(Collectors.toList());
+		List<FeedRead> feedDelete = findUuid.stream().map(uuidKafkaDto::toDelete).collect(Collectors.toList());
 		feedReadRepository.saveAll(feedDelete);
 	}
 

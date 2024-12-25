@@ -1,4 +1,4 @@
-package Lookids.Feed.feed.domain;
+package lookids.mono.feed.domain;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,39 +17,30 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Feed {
 
-    @Id
-    private ObjectId id;
-    private String feedCode;
-    private String uuid;
-    private String content;
-    private boolean state;
-    private List<String> petCode;
-    private List<String> tagList;
-    private List<String> mediaUrlList;
+	@Id
+	private ObjectId id;
+	private String feedCode;
+	private String uuid;
+	private String content;
+	private boolean state;
+	private List<String> petCode;
+	private List<String> tagList;
+	private List<String> mediaUrlList;
 
-    @CreatedDate
-    private LocalDateTime createdAt;
+	@CreatedDate
+	private LocalDateTime createdAt;
 
-    @Builder
-    public Feed(
-        ObjectId id,
-        String uuid,
-        String feedCode,
-        String content,
-        List<String> petCode,
-        List<String> tagList,
-        boolean state,
-        LocalDateTime createdAt,
-        List<String> mediaUrlList
-    ) {
-        this.id = id;
-        this.feedCode = feedCode;
-        this.uuid = uuid;
-        this.content = content;
-        this.petCode = petCode;
-        this.tagList = tagList;
-        this.state = state;
-        this.createdAt = createdAt;
-        this.mediaUrlList = mediaUrlList;
-    }
+	@Builder
+	public Feed(ObjectId id, String uuid, String feedCode, String content, List<String> petCode, List<String> tagList,
+		boolean state, LocalDateTime createdAt, List<String> mediaUrlList) {
+		this.id = id;
+		this.feedCode = feedCode;
+		this.uuid = uuid;
+		this.content = content;
+		this.petCode = petCode;
+		this.tagList = tagList;
+		this.state = state;
+		this.createdAt = createdAt;
+		this.mediaUrlList = mediaUrlList;
+	}
 }

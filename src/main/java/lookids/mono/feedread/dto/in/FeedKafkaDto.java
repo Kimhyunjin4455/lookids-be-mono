@@ -1,4 +1,4 @@
-package lookids.feedread.dto.in;
+package lookids.mono.feedread.dto.in;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -23,8 +23,8 @@ public class FeedKafkaDto {
 	private LocalDateTime createdAt;
 
 	@Builder
-	public FeedKafkaDto(String feedCode, String uuid, List<String> petCode, String content,
-		List<String> tagList, boolean state, List<String> mediaUrlList, LocalDateTime createdAt) {
+	public FeedKafkaDto(String feedCode, String uuid, List<String> petCode, String content, List<String> tagList,
+		boolean state, List<String> mediaUrlList, LocalDateTime createdAt) {
 		this.feedCode = feedCode;
 		this.uuid = uuid;
 		this.petCode = petCode;

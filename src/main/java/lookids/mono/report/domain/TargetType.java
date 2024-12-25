@@ -1,4 +1,4 @@
-package lookids.report.report.domain;
+package lookids.mono.report.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -9,11 +9,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum TargetType {
-	COMMENT("댓글"),
-	FEED("피드"),
-	USER("유저"),
-	REPLY("대댓글"),
-	DM("DM");
+	COMMENT("댓글"), FEED("피드"), USER("유저"), REPLY("대댓글"), DM("DM");
 
 	private final String targetType;
 

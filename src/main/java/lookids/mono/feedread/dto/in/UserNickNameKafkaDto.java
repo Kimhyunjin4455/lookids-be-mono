@@ -1,10 +1,10 @@
-package lookids.feedread.dto.in;
+package lookids.mono.feedread.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.feedread.domain.FeedRead;
+import lookids.mono.feedread.domain.FeedRead;
 
 @Getter
 @ToString
@@ -14,7 +14,6 @@ public class UserNickNameKafkaDto {
 	private String uuid;
 	private String nickname;
 	private String tag;
-
 
 	@Builder
 	public UserNickNameKafkaDto(String uuid, String nickname, String tag) {

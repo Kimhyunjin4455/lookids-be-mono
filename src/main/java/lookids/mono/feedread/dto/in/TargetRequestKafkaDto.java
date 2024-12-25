@@ -1,4 +1,4 @@
-package lookids.feedread.dto.in;
+package lookids.mono.feedread.dto.in;
 
 import java.util.List;
 
@@ -15,7 +15,6 @@ public class TargetRequestKafkaDto {
 	private List<String> uuid;
 	private String authorUuid;
 
-
 	@Builder
 	public TargetRequestKafkaDto(String authorUuid, List<String> uuid) {
 		this.authorUuid = authorUuid;
@@ -23,9 +22,6 @@ public class TargetRequestKafkaDto {
 	}
 
 	public static TargetRequestKafkaDto toDto(String authorUuid, List<String> uuid) {
-		return TargetRequestKafkaDto.builder()
-			.authorUuid(authorUuid)
-			.uuid(uuid)
-			.build();
+		return TargetRequestKafkaDto.builder().authorUuid(authorUuid).uuid(uuid).build();
 	}
 }

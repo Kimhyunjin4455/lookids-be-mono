@@ -1,4 +1,4 @@
-package lookids.commentread.comment.application.service;
+package lookids.mono.commentread.application.service;
 
 import java.util.ArrayList;
 
@@ -6,13 +6,13 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.commentread.comment.application.mapper.CommentReadDtoMapper;
-import lookids.commentread.comment.application.port.dto.CommentCreateEventDto;
-import lookids.commentread.comment.application.port.dto.ReplyCreateEventDto;
-import lookids.commentread.comment.application.port.in.CommentReadCreateUseCase;
-import lookids.commentread.comment.application.port.out.CommentRepositoryPort;
-import lookids.commentread.comment.domain.model.CommentForRead;
-import lookids.commentread.comment.domain.model.ReplyForRead;
+import lookids.mono.commentread.application.mapper.CommentReadDtoMapper;
+import lookids.mono.commentread.application.port.dto.CommentCreateEventDto;
+import lookids.mono.commentread.application.port.dto.ReplyCreateEventDto;
+import lookids.mono.commentread.application.port.in.CommentReadCreateUseCase;
+import lookids.mono.commentread.application.port.out.CommentRepositoryPort;
+import lookids.mono.commentread.domain.model.CommentForRead;
+import lookids.mono.commentread.domain.model.ReplyForRead;
 
 @Slf4j
 @RequiredArgsConstructor

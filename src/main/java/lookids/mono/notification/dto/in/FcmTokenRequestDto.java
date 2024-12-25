@@ -1,9 +1,9 @@
-package lookids.alarm.notification.dto.in;
+package lookids.mono.notification.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.alarm.notification.vo.in.FcmTokenRequestVo;
+import lookids.mono.notification.vo.in.FcmTokenRequestVo;
 
 @Getter
 @NoArgsConstructor
@@ -12,10 +12,7 @@ public class FcmTokenRequestDto {
 	private String fcmToken;
 
 	@Builder
-	public FcmTokenRequestDto(
-		String uuid,
-		String fcmToken
-	) {
+	public FcmTokenRequestDto(String uuid, String fcmToken) {
 		this.uuid = uuid;
 		this.fcmToken = fcmToken;
 	}
@@ -27,6 +24,5 @@ public class FcmTokenRequestDto {
 			.fcmToken(fcmTokenRequestVo.getFcmToken()) // 존재한다면 리스트에 fcm 추가, 없다면 리스트 생성 후 등록
 			.build();
 	}
-
 
 }

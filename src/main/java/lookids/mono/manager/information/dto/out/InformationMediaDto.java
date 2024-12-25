@@ -1,4 +1,4 @@
-package lookids.manager.information.dto.out;
+package lookids.mono.manager.information.dto.out;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class InformationMediaDto {
 
-    private String mediaUrl;
+	private String mediaUrl;
 }

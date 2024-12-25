@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.vo.in;
+package lookids.mono.chatting.vo.in;
 
 import java.util.List;
 

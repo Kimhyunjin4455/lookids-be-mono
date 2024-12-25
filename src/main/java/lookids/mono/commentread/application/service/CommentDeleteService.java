@@ -1,15 +1,15 @@
-package lookids.commentread.comment.application.service;
+package lookids.mono.commentread.application.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
-import lookids.commentread.comment.application.mapper.CommentReadDtoMapper;
-import lookids.commentread.comment.application.port.dto.CommentDeleteDto;
-import lookids.commentread.comment.application.port.dto.ReplyDeleteDto;
-import lookids.commentread.comment.application.port.in.CommentDeleteUseCase;
-import lookids.commentread.comment.application.port.out.CommentRepositoryPort;
-import lookids.commentread.comment.domain.model.CommentForRead;
+import lookids.mono.commentread.application.mapper.CommentReadDtoMapper;
+import lookids.mono.commentread.application.port.dto.CommentDeleteDto;
+import lookids.mono.commentread.application.port.dto.ReplyDeleteDto;
+import lookids.mono.commentread.application.port.in.CommentDeleteUseCase;
+import lookids.mono.commentread.application.port.out.CommentRepositoryPort;
+import lookids.mono.commentread.domain.model.CommentForRead;
 
 @RequiredArgsConstructor
 @Service

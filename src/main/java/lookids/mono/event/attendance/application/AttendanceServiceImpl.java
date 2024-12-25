@@ -1,16 +1,15 @@
-package com.lookids.event.attendance.application;
+package lookids.mono.event.attendance.application;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
 import org.springframework.stereotype.Service;
 
-import com.lookids.event.attendance.domain.Attendance;
-import com.lookids.event.attendance.dto.AttendanceRequestDto;
-import com.lookids.event.attendance.dto.AttendanceResponseDto;
-import com.lookids.event.attendance.infrastructure.AttendanceRepository;
-
 import lombok.RequiredArgsConstructor;
+import lookids.mono.event.attendance.domain.Attendance;
+import lookids.mono.event.attendance.dto.AttendanceRequestDto;
+import lookids.mono.event.attendance.dto.AttendanceResponseDto;
+import lookids.mono.event.attendance.infrastructure.AttendanceRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -33,8 +32,8 @@ public class AttendanceServiceImpl implements AttendanceService {
 
 			if (ChronoUnit.DAYS.between(lastAttendDate, today) == 1) {
 				// 마지막 출석 날짜와 오늘이 연속적이라면 continuousAttend 증가
-				attendanceRepository.save(AttendanceRequestDto.toUpdateEntity(attendance,
-					attendance.getContinuousAttend() + 1));
+				attendanceRepository.save(
+					AttendanceRequestDto.toUpdateEntity(attendance, attendance.getContinuousAttend() + 1));
 			} else {
 				// 연속 출석이 아닌 경우 continuousAttend 초기화
 				attendanceRepository.save(AttendanceRequestDto.toUpdateEntity(attendance, 1));

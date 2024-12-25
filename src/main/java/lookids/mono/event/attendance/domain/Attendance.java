@@ -1,4 +1,4 @@
-package com.lookids.event.attendance.domain;
+package lookids.mono.event.attendance.domain;
 
 import java.time.LocalDateTime;
 

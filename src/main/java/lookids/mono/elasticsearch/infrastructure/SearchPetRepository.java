@@ -1,4 +1,4 @@
-package lookids.elasticsearch.infrastructure;
+package lookids.mono.elasticsearch.infrastructure;
 
 import java.util.List;
 
@@ -8,12 +8,13 @@ import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 import org.springframework.stereotype.Repository;
 
-import lookids.elasticsearch.domain.SearchPet;
+import lookids.mono.elasticsearch.domain.SearchPet;
 
 @Repository
 public interface SearchPetRepository extends ElasticsearchRepository<SearchPet, String> {
 
 	void save(List<SearchPet> searchPet);
+
 	SearchPet findByPetCode(String petCode);
 
 	@Query("{\"wildcard\": {\"petName\": \"*?0*\"}}")

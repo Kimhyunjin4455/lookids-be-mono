@@ -1,4 +1,4 @@
-package lookids.elasticsearch.vo;
+package lookids.mono.elasticsearch.vo;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package lookids.feedread.application;
+package lookids.mono.feedread.application;
 
 import java.util.Collections;
 import java.util.List;
@@ -25,21 +25,21 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-import lookids.common.entity.BaseResponseStatus;
-import lookids.common.exception.BaseException;
-import lookids.feedread.domain.FeedRead;
-import lookids.feedread.dto.in.BlockKafkaDto;
-import lookids.feedread.dto.in.FeedKafkaDto;
-import lookids.feedread.dto.in.PetImageKafkaDto;
-import lookids.feedread.dto.in.PetKafkaDto;
-import lookids.feedread.dto.in.UserKafkaDto;
-import lookids.feedread.dto.in.UuidKafkaDto;
-import lookids.feedread.dto.out.FavoriteResponseDto;
-import lookids.feedread.dto.out.FeedListResponseDto;
-import lookids.feedread.dto.out.FeedReadDetailResponseDto;
-import lookids.feedread.dto.out.FeedReadResponseDto;
-import lookids.feedread.dto.out.FollowResponseDto;
-import lookids.feedread.infrastructure.FeedReadRepository;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.feedread.domain.FeedRead;
+import lookids.mono.feedread.dto.in.BlockKafkaDto;
+import lookids.mono.feedread.dto.in.FeedKafkaDto;
+import lookids.mono.feedread.dto.in.PetImageKafkaDto;
+import lookids.mono.feedread.dto.in.PetKafkaDto;
+import lookids.mono.feedread.dto.in.UserKafkaDto;
+import lookids.mono.feedread.dto.in.UuidKafkaDto;
+import lookids.mono.feedread.dto.out.FavoriteResponseDto;
+import lookids.mono.feedread.dto.out.FeedListResponseDto;
+import lookids.mono.feedread.dto.out.FeedReadDetailResponseDto;
+import lookids.mono.feedread.dto.out.FeedReadResponseDto;
+import lookids.mono.feedread.dto.out.FollowResponseDto;
+import lookids.mono.feedread.infrastructure.FeedReadRepository;
 
 @Slf4j
 @Service
@@ -102,17 +102,16 @@ public class FeedReadServiceImpl implements FeedReadService {
 		} catch (InterruptedException | ExecutionException e) {
 			log.error("Error while fetching favorite feed codes", e);
 			targetCodeList = Collections.emptyList();
-		}
-		catch (TimeoutException e) {
+		} catch (TimeoutException e) {
 			log.warn("Timeout while waiting for favorite feed codes", e);
 			targetCodeList = Collections.emptyList();
 		}
 		Criteria criteria = Criteria.where("feedCode").in(targetCodeList).and("state").is(true);
-		Query query = new Query(criteria)
-			.with(Sort.by(Sort.Order.desc("createdAt")))
-			.skip((long) page * size)
+		Query query = new Query(criteria).with(Sort.by(Sort.Order.desc("createdAt")))
+			.skip((long)page * size)
 			.limit(size);
-		List<FeedReadResponseDto> feedDtoList = mongoTemplate.find(query, FeedRead.class).stream()
+		List<FeedReadResponseDto> feedDtoList = mongoTemplate.find(query, FeedRead.class)
+			.stream()
 			.map(FeedReadResponseDto::toDto)
 			.collect(Collectors.toList());
 		long total = mongoTemplate.count(Query.query(criteria), "feedRead");
@@ -135,8 +134,7 @@ public class FeedReadServiceImpl implements FeedReadService {
 		} catch (InterruptedException | ExecutionException e) {
 			log.error("Error while fetching follow list", e);
 			followUuid = Collections.emptyList();
-		}
-		catch (TimeoutException e) {
+		} catch (TimeoutException e) {
 			log.warn("Timeout", e);
 			followUuid = Collections.emptyList();
 		}
@@ -146,8 +144,7 @@ public class FeedReadServiceImpl implements FeedReadService {
 		} catch (InterruptedException | ExecutionException e) {
 			log.error("Error while fetching block list", e);
 			BlockUuidList = Collections.emptyList();
-		}
-		catch (TimeoutException e) {
+		} catch (TimeoutException e) {
 			log.warn("Timeout while waiting for favorite feed codes", e);
 			BlockUuidList = Collections.emptyList();
 		}
@@ -158,15 +155,13 @@ public class FeedReadServiceImpl implements FeedReadService {
 		Criteria blockCriteria = new Criteria();
 		if (!BlockUuidList.isEmpty()) {
 			blockCriteria = Criteria.where("uuid").nin(BlockUuidList);
- 		}
+		}
 		Criteria combinedCriteria = new Criteria().andOperator(followCriteria, blockCriteria);
-		Aggregation aggregation = Aggregation.newAggregation(
-			Aggregation.match(combinedCriteria),
-			Aggregation.sort(Sort.by(Sort.Order.desc("createdAt"))),
-			Aggregation.skip((long) page * size),
-			Aggregation.limit(size)
-		);
-		List<FeedListResponseDto> feedDtoList = mongoTemplate.aggregate(aggregation, "feedRead", FeedRead.class).getMappedResults()
+		Aggregation aggregation = Aggregation.newAggregation(Aggregation.match(combinedCriteria),
+			Aggregation.sort(Sort.by(Sort.Order.desc("createdAt"))), Aggregation.skip((long)page * size),
+			Aggregation.limit(size));
+		List<FeedListResponseDto> feedDtoList = mongoTemplate.aggregate(aggregation, "feedRead", FeedRead.class)
+			.getMappedResults()
 			.stream()
 			.map(feedRead -> {
 				String image = readImageByPetCode(feedRead);
@@ -189,8 +184,7 @@ public class FeedReadServiceImpl implements FeedReadService {
 		} catch (InterruptedException | ExecutionException e) {
 			log.error("Error while fetching favorite feed codes", e);
 			BlockUuidList = Collections.emptyList();
-		}
-		catch (TimeoutException e) {
+		} catch (TimeoutException e) {
 			log.warn("Timeout while waiting for favorite feed codes", e);
 			BlockUuidList = Collections.emptyList();
 		}
@@ -199,36 +193,26 @@ public class FeedReadServiceImpl implements FeedReadService {
 			criteria = criteria.and("uuid").nin(BlockUuidList);
 		}
 
-		Aggregation aggregation = Aggregation.newAggregation(
-			Aggregation.match(criteria),
-			Aggregation.sample(size),
-			Aggregation.skip((long) page * size),
-			Aggregation.limit(size)
-		);
-		List<FeedRead> feedReadList = mongoTemplate.aggregate(aggregation, "feedRead", FeedRead.class).getMappedResults();
+		Aggregation aggregation = Aggregation.newAggregation(Aggregation.match(criteria), Aggregation.sample(size),
+			Aggregation.skip((long)page * size), Aggregation.limit(size));
+		List<FeedRead> feedReadList = mongoTemplate.aggregate(aggregation, "feedRead", FeedRead.class)
+			.getMappedResults();
 		long total = mongoTemplate.count(Query.query(criteria), "feedRead");
 		Pageable pageable = PageRequest.of(page, size);
-		List<FeedReadResponseDto> feedRandomList = feedReadList
-			.stream()
-			.map(FeedReadResponseDto::toDto)
-			.toList();
+		List<FeedReadResponseDto> feedRandomList = feedReadList.stream().map(FeedReadResponseDto::toDto).toList();
 		return new PageImpl<>(feedRandomList, pageable, total);
 	}
 
 	@Override
 	public Page<FeedListResponseDto> readFeedRandomList(int page, int size) {
-			Aggregation aggregation = Aggregation.newAggregation(
-				Aggregation.match(Criteria.where("state").is(true)),
-				Aggregation.skip((long) page * size),
-				Aggregation.limit(size),
-				Aggregation.sample(size));
-		List<FeedRead> feedReadList = mongoTemplate.aggregate(aggregation, "feedRead", FeedRead.class).getMappedResults();
-		List<FeedListResponseDto> feedRandomList = feedReadList
-			.stream().map(feedRead -> {
-				String image = readImageByPetCode(feedRead);
-				return FeedListResponseDto.toDto(feedRead, image);
-			})
-			.collect(Collectors.toList());
+		Aggregation aggregation = Aggregation.newAggregation(Aggregation.match(Criteria.where("state").is(true)),
+			Aggregation.skip((long)page * size), Aggregation.limit(size), Aggregation.sample(size));
+		List<FeedRead> feedReadList = mongoTemplate.aggregate(aggregation, "feedRead", FeedRead.class)
+			.getMappedResults();
+		List<FeedListResponseDto> feedRandomList = feedReadList.stream().map(feedRead -> {
+			String image = readImageByPetCode(feedRead);
+			return FeedListResponseDto.toDto(feedRead, image);
+		}).collect(Collectors.toList());
 		long total = mongoTemplate.count(Query.query(Criteria.where("state").is(true)), "feedRead");
 		Pageable pageable = PageRequest.of(page, size);
 		return new PageImpl<>(feedRandomList, pageable, total);
@@ -237,18 +221,17 @@ public class FeedReadServiceImpl implements FeedReadService {
 	@Override
 	public Page<FeedReadResponseDto> readFeedThumbnailList(String uuid, int page, int size) {
 		Criteria criteria = Criteria.where("state").is(true).and("uuid").is(uuid);
-		Query query = new Query(criteria)
-			.with(Sort.by(Sort.Order.desc("createdAt")))
-			.skip((long) page * size)
+		Query query = new Query(criteria).with(Sort.by(Sort.Order.desc("createdAt")))
+			.skip((long)page * size)
 			.limit(size);
-		List<FeedReadResponseDto> feedDtoList = mongoTemplate.find(query, FeedRead.class).stream()
+		List<FeedReadResponseDto> feedDtoList = mongoTemplate.find(query, FeedRead.class)
+			.stream()
 			.map(FeedReadResponseDto::toDto)
 			.collect(Collectors.toList());
 		long total = mongoTemplate.count(Query.query(criteria), "feedRead");
 		Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Order.desc("createdAt")));
 		return new PageImpl<>(feedDtoList, pageable, total);
 	}
-
 
 	@Override
 	public FeedReadDetailResponseDto readFeedDetail(String feedCode) {
@@ -283,6 +266,7 @@ public class FeedReadServiceImpl implements FeedReadService {
 			return null;
 		}
 	}
+
 	@KafkaListener(topics = "feed-create", groupId = "feed-read-group", containerFactory = "feedEventListenerContainerFactory")
 	public void FeedConsume(FeedKafkaDto feedKafkaDto) {
 		String uuid = feedKafkaDto.getUuid();

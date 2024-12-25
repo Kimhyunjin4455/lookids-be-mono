@@ -1,23 +1,31 @@
-package lookids.manager.information.presention;
-
-import io.swagger.v3.oas.annotations.Operation;
-import lombok.RequiredArgsConstructor;
-import lookids.manager.common.entity.BaseResponse;
-import lookids.manager.common.entity.BaseResponseStatus;
-import lookids.manager.information.application.InformationService;
-import lookids.manager.information.dto.in.InformationRequestDto;
-import lookids.manager.information.dto.in.InformationUpdateRequestDto;
-import lookids.manager.information.dto.out.InformationResponseDto;
-import lookids.manager.information.vo.in.InformationRequestVo;
-import lookids.manager.information.vo.in.InformationUpdateRequestVo;
-import lookids.manager.information.vo.out.InformationResponseVo;
-import org.springframework.web.bind.annotation.*;
+package lookids.mono.manager.information.presention;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import io.swagger.v3.oas.annotations.Operation;
+import lombok.RequiredArgsConstructor;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.manager.information.application.InformationService;
+import lookids.mono.manager.information.dto.in.InformationRequestDto;
+import lookids.mono.manager.information.dto.in.InformationUpdateRequestDto;
+import lookids.mono.manager.information.dto.out.InformationResponseDto;
+import lookids.mono.manager.information.vo.in.InformationRequestVo;
+import lookids.mono.manager.information.vo.in.InformationUpdateRequestVo;
+import lookids.mono.manager.information.vo.out.InformationResponseVo;
+
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1/information")
+@RequestMapping("/manager-service/information")
 public class InformationController {
 
 	private final InformationService informationService;
@@ -28,6 +36,7 @@ public class InformationController {
 		informationService.createInformation(InformationRequestDto.toDto(informationRequestVo));
 		return new BaseResponse<>(BaseResponseStatus.SUCCESS);
 	}
+
 	@Operation(summary = "InformationList 조회 API", description = "InformationList 조회 API 입니다.", tags = {"information"})
 	@GetMapping("/manager")
 	public BaseResponse<List<InformationResponseVo>> readInformationList(String managerUuid) {
@@ -43,10 +52,10 @@ public class InformationController {
 
 	@Operation(summary = "Information 수정 API", description = "Information 수정 API 입니다.", tags = {"information"})
 	@PutMapping()
-	public BaseResponse<Void> updateInformation(
-		@RequestParam String feedCode,
+	public BaseResponse<Void> updateInformation(@RequestParam String feedCode,
 		@RequestBody InformationUpdateRequestVo informationUpdateRequestVo) {
-		informationService.updateInformation(feedCode, InformationUpdateRequestDto.toDto(feedCode, informationUpdateRequestVo));
+		informationService.updateInformation(feedCode,
+			InformationUpdateRequestDto.toDto(feedCode, informationUpdateRequestVo));
 		return new BaseResponse<>(BaseResponseStatus.SUCCESS);
 	}
 

@@ -1,31 +1,31 @@
-package lookids.commentread.comment.application.mapper;
+package lookids.mono.commentread.application.mapper;
 
 import java.util.List;
 
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
-import lookids.commentread.comment.adaptor.in.kafka.event.CommentEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.NicknameEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.ProfileImageEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.ReplyEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.UserProfileEvent;
-import lookids.commentread.comment.application.port.dto.CommentCountResponseDto;
-import lookids.commentread.comment.application.port.dto.CommentCreateEventDto;
-import lookids.commentread.comment.application.port.dto.CommentDeleteDto;
-import lookids.commentread.comment.application.port.dto.CommentDeleteSaveDto;
-import lookids.commentread.comment.application.port.dto.CommentReadResponseDto;
-import lookids.commentread.comment.application.port.dto.CommentReadSaveDto;
-import lookids.commentread.comment.application.port.dto.CommentReadUpdateDto;
-import lookids.commentread.comment.application.port.dto.ReplyCreateEventDto;
-import lookids.commentread.comment.application.port.dto.ReplyDeleteDto;
-import lookids.commentread.comment.application.port.dto.ReplyReadResponseDto;
-import lookids.commentread.comment.application.port.dto.UserProfileImageDto;
-import lookids.commentread.comment.application.port.dto.UserProfileNicknameDto;
-import lookids.commentread.comment.application.port.dto.UserProfileUpdateSaveDto;
-import lookids.commentread.comment.domain.model.CommentForRead;
-import lookids.commentread.comment.domain.model.FeedCount;
-import lookids.commentread.comment.domain.model.ReplyForRead;
+import lookids.mono.commentread.adaptor.in.kafka.event.CommentEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.NicknameEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.ProfileImageEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.ReplyEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.UserProfileEvent;
+import lookids.mono.commentread.application.port.dto.CommentCountResponseDto;
+import lookids.mono.commentread.application.port.dto.CommentCreateEventDto;
+import lookids.mono.commentread.application.port.dto.CommentDeleteDto;
+import lookids.mono.commentread.application.port.dto.CommentDeleteSaveDto;
+import lookids.mono.commentread.application.port.dto.CommentReadResponseDto;
+import lookids.mono.commentread.application.port.dto.CommentReadSaveDto;
+import lookids.mono.commentread.application.port.dto.CommentReadUpdateDto;
+import lookids.mono.commentread.application.port.dto.ReplyCreateEventDto;
+import lookids.mono.commentread.application.port.dto.ReplyDeleteDto;
+import lookids.mono.commentread.application.port.dto.ReplyReadResponseDto;
+import lookids.mono.commentread.application.port.dto.UserProfileImageDto;
+import lookids.mono.commentread.application.port.dto.UserProfileNicknameDto;
+import lookids.mono.commentread.application.port.dto.UserProfileUpdateSaveDto;
+import lookids.mono.commentread.domain.model.CommentForRead;
+import lookids.mono.commentread.domain.model.FeedCount;
+import lookids.mono.commentread.domain.model.ReplyForRead;
 
 @Component
 public class CommentReadDtoMapper {

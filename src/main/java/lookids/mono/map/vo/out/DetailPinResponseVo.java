@@ -1,4 +1,4 @@
-package lookids.map.map.vo.out;
+package lookids.mono.map.vo.out;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -13,11 +13,7 @@ public class DetailPinResponseVo {
 	private Double longitude;
 
 	@Builder
-	public DetailPinResponseVo(
-		String mediaUrl,
-		Double latitude,
-		Double longitude
-	) {
+	public DetailPinResponseVo(String mediaUrl, Double latitude, Double longitude) {
 		this.mediaUrl = mediaUrl;
 		this.latitude = latitude;
 		this.longitude = longitude;

@@ -1,9 +1,9 @@
-package lookids.elasticsearch.dto.out;
+package lookids.mono.elasticsearch.dto.out;
 
 import lombok.Builder;
 import lombok.Getter;
-import lookids.elasticsearch.domain.SearchPet;
-import lookids.elasticsearch.vo.SearchPetResponseVo;
+import lookids.mono.elasticsearch.domain.SearchPet;
+import lookids.mono.elasticsearch.vo.SearchPetResponseVo;
 
 @Getter
 public class SearchPetResponseDto {
@@ -16,7 +16,8 @@ public class SearchPetResponseDto {
 	private String userTag;
 
 	@Builder
-	public SearchPetResponseDto(String petName, String petType, String petImage, String petCode, String userNickname, String userTag) {
+	public SearchPetResponseDto(String petName, String petType, String petImage, String petCode, String userNickname,
+		String userTag) {
 		this.petName = petName;
 		this.petType = petType;
 		this.petImage = petImage;

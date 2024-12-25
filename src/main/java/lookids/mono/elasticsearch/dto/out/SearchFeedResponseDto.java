@@ -1,11 +1,11 @@
-package lookids.elasticsearch.dto.out;
+package lookids.mono.elasticsearch.dto.out;
 
 import java.util.List;
 
 import lombok.Builder;
 import lombok.Getter;
-import lookids.elasticsearch.domain.SearchFeed;
-import lookids.elasticsearch.vo.SearchFeedResponseVo;
+import lookids.mono.elasticsearch.domain.SearchFeed;
+import lookids.mono.elasticsearch.vo.SearchFeedResponseVo;
 
 @Getter
 public class SearchFeedResponseDto {

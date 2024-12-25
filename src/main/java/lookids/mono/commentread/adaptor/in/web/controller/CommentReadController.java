@@ -1,4 +1,4 @@
-package lookids.commentread.comment.adaptor.in.web.controller;
+package lookids.mono.commentread.adaptor.in.web.controller;
 
 import java.util.List;
 
@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.commentread.comment.adaptor.in.web.mapper.WebVoMapper;
-import lookids.commentread.comment.adaptor.in.web.vo.out.CommentCountResponseVo;
-import lookids.commentread.comment.adaptor.in.web.vo.out.CommentReadResponseVo;
-import lookids.commentread.comment.adaptor.in.web.vo.out.ReplyReadResponseVo;
-import lookids.commentread.comment.application.port.dto.CommentReadResponseDto;
-import lookids.commentread.comment.application.port.dto.ReplyReadResponseDto;
-import lookids.commentread.comment.application.port.in.CommentReadUseCase;
-import lookids.commentread.common.entity.BaseResponse;
+import lookids.mono.commentread.adaptor.in.web.mapper.WebVoMapper;
+import lookids.mono.commentread.adaptor.in.web.vo.out.CommentCountResponseVo;
+import lookids.mono.commentread.adaptor.in.web.vo.out.CommentReadResponseVo;
+import lookids.mono.commentread.adaptor.in.web.vo.out.ReplyReadResponseVo;
+import lookids.mono.commentread.application.port.dto.CommentReadResponseDto;
+import lookids.mono.commentread.application.port.dto.ReplyReadResponseDto;
+import lookids.mono.commentread.application.port.in.CommentReadUseCase;
+import lookids.mono.common.entity.BaseResponse;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/read/comment")
+@RequestMapping("comment-read-service/read/comment")
 public class CommentReadController {
 	private final CommentReadUseCase commentReadUseCase;
 	private final WebVoMapper webVoMapper;

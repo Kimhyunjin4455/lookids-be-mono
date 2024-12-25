@@ -1,4 +1,4 @@
-package lookids.alarm.notification.dto.in;
+package lookids.mono.notification.dto.in;
 
 import java.util.List;
 
@@ -16,12 +16,7 @@ public class NotificationKafkaRequestDto {
 	private String type;
 
 	@Builder
-	public NotificationKafkaRequestDto(
-		String senderUuid,
-		List<String> receiverUuidList,
-		String content,
-		String type
-	) {
+	public NotificationKafkaRequestDto(String senderUuid, List<String> receiverUuidList, String content, String type) {
 		this.senderUuid = senderUuid;
 		this.receiverUuidList = receiverUuidList;
 		this.content = content;

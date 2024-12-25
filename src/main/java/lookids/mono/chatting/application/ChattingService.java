@@ -1,19 +1,19 @@
-package lookids.chatting.chatting.application;
+package lookids.mono.chatting.application;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import lookids.chatting.chatting.dto.in.ChatRoomNameUpdateRequestDto;
-import lookids.chatting.chatting.dto.in.ChatRoomRequestDto;
-import lookids.chatting.chatting.dto.in.ChattingRequestDto;
-import lookids.chatting.chatting.dto.in.ChattingUpdateRequestDto;
-import lookids.chatting.chatting.dto.out.ChatRoomResponseDto;
-import lookids.chatting.chatting.dto.out.ChattingResponseDto;
-import lookids.chatting.chatting.dto.out.CheckOneToOneChatResponseDto;
-import lookids.chatting.chatting.dto.out.LastReadChatMessageResponseDto;
-import lookids.chatting.chatting.dto.out.ParticipantListDto;
-import lookids.chatting.chatting.dto.out.RoomIdResponseDto;
-import lookids.chatting.common.utils.CursorPage;
+import lookids.mono.chatting.dto.in.ChatRoomNameUpdateRequestDto;
+import lookids.mono.chatting.dto.in.ChatRoomRequestDto;
+import lookids.mono.chatting.dto.in.ChattingRequestDto;
+import lookids.mono.chatting.dto.in.ChattingUpdateRequestDto;
+import lookids.mono.chatting.dto.out.ChatRoomResponseDto;
+import lookids.mono.chatting.dto.out.ChattingResponseDto;
+import lookids.mono.chatting.dto.out.CheckOneToOneChatResponseDto;
+import lookids.mono.chatting.dto.out.LastReadChatMessageResponseDto;
+import lookids.mono.chatting.dto.out.ParticipantListDto;
+import lookids.mono.chatting.dto.out.RoomIdResponseDto;
+import lookids.mono.common.utils.CursorPage;
 import reactor.core.publisher.Flux;
 
 public interface ChattingService {

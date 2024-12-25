@@ -1,4 +1,4 @@
-package lookids.elasticsearch.dto.in;
+package lookids.mono.elasticsearch.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -16,14 +16,8 @@ public class KafkaPetCreateRequestDto {
 	private String userTag;
 
 	@Builder
-	public KafkaPetCreateRequestDto(
-		String petName,
-		String petType,
-		String petImage,
-		String petCode,
-		String userNickname,
-		String userTag
-	) {
+	public KafkaPetCreateRequestDto(String petName, String petType, String petImage, String petCode,
+		String userNickname, String userTag) {
 		this.petName = petName;
 		this.petType = petType;
 		this.petImage = petImage;

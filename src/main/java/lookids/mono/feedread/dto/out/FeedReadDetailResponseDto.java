@@ -1,4 +1,4 @@
-package lookids.feedread.dto.out;
+package lookids.mono.feedread.dto.out;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -7,8 +7,8 @@ import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.feedread.domain.FeedRead;
-import lookids.feedread.vo.out.FeedReadDetailResponseVo;
+import lookids.mono.feedread.domain.FeedRead;
+import lookids.mono.feedread.vo.out.FeedReadDetailResponseVo;
 
 @Getter
 @NoArgsConstructor
@@ -25,8 +25,8 @@ public class FeedReadDetailResponseDto {
 	private LocalDateTime createdAt;
 
 	@Builder
-	public FeedReadDetailResponseDto(String uuid, String nickname, String tag, String image, List<String> petCode, String content,
-		List<String> tagList, List<String> mediaUrlList, LocalDateTime createdAt) {
+	public FeedReadDetailResponseDto(String uuid, String nickname, String tag, String image, List<String> petCode,
+		String content, List<String> tagList, List<String> mediaUrlList, LocalDateTime createdAt) {
 		this.uuid = uuid;
 		this.nickname = nickname;
 		this.tag = tag;

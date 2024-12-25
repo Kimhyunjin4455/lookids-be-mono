@@ -1,4 +1,4 @@
-package lookids.commentread.comment.adaptor.out.infrastructure.mongo.restRepository;
+package lookids.mono.commentread.adaptor.out.infrastructure.mongo.restRepository;
 
 import java.util.List;
 
@@ -15,17 +15,17 @@ import com.mongodb.client.model.UpdateOptions;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.commentread.comment.adaptor.out.infrastructure.entity.CommentReadEntity;
-import lookids.commentread.comment.adaptor.out.infrastructure.entity.FeedEntity;
-import lookids.commentread.comment.adaptor.out.infrastructure.mapper.CommentEntityMapper;
-import lookids.commentread.comment.application.port.dto.CommentDeleteSaveDto;
-import lookids.commentread.comment.application.port.dto.CommentReadSaveDto;
-import lookids.commentread.comment.application.port.dto.CommentReadUpdateDto;
-import lookids.commentread.comment.application.port.dto.ReplyDeleteDto;
-import lookids.commentread.comment.application.port.dto.UserProfileUpdateSaveDto;
-import lookids.commentread.comment.application.port.out.CommentRepositoryPort;
-import lookids.commentread.comment.domain.model.CommentForRead;
-import lookids.commentread.comment.domain.model.FeedCount;
+import lookids.mono.commentread.adaptor.out.infrastructure.entity.CommentReadEntity;
+import lookids.mono.commentread.adaptor.out.infrastructure.entity.FeedEntity;
+import lookids.mono.commentread.adaptor.out.infrastructure.mapper.CommentEntityMapper;
+import lookids.mono.commentread.application.port.dto.CommentDeleteSaveDto;
+import lookids.mono.commentread.application.port.dto.CommentReadSaveDto;
+import lookids.mono.commentread.application.port.dto.CommentReadUpdateDto;
+import lookids.mono.commentread.application.port.dto.ReplyDeleteDto;
+import lookids.mono.commentread.application.port.dto.UserProfileUpdateSaveDto;
+import lookids.mono.commentread.application.port.out.CommentRepositoryPort;
+import lookids.mono.commentread.domain.model.CommentForRead;
+import lookids.mono.commentread.domain.model.FeedCount;
 
 @Slf4j
 @RequiredArgsConstructor

@@ -1,4 +1,4 @@
-package com.lookids.event.attendance.vo;
+package lookids.mono.event.attendance.vo;
 
 public class AttendanceRequestVo {
 }

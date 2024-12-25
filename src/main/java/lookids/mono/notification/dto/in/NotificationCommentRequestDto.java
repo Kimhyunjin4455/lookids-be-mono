@@ -1,4 +1,4 @@
-package lookids.alarm.notification.dto.in;
+package lookids.mono.notification.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,14 +12,8 @@ public class NotificationCommentRequestDto {
 	private String content;
 	private String feedCode;
 
-
 	@Builder
-	public NotificationCommentRequestDto(
-		String uuid,
-		String receiverUuid,
-		String content,
-		String feedCode
-	) {
+	public NotificationCommentRequestDto(String uuid, String receiverUuid, String content, String feedCode) {
 		this.uuid = uuid;
 		this.receiverUuid = receiverUuid;
 		this.content = content;

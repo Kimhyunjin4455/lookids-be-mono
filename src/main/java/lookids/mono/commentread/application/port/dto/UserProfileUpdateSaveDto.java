@@ -1,4 +1,4 @@
-package lookids.commentread.comment.application.port.dto;
+package lookids.mono.commentread.application.port.dto;
 
 import org.springframework.data.mongodb.core.query.Update;
 

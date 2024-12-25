@@ -1,10 +1,10 @@
-package lookids.map.map.dto.out;
+package lookids.mono.map.dto.out;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
-import lookids.map.map.domain.Map;
-import lookids.map.map.vo.out.PinResponseVo;
+import lookids.mono.map.domain.Map;
+import lookids.mono.map.vo.out.PinResponseVo;
 
 @Getter
 @ToString

@@ -1,4 +1,4 @@
-package lookids.alarm.notification.vo.out;
+package lookids.mono.notification.vo.out;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,19 +19,13 @@ public class NotificationResponseVo {
 	private LocalDateTime createdAt;
 
 	@Builder
-	public NotificationResponseVo(
-		String senderUuid,
-		List<String> receiverUuidList,
-		String content,
-		String type,
-		LocalDateTime createdAt
-	) {
+	public NotificationResponseVo(String senderUuid, List<String> receiverUuidList, String content, String type,
+		LocalDateTime createdAt) {
 		this.senderUuid = senderUuid;
 		this.receiverUuidList = receiverUuidList;
 		this.content = content;
 		this.type = type;
 		this.createdAt = createdAt;
 	}
-
 
 }

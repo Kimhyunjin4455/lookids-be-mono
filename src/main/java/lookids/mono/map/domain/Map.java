@@ -1,4 +1,4 @@
-package lookids.map.map.domain;
+package lookids.mono.map.domain;
 
 import java.time.LocalDateTime;
 
@@ -54,19 +54,9 @@ public class Map {
 	private LocalDateTime modDate;
 
 	@Builder
-	public Map(Long id,
-		String uuid,
-		String pinCode,
-		String feedCode,
-		Double latitude,
-		Double longitude,
-		String category,
-		String mediaUrl,
-		Integer locationScore,
-		Boolean stateChecked,
-		LocalDateTime createdAt,
-		LocalDateTime modDate
-	) {
+	public Map(Long id, String uuid, String pinCode, String feedCode, Double latitude, Double longitude,
+		String category, String mediaUrl, Integer locationScore, Boolean stateChecked, LocalDateTime createdAt,
+		LocalDateTime modDate) {
 		this.id = id;
 		this.uuid = uuid;
 		this.pinCode = pinCode;

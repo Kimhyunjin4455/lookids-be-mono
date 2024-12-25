@@ -1,4 +1,4 @@
-package lookids.alarm.notification.domain;
+package lookids.mono.notification.domain;
 
 import java.time.LocalDateTime;
 
@@ -29,13 +29,8 @@ public class FailedNotification {
 	private NotificationStatus status; // FAILED_PERMANENT 등
 
 	@Builder
-	public FailedNotification(
-		String failedRequestData,
-		String failedRequestType,
-		String exceptionMessage,
-		LocalDateTime failedAt,
-		NotificationStatus status
-	) {
+	public FailedNotification(String failedRequestData, String failedRequestType, String exceptionMessage,
+		LocalDateTime failedAt, NotificationStatus status) {
 		this.failedRequestData = failedRequestData;
 		this.failedRequestType = failedRequestType;
 		this.exceptionMessage = exceptionMessage;

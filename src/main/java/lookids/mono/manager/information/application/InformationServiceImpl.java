@@ -1,4 +1,4 @@
-package lookids.manager.information.application;
+package lookids.mono.manager.information.application;
 
 import java.util.List;
 import java.util.UUID;
@@ -7,13 +7,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
-import lookids.manager.common.entity.BaseResponseStatus;
-import lookids.manager.common.exception.BaseException;
-import lookids.manager.information.domain.Information;
-import lookids.manager.information.dto.in.InformationRequestDto;
-import lookids.manager.information.dto.in.InformationUpdateRequestDto;
-import lookids.manager.information.dto.out.InformationResponseDto;
-import lookids.manager.information.infrastructure.InformationRepository;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.manager.information.domain.Information;
+import lookids.mono.manager.information.dto.in.InformationRequestDto;
+import lookids.mono.manager.information.dto.in.InformationUpdateRequestDto;
+import lookids.mono.manager.information.dto.out.InformationResponseDto;
+import lookids.mono.manager.information.infrastructure.InformationRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -31,7 +31,7 @@ public class InformationServiceImpl implements InformationService {
 	@Override
 	public InformationResponseDto readInformation(String feedCode) {
 		return InformationResponseDto.toDto(informationRepository.findByFeedCode(feedCode)
-				.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_FEED)));
+			.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_FEED)));
 	}
 
 	@Override

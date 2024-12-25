@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.infrastructure;
+package lookids.mono.chatting.infrastructure;
 
 import java.util.Optional;
 
@@ -7,7 +7,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
-import lookids.chatting.chatting.domain.ChatRoom;
+import lookids.mono.chatting.domain.ChatRoom;
 
 public interface ChatRoomRepository extends MongoRepository<ChatRoom, String> {
 	@Query("{ 'participants.userId': ?0 }")

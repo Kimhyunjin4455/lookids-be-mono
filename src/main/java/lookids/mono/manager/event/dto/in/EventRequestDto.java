@@ -1,15 +1,13 @@
-package lookids.manager.event.dto.in;
+package lookids.mono.manager.event.dto.in;
 
 import java.time.LocalDateTime;
-
-import org.w3c.dom.Text;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.manager.event.domain.Event;
-import lookids.manager.event.vo.in.EventRequestVo;
+import lookids.mono.manager.event.domain.Event;
+import lookids.mono.manager.event.vo.in.EventRequestVo;
 
 @Getter
 @Builder

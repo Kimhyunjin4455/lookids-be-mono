@@ -1,4 +1,4 @@
-package lookids.feedread.domain;
+package lookids.mono.feedread.domain;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,8 +11,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.feedread.dto.in.FeedKafkaDto;
-import lookids.feedread.dto.in.UserKafkaDto;
+import lookids.mono.feedread.dto.in.FeedKafkaDto;
+import lookids.mono.feedread.dto.in.UserKafkaDto;
 
 @Getter
 @NoArgsConstructor
@@ -33,10 +33,10 @@ public class FeedRead {
 	private List<String> mediaUrlList;
 	private LocalDateTime createdAt;
 
-
 	@Builder
 	public FeedRead(ObjectId id, String feedCode, String uuid, String tag, List<String> petCode, String content,
-		List<String> tagList, boolean state, List<String> mediaUrlList, LocalDateTime createdAt, String nickname, String image) {
+		List<String> tagList, boolean state, List<String> mediaUrlList, LocalDateTime createdAt, String nickname,
+		String image) {
 		this.id = id;
 		this.feedCode = feedCode;
 		this.uuid = uuid;

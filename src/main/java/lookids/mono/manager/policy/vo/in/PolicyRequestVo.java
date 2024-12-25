@@ -1,4 +1,4 @@
-package lookids.manager.policy.vo.in;
+package lookids.mono.manager.policy.vo.in;
 
 import lombok.Getter;
 import lombok.ToString;

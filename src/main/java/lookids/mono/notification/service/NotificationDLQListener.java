@@ -1,4 +1,4 @@
-package lookids.alarm.notification.service;
+package lookids.mono.notification.service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -10,15 +10,15 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.alarm.notification.domain.FailedNotification;
-import lookids.alarm.notification.domain.FcmToken;
-import lookids.alarm.notification.domain.Notification;
-import lookids.alarm.notification.domain.NotificationStatus;
-import lookids.alarm.notification.domain.NotificationType;
-import lookids.alarm.notification.dto.in.NotificationFeedRequestDto;
-import lookids.alarm.notification.repository.FailedNotificationRepository;
-import lookids.alarm.notification.repository.FcmTokenRepository;
-import lookids.alarm.notification.repository.NotificationRepository;
+import lookids.mono.notification.domain.FailedNotification;
+import lookids.mono.notification.domain.FcmToken;
+import lookids.mono.notification.domain.Notification;
+import lookids.mono.notification.domain.NotificationStatus;
+import lookids.mono.notification.domain.NotificationType;
+import lookids.mono.notification.dto.in.NotificationFeedRequestDto;
+import lookids.mono.notification.repository.FailedNotificationRepository;
+import lookids.mono.notification.repository.FcmTokenRepository;
+import lookids.mono.notification.repository.NotificationRepository;
 
 @Service
 @RequiredArgsConstructor
@@ -34,11 +34,8 @@ public class NotificationDLQListener {
 	@Value("${topic.feed.create}")
 	private String feedCreateTopic;
 
-
-	@KafkaListener(
-		topics = "${topic.feed.create}-dead-letter",
-		groupId = "${consumer-group-id.feed}-dlq"
-	)public void handleDeadLetter(NotificationFeedRequestDto notificationFeedRequestDto) {
+	@KafkaListener(topics = "${topic.feed.create}-dead-letter", groupId = "${consumer-group-id.feed}-dlq")
+	public void handleDeadLetter(NotificationFeedRequestDto notificationFeedRequestDto) {
 		log.info("handleDeadLetter: {}", notificationFeedRequestDto);
 
 		try {
@@ -86,9 +83,9 @@ public class NotificationDLQListener {
 				// FCM 토큰 확인 및 푸시 전송
 				Optional<FcmToken> fcmTokenOpt = fcmTokenRepository.findByUuid(receiverUuid);
 				if (fcmTokenOpt.isPresent()) {
-					fcmTokenOpt.get().getFcmTokenList().forEach(token ->
-						pushService.sendPushNotification(token, notification)
-					);
+					fcmTokenOpt.get()
+						.getFcmTokenList()
+						.forEach(token -> pushService.sendPushNotification(token, notification));
 				} else {
 					throw new IllegalArgumentException("FCM 토큰이 없습니다.");
 				}

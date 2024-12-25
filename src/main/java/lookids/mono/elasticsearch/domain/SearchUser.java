@@ -1,4 +1,4 @@
-package lookids.elasticsearch.domain;
+package lookids.mono.elasticsearch.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -29,7 +29,6 @@ public class SearchUser {
 
 	@Field(type = FieldType.Boolean)
 	private boolean state;
-
 
 	@Builder
 	public SearchUser(String id, String uuid, String nickname, String tag, String image, boolean state) {

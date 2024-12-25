@@ -1,7 +1,7 @@
-package lookids.favorite.favorite.vo;
+package lookids.mono.favorite.vo;
 
 import lombok.Getter;
-import lookids.favorite.favorite.domain.FavoriteType;
+import lookids.mono.favorite.domain.FavoriteType;
 
 @Getter
 public class FavoriteRequestVo {

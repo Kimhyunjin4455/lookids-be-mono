@@ -1,15 +1,15 @@
-package lookids.commentread.comment.adaptor.out.infrastructure.mapper;
+package lookids.mono.commentread.adaptor.out.infrastructure.mapper;
 
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
-import lookids.commentread.comment.adaptor.out.infrastructure.entity.CommentReadEntity;
-import lookids.commentread.comment.adaptor.out.infrastructure.entity.FeedEntity;
-import lookids.commentread.comment.application.port.dto.CommentReadSaveDto;
-import lookids.commentread.comment.application.port.dto.CommentReadUpdateDto;
-import lookids.commentread.comment.domain.model.CommentForRead;
-import lookids.commentread.comment.domain.model.FeedCount;
+import lookids.mono.commentread.adaptor.out.infrastructure.entity.CommentReadEntity;
+import lookids.mono.commentread.adaptor.out.infrastructure.entity.FeedEntity;
+import lookids.mono.commentread.application.port.dto.CommentReadSaveDto;
+import lookids.mono.commentread.application.port.dto.CommentReadUpdateDto;
+import lookids.mono.commentread.domain.model.CommentForRead;
+import lookids.mono.commentread.domain.model.FeedCount;
 
 @Slf4j
 @Component

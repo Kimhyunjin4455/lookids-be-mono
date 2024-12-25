@@ -1,4 +1,4 @@
-package lookids.manager.event.domain;
+package lookids.mono.manager.event.domain;
 
 import java.time.LocalDateTime;
 
@@ -11,16 +11,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.manager.common.entity.BaseEntity;
-import lookids.manager.event.dto.in.EventRequestDto;
-import lookids.manager.event.dto.in.EventUpdateRequestDto;
+import lookids.mono.common.entity.BaseEntity;
+import lookids.mono.manager.event.dto.in.EventUpdateRequestDto;
 
 @Getter
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Event extends BaseEntity{
+public class Event extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,4 +1,4 @@
-package lookids.manager.policy.presention;
+package lookids.mono.manager.policy.presention;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,15 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import lookids.manager.common.entity.BaseResponse;
-import lookids.manager.common.entity.BaseResponseStatus;
-import lookids.manager.policy.application.PolicyService;
-import lookids.manager.policy.dto.in.PolicyRequestDto;
-import lookids.manager.policy.vo.in.PolicyRequestVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.manager.policy.application.PolicyService;
+import lookids.mono.manager.policy.dto.in.PolicyRequestDto;
+import lookids.mono.manager.policy.vo.in.PolicyRequestVo;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/write/policy")
+@RequestMapping("/manager-service/write/policy")
 public class PolicyWriteController {
 
 	private final PolicyService policyService;

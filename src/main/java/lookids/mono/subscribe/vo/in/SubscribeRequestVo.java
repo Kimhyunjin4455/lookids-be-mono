@@ -1,4 +1,4 @@
-package lookids.subscribe.subscribe.vo.in;
+package lookids.mono.subscribe.vo.in;
 
 import lombok.Getter;
 import lombok.ToString;

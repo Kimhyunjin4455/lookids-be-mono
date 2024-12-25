@@ -1,4 +1,4 @@
-package lookids.alarm.notification.vo.in;
+package lookids.mono.notification.vo.in;
 
 import lombok.Getter;
 import lombok.ToString;

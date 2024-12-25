@@ -1,11 +1,11 @@
-package lookids.map.map.dto.in;
+package lookids.mono.map.dto.in;
 
 import java.time.LocalDateTime;
 
 import lombok.Builder;
 import lombok.Getter;
-import lookids.map.map.domain.Map;
-import lookids.map.map.vo.in.PinUpdateVo;
+import lookids.mono.map.domain.Map;
+import lookids.mono.map.vo.in.PinUpdateVo;
 
 @Getter
 public class PinUpdateDto {

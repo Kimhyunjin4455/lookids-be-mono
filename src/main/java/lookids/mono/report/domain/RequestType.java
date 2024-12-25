@@ -1,4 +1,4 @@
-package lookids.report.report.domain;
+package lookids.mono.report.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
@@ -10,8 +10,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum RequestType {
 
-	INQUIRY("문의"),
-	REPORT("신고");
+	INQUIRY("문의"), REPORT("신고");
 
 	private final String requestType;
 

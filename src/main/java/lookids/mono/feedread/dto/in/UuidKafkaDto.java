@@ -1,10 +1,10 @@
-package lookids.feedread.dto.in;
+package lookids.mono.feedread.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.feedread.domain.FeedRead;
+import lookids.mono.feedread.domain.FeedRead;
 
 @Getter
 @NoArgsConstructor
@@ -19,9 +19,7 @@ public class UuidKafkaDto {
 	}
 
 	public static UuidKafkaDto toDto(String uuid) {
-		return UuidKafkaDto.builder()
-			.uuid(uuid)
-			.build();
+		return UuidKafkaDto.builder().uuid(uuid).build();
 	}
 
 	public FeedRead toDelete(FeedRead feedRead) {

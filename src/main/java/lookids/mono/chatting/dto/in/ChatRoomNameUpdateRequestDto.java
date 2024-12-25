@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.dto.in;
+package lookids.mono.chatting.dto.in;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -8,9 +8,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.chatting.chatting.domain.ChatRoom;
-import lookids.chatting.chatting.domain.Participant;
-import lookids.chatting.chatting.vo.in.ChatRoomNameUpdateRequestVo;
+import lookids.mono.chatting.domain.ChatRoom;
+import lookids.mono.chatting.domain.Participant;
+import lookids.mono.chatting.vo.in.ChatRoomNameUpdateRequestVo;
 
 @AllArgsConstructor
 @NoArgsConstructor

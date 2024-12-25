@@ -1,4 +1,4 @@
-package lookids.elasticsearch.domain;
+package lookids.mono.elasticsearch.domain;
 
 import java.util.List;
 
@@ -30,7 +30,8 @@ public class SearchFeed {
 	private List<String> mediaUrlList;
 
 	@Builder
-	public SearchFeed(String id, String feedCode, List<String> petCode, List<String> tagList, List<String> mediaUrlList) {
+	public SearchFeed(String id, String feedCode, List<String> petCode, List<String> tagList,
+		List<String> mediaUrlList) {
 		this.id = id;
 		this.feedCode = feedCode;
 		this.petCode = petCode;

@@ -1,12 +1,12 @@
-package lookids.map.map.dto.in;
+package lookids.mono.map.dto.in;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 import lombok.Builder;
 import lombok.Getter;
-import lookids.map.map.domain.Map;
-import lookids.map.map.vo.in.PinRequestVo;
+import lookids.mono.map.domain.Map;
+import lookids.mono.map.vo.in.PinRequestVo;
 
 @Getter
 public class PinRequestDto {
@@ -22,16 +22,8 @@ public class PinRequestDto {
 	private Boolean stateChecked;
 
 	@Builder
-	public PinRequestDto(Long id,
-		String uuid,
-		Double latitude,
-		Double longitude,
-		String category,
-		String mediaUrl,
-		Integer locationScore,
-		LocalDateTime createdAt,
-		Boolean stateChecked
-	) {
+	public PinRequestDto(Long id, String uuid, Double latitude, Double longitude, String category, String mediaUrl,
+		Integer locationScore, LocalDateTime createdAt, Boolean stateChecked) {
 		this.id = id;
 		this.uuid = uuid;
 		this.latitude = latitude;

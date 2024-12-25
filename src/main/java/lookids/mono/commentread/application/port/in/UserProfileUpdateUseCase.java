@@ -1,7 +1,7 @@
-package lookids.commentread.comment.application.port.in;
+package lookids.mono.commentread.application.port.in;
 
-import lookids.commentread.comment.application.port.dto.UserProfileImageDto;
-import lookids.commentread.comment.application.port.dto.UserProfileNicknameDto;
+import lookids.mono.commentread.application.port.dto.UserProfileImageDto;
+import lookids.mono.commentread.application.port.dto.UserProfileNicknameDto;
 
 public interface UserProfileUpdateUseCase {
 

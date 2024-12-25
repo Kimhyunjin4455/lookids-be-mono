@@ -1,4 +1,4 @@
-package lookids.alarm.notification.dto.in;
+package lookids.mono.notification.dto.in;
 
 import java.util.List;
 
@@ -17,14 +17,8 @@ public class NotificationFeedRequestDto {
 	private String type;
 
 	@Builder
-	public NotificationFeedRequestDto(
-		String senderUuid,
-		List<String> receiverUuidList,
-		String content,
-		String mediaUrl,
-		String feedCode,
-		String type
-	) {
+	public NotificationFeedRequestDto(String senderUuid, List<String> receiverUuidList, String content, String mediaUrl,
+		String feedCode, String type) {
 		this.senderUuid = senderUuid;
 		this.receiverUuidList = receiverUuidList;
 		this.content = content;

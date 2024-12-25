@@ -1,4 +1,4 @@
-package lookids.map.map.dto.in;
+package lookids.mono.map.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;

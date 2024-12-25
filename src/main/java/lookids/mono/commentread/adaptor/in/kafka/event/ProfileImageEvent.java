@@ -1,4 +1,4 @@
-package lookids.commentread.comment.adaptor.in.kafka.event;
+package lookids.mono.commentread.adaptor.in.kafka.event;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

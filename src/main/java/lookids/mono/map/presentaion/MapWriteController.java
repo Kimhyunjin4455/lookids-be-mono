@@ -1,4 +1,4 @@
-package lookids.map.map.presentaion;
+package lookids.mono.map.presentaion;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,17 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import lookids.map.common.entity.BaseResponse;
-import lookids.map.common.entity.BaseResponseStatus;
-import lookids.map.map.application.MapService;
-import lookids.map.map.dto.in.PinRequestDto;
-import lookids.map.map.dto.in.PinUpdateDto;
-import lookids.map.map.vo.in.PinRequestVo;
-import lookids.map.map.vo.in.PinUpdateVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.map.application.MapService;
+import lookids.mono.map.dto.in.PinRequestDto;
+import lookids.mono.map.dto.in.PinUpdateDto;
+import lookids.mono.map.vo.in.PinRequestVo;
+import lookids.mono.map.vo.in.PinUpdateVo;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("write/map")
+@RequestMapping("/map-service/write/map")
 public class MapWriteController {
 
 	private final MapService mapService;

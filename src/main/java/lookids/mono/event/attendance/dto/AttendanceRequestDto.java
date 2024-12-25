@@ -1,8 +1,8 @@
-package com.lookids.event.attendance.dto;
+package lookids.mono.event.attendance.dto;
 
 import java.time.LocalDateTime;
 
-import com.lookids.event.attendance.domain.Attendance;
+import lookids.mono.event.attendance.domain.Attendance;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

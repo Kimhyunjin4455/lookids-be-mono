@@ -1,9 +1,9 @@
-package com.lookids.event.event.application;
+package lookids.mono.event.event.application;
 
 import java.util.List;
 
-import com.lookids.event.event.dto.EventRequestDto;
-import com.lookids.event.event.dto.EventResponseDto;
+import lookids.mono.event.event.dto.EventRequestDto;
+import lookids.mono.event.event.dto.EventResponseDto;
 
 public interface EventService {
 	void createEvent(EventRequestDto eventRequestDto);

@@ -1,4 +1,4 @@
-package lookids.elasticsearch.dto.in;
+package lookids.mono.elasticsearch.dto.in;
 
 import java.util.List;
 
@@ -16,7 +16,8 @@ public class KafkaFeedCreateRequestDto {
 	private List<String> mediaUrlList;
 
 	@Builder
-	public KafkaFeedCreateRequestDto(String feedCode, List<String> petCode, List<String> tagList, List<String> mediaUrlList) {
+	public KafkaFeedCreateRequestDto(String feedCode, List<String> petCode, List<String> tagList,
+		List<String> mediaUrlList) {
 		this.feedCode = feedCode;
 		this.petCode = petCode;
 		this.tagList = tagList;

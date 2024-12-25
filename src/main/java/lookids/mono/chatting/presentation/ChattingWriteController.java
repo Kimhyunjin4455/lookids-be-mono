@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.presentation;
+package lookids.mono.chatting.presentation;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,22 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
-import lookids.chatting.chatting.application.ChattingServiceImpl;
-import lookids.chatting.chatting.dto.in.ChatRoomNameUpdateRequestDto;
-import lookids.chatting.chatting.dto.in.ChatRoomRequestDto;
-import lookids.chatting.chatting.dto.in.ChattingRequestDto;
-import lookids.chatting.chatting.dto.in.ChattingUpdateRequestDto;
-import lookids.chatting.chatting.vo.in.ChatRoomNameUpdateRequestVo;
-import lookids.chatting.chatting.vo.in.ChatRoomRequestVo;
-import lookids.chatting.chatting.vo.in.ChattingRequestVo;
-import lookids.chatting.chatting.vo.in.ChattingUpdateRequestVo;
-import lookids.chatting.chatting.vo.out.ParticipantListVo;
-import lookids.chatting.chatting.vo.out.RoomIdResponseVo;
-import lookids.chatting.common.entity.BaseResponse;
+import lookids.mono.chatting.application.ChattingServiceImpl;
+import lookids.mono.chatting.dto.in.ChatRoomNameUpdateRequestDto;
+import lookids.mono.chatting.dto.in.ChatRoomRequestDto;
+import lookids.mono.chatting.dto.in.ChattingRequestDto;
+import lookids.mono.chatting.dto.in.ChattingUpdateRequestDto;
+import lookids.mono.chatting.vo.in.ChatRoomNameUpdateRequestVo;
+import lookids.mono.chatting.vo.in.ChatRoomRequestVo;
+import lookids.mono.chatting.vo.in.ChattingRequestVo;
+import lookids.mono.chatting.vo.in.ChattingUpdateRequestVo;
+import lookids.mono.chatting.vo.out.ParticipantListVo;
+import lookids.mono.chatting.vo.out.RoomIdResponseVo;
+import lookids.mono.common.entity.BaseResponse;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/chat")
+@RequestMapping("/chatting-service/chat")
 public class ChattingWriteController {
 	private final ChattingServiceImpl chattingService;
 

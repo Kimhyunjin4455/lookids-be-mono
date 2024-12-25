@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.infrastructure;
+package lookids.mono.chatting.infrastructure;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.chatting.chatting.domain.ChatMessage;
-import lookids.chatting.common.utils.CursorPage;
+import lookids.mono.chatting.domain.ChatMessage;
+import lookids.mono.common.utils.CursorPage;
 
 @Slf4j
 @RequiredArgsConstructor

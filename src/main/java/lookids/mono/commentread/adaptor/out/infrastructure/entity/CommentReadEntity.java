@@ -1,4 +1,4 @@
-package lookids.commentread.comment.adaptor.out.infrastructure.entity;
+package lookids.mono.commentread.adaptor.out.infrastructure.entity;
 
 import java.time.Instant;
 import java.util.List;
@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.commentread.comment.domain.model.ReplyForRead;
+import lookids.mono.commentread.domain.model.ReplyForRead;
 
 @Getter
 @NoArgsConstructor

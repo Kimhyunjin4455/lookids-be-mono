@@ -1,4 +1,4 @@
-package lookids.report.report.vo.out;
+package lookids.mono.report.vo.out;
 
 import java.time.LocalDateTime;
 
@@ -7,8 +7,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.report.report.domain.RequestType;
-import lookids.report.report.domain.TargetType;
+import lookids.mono.report.domain.RequestType;
+import lookids.mono.report.domain.TargetType;
 
 @AllArgsConstructor
 @NoArgsConstructor

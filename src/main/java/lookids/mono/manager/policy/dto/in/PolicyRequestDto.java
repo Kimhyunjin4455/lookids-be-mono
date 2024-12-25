@@ -1,4 +1,4 @@
-package lookids.manager.policy.dto.in;
+package lookids.mono.manager.policy.dto.in;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -6,8 +6,8 @@ import java.util.UUID;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
-import lookids.manager.policy.domain.Policy;
-import lookids.manager.policy.vo.in.PolicyRequestVo;
+import lookids.mono.manager.policy.domain.Policy;
+import lookids.mono.manager.policy.vo.in.PolicyRequestVo;
 
 @Getter
 @ToString

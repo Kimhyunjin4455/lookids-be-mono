@@ -1,12 +1,12 @@
-package lookids.alarm.notification.service;
+package lookids.mono.notification.service;
 
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.alarm.notification.domain.Notification;
-import lookids.alarm.notification.dto.out.NotificationResponseDto;
-import lookids.alarm.notification.repository.NotificationRepository;
+import lookids.mono.notification.domain.Notification;
+import lookids.mono.notification.dto.out.NotificationResponseDto;
+import lookids.mono.notification.repository.NotificationRepository;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -20,7 +20,6 @@ public class NotificationServiceImpl implements NotificationService {
 		Notification notification = notificationRepository.findBySenderUuid(senderUuid);
 		log.info("notification: {}", notification.getContent());
 		log.info("notification: {}", notification.getCreatedAt());
-
 
 		// 조회된 알림을 NotificationResponseDto로 변환하여 반환
 		if (notification != null) {

@@ -1,13 +1,13 @@
-package lookids.commentread.comment.adaptor.in.web.mapper;
+package lookids.mono.commentread.adaptor.in.web.mapper;
 
 import org.springframework.stereotype.Component;
 
-import lookids.commentread.comment.adaptor.in.web.vo.out.CommentCountResponseVo;
-import lookids.commentread.comment.adaptor.in.web.vo.out.CommentReadResponseVo;
-import lookids.commentread.comment.adaptor.in.web.vo.out.ReplyReadResponseVo;
-import lookids.commentread.comment.application.port.dto.CommentCountResponseDto;
-import lookids.commentread.comment.application.port.dto.CommentReadResponseDto;
-import lookids.commentread.comment.application.port.dto.ReplyReadResponseDto;
+import lookids.mono.commentread.adaptor.in.web.vo.out.CommentCountResponseVo;
+import lookids.mono.commentread.adaptor.in.web.vo.out.CommentReadResponseVo;
+import lookids.mono.commentread.adaptor.in.web.vo.out.ReplyReadResponseVo;
+import lookids.mono.commentread.application.port.dto.CommentCountResponseDto;
+import lookids.mono.commentread.application.port.dto.CommentReadResponseDto;
+import lookids.mono.commentread.application.port.dto.ReplyReadResponseDto;
 
 @Component
 public class WebVoMapper {

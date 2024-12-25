@@ -1,6 +1,6 @@
-package lookids.alarm.notification.service;
+package lookids.mono.notification.service;
 
-import lookids.alarm.notification.dto.out.NotificationResponseDto;
+import lookids.mono.notification.dto.out.NotificationResponseDto;
 
 public interface NotificationService {
 	// void createAlarm(NotificationFeedRequestDto alarmRequestDto);

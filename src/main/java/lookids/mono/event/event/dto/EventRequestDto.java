@@ -1,17 +1,16 @@
-package com.lookids.event.event.dto;
+package lookids.mono.event.event.dto;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
-
-import com.lookids.event.event.domain.Event;
-import com.lookids.event.event.vo.EventRequestVo;
-import com.lookids.event.event.vo.EventUpdateRequestVo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lookids.mono.event.event.domain.Event;
+import lookids.mono.event.event.vo.EventRequestVo;
+import lookids.mono.event.event.vo.EventUpdateRequestVo;
 
 @Getter
 @Builder

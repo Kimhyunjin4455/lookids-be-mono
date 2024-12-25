@@ -1,4 +1,4 @@
-package lookids.favorite.favorite.domain;
+package lookids.mono.favorite.domain;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicUpdate;
@@ -13,7 +13,7 @@ import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.favorite.common.entity.BaseEntity;
+import lookids.mono.common.entity.BaseEntity;
 
 @Getter
 @NoArgsConstructor

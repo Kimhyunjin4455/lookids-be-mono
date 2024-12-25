@@ -1,4 +1,4 @@
-package lookids.commentread.comment.adaptor.out.infrastructure.entity;
+package lookids.mono.commentread.adaptor.out.infrastructure.entity;
 
 import java.time.Instant;
 

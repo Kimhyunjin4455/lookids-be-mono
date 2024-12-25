@@ -1,17 +1,17 @@
-package lookids.manager.policy.application;
+package lookids.mono.manager.policy.application;
 
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lookids.manager.common.entity.BaseResponseStatus;
-import lookids.manager.common.exception.BaseException;
-import lookids.manager.policy.dto.in.PolicyRequestDto;
-import lookids.manager.policy.dto.out.PolicyResponseDto;
-import lookids.manager.policy.infrastructure.PolicyRepository;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.manager.policy.dto.in.PolicyRequestDto;
+import lookids.mono.manager.policy.dto.out.PolicyResponseDto;
+import lookids.mono.manager.policy.infrastructure.PolicyRepository;
 
 @Service
 @RequiredArgsConstructor
-public class PolicyServiceImpl implements PolicyService{
+public class PolicyServiceImpl implements PolicyService {
 
 	private final PolicyRepository policyRepository;
 

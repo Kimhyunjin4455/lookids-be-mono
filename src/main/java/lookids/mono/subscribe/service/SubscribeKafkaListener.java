@@ -1,4 +1,4 @@
-package lookids.subscribe.subscribe.service;
+package lookids.mono.subscribe.service;
 
 import java.util.List;
 
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.subscribe.subscribe.domain.Subscribe;
-import lookids.subscribe.subscribe.dto.in.FeedKafkaRequestDto;
-import lookids.subscribe.subscribe.dto.in.NotificationKafkaRequestDto;
-import lookids.subscribe.subscribe.repository.SubscribeRepository;
+import lookids.mono.subscribe.domain.Subscribe;
+import lookids.mono.subscribe.dto.in.FeedKafkaRequestDto;
+import lookids.mono.subscribe.dto.in.NotificationKafkaRequestDto;
+import lookids.mono.subscribe.repository.SubscribeRepository;
 
 @Service
 //@AllArgsConstructor
@@ -33,9 +33,7 @@ public class SubscribeKafkaListener {
 	// 구독자들에게 알람을 보내기 위한 새로운 메시지를 생성
 	// 알람 메시지를 feed-create-join-subscribe 토픽으로 발행
 
-	@KafkaListener(topics = "${feed.create}"
-		, groupId = "feed-join-subscribe"
-		, containerFactory = "feedEventListenerContainerFactory")
+	@KafkaListener(topics = "${feed.create}", groupId = "feed-join-subscribe", containerFactory = "feedEventListenerContainerFactory")
 	public void consumeFeedEvent(FeedKafkaRequestDto kafkaFeedRequestDto) {
 
 		String feedContent = kafkaFeedRequestDto.getContent();
@@ -44,16 +42,13 @@ public class SubscribeKafkaListener {
 
 		List<Subscribe> authorUuidList = subscribeRepository.findByAuthorUuid(kafkaFeedRequestDto.getUuid());
 
-		List<String> receiverUuidList = authorUuidList
-			.stream()
-			.map(Subscribe::getSubscriberUuid)
-			.toList();
+		List<String> receiverUuidList = authorUuidList.stream().map(Subscribe::getSubscriberUuid).toList();
 
 		String splitedContent = feedContent.length() > 20 ? feedContent.substring(0, 20) + "..." : feedContent;
 
 		//AlarmKafkaRequestDto kafkaAlarmRequestDto = AlarmKafkaRequestDto.toDto(kafkaFeedRequestDto, receiverUuidList, splitedContent, TYPE);
-		NotificationKafkaRequestDto notificationKafkaRequestDto = NotificationKafkaRequestDto.toDto(kafkaFeedRequestDto, receiverUuidList,
-			splitedContent, TYPE);
+		NotificationKafkaRequestDto notificationKafkaRequestDto = NotificationKafkaRequestDto.toDto(kafkaFeedRequestDto,
+			receiverUuidList, splitedContent, TYPE);
 		sendMessage(feedCreateTopic, notificationKafkaRequestDto);
 	}
 

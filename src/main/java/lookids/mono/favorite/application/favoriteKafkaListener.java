@@ -1,4 +1,4 @@
-package lookids.favorite.favorite.application;
+package lookids.mono.favorite.application;
 
 import java.util.List;
 
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.favorite.common.kafka.dto.in.FeedKafkaRequestDto;
-import lookids.favorite.common.kafka.dto.out.FavoriteFeedDto;
-import lookids.favorite.favorite.dto.FavoriteResponseDto;
+import lookids.mono.favorite.dto.FavoriteFeedDto;
+import lookids.mono.favorite.dto.FavoriteResponseDto;
+import lookids.mono.favorite.dto.FeedKafkaRequestDto;
 
 @Service
 @RequiredArgsConstructor
@@ -26,9 +26,7 @@ public class favoriteKafkaListener {
 		List<FavoriteResponseDto> responseDtos = favoriteService.readUserFavoriteList(uuid);
 		FavoriteFeedDto favoriteFeedDto = FavoriteFeedDto.builder()
 			.uuid(uuid)
-			.targetCodeList(responseDtos.stream()
-				.map(FavoriteResponseDto::getTargetCode)
-				.toList())
+			.targetCodeList(responseDtos.stream().map(FavoriteResponseDto::getTargetCode).toList())
 			.build();
 		sendMessage("favorite-response", favoriteFeedDto);
 	}

@@ -1,4 +1,4 @@
-package lookids.manager.event.dto.in;
+package lookids.mono.manager.event.dto.in;
 
 import java.time.LocalDateTime;
 
@@ -6,8 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.manager.event.vo.in.EventRequestVo;
-import lookids.manager.event.vo.in.EventUpdateRequestVo;
+import lookids.mono.manager.event.vo.in.EventUpdateRequestVo;
 
 @Getter
 @Builder

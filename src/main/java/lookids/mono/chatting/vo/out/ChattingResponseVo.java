@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.vo.out;
+package lookids.mono.chatting.vo.out;
 
 import java.time.LocalDateTime;
 
@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.chatting.chatting.domain.MessageType;
+import lookids.mono.chatting.domain.MessageType;
 
 @Getter
 @Builder

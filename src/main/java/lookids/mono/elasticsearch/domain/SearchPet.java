@@ -1,4 +1,4 @@
-package lookids.elasticsearch.domain;
+package lookids.mono.elasticsearch.domain;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
@@ -34,7 +34,8 @@ public class SearchPet {
 	private String userTag;
 
 	@Builder
-	public SearchPet(String id, String petType, String petName, String petCode, String petImage, String userNickname, String userTag) {
+	public SearchPet(String id, String petType, String petName, String petCode, String petImage, String userNickname,
+		String userTag) {
 		this.id = id;
 		this.petName = petName;
 		this.petType = petType;

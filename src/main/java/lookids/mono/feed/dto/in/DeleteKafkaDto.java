@@ -1,4 +1,4 @@
-package Lookids.Feed.feed.dto.in;
+package lookids.mono.feed.dto.in;
 
 import java.time.LocalDateTime;
 
@@ -23,10 +23,6 @@ public class DeleteKafkaDto {
 	}
 
 	public static DeleteKafkaDto toDto(String feedCode, String uuid) {
-		return DeleteKafkaDto.builder()
-			.feedCode(feedCode)
-			.uuid(uuid)
-			.createdAt(LocalDateTime.now())
-			.build();
+		return DeleteKafkaDto.builder().feedCode(feedCode).uuid(uuid).createdAt(LocalDateTime.now()).build();
 	}
 }

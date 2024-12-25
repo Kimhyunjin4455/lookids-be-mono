@@ -1,4 +1,4 @@
-package lookids.map.map.vo.in;
+package lookids.mono.map.vo.in;
 
 import lombok.Getter;
 import lombok.ToString;

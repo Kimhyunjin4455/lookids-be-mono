@@ -1,4 +1,4 @@
-package lookids.subscribe.subscribe.vo.out;
+package lookids.mono.subscribe.vo.out;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -13,6 +13,5 @@ public class SubscribeStateResponseVo {
 	public SubscribeStateResponseVo(boolean isSubscribed) {
 		this.isSubscribed = isSubscribed;
 	}
-
 
 }

@@ -1,10 +1,10 @@
-package lookids.elasticsearch.dto.in;
+package lookids.mono.elasticsearch.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.elasticsearch.domain.SearchUser;
+import lookids.mono.elasticsearch.domain.SearchUser;
 
 @Getter
 @ToString

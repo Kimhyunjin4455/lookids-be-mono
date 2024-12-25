@@ -1,4 +1,4 @@
-package lookids.manager.information.vo.in;
+package lookids.mono.manager.information.vo.in;
 
 import java.util.List;
 

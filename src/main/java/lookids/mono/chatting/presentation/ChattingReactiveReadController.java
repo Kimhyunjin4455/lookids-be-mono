@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.presentation;
+package lookids.mono.chatting.presentation;
 
 import java.time.Duration;
 import java.util.concurrent.TimeoutException;
@@ -11,19 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.chatting.chatting.application.ChattingService;
-import lookids.chatting.chatting.dto.out.ChatRoomResponseDto;
-import lookids.chatting.chatting.dto.out.ChattingResponseDto;
-import lookids.chatting.chatting.dto.out.LastReadChatMessageResponseDto;
-import lookids.chatting.chatting.vo.out.ChatRoomResponseVo;
-import lookids.chatting.chatting.vo.out.ChattingResponseVo;
-import lookids.chatting.chatting.vo.out.LastReadMessageResponseVo;
+import lookids.mono.chatting.application.ChattingService;
+import lookids.mono.chatting.dto.out.ChatRoomResponseDto;
+import lookids.mono.chatting.dto.out.ChattingResponseDto;
+import lookids.mono.chatting.dto.out.LastReadChatMessageResponseDto;
+import lookids.mono.chatting.vo.out.ChatRoomResponseVo;
+import lookids.mono.chatting.vo.out.ChattingResponseVo;
+import lookids.mono.chatting.vo.out.LastReadMessageResponseVo;
 import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/read/chat")
+@RequestMapping("/chatting-service/read/chat")
 @Slf4j
 public class ChattingReactiveReadController {
 

@@ -1,4 +1,4 @@
-package lookids.elasticsearch.vo;
+package lookids.mono.elasticsearch.vo;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -16,7 +16,8 @@ public class SearchPetResponseVo {
 	private String userTag;
 
 	@Builder
-	public SearchPetResponseVo(String petName, String petType, String petImage, String petCode, String userNickname, String userTag) {
+	public SearchPetResponseVo(String petName, String petType, String petImage, String petCode, String userNickname,
+		String userTag) {
 		this.petName = petName;
 		this.petType = petType;
 		this.petImage = petImage;

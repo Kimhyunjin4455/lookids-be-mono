@@ -1,15 +1,15 @@
-package com.lookids.event.event.application;
+package lookids.mono.event.event.application;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.lookids.event.common.entity.BaseResponseStatus;
-import com.lookids.event.common.exception.BaseException;
-import com.lookids.event.event.domain.Event;
-import com.lookids.event.event.dto.EventRequestDto;
-import com.lookids.event.event.dto.EventResponseDto;
-import com.lookids.event.event.infrastructure.EventRepository;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.event.event.domain.Event;
+import lookids.mono.event.event.dto.EventRequestDto;
+import lookids.mono.event.event.dto.EventResponseDto;
+import lookids.mono.event.event.infrastructure.EventRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -52,18 +52,12 @@ public class EventServiceImpl implements EventService {
 
 	@Override
 	public List<EventResponseDto> readActiveEventList() {
-		return eventRepository.findByStateTrueOrderByStartedAtAsc()
-			.stream()
-			.map(EventResponseDto::toDto)
-			.toList();
+		return eventRepository.findByStateTrueOrderByStartedAtAsc().stream().map(EventResponseDto::toDto).toList();
 	}
 
 	@Override
 	public List<EventResponseDto> readDeactivateEventList() {
-		return eventRepository.findByStateFalseOrderByStartedAtAsc()
-			.stream()
-			.map(EventResponseDto::toDto)
-			.toList();
+		return eventRepository.findByStateFalseOrderByStartedAtAsc().stream().map(EventResponseDto::toDto).toList();
 	}
 
 }

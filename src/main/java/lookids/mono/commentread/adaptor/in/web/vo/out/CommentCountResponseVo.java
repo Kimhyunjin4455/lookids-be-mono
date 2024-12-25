@@ -1,4 +1,4 @@
-package lookids.commentread.comment.adaptor.in.web.vo.out;
+package lookids.mono.commentread.adaptor.in.web.vo.out;
 
 import lombok.Builder;
 import lombok.Getter;

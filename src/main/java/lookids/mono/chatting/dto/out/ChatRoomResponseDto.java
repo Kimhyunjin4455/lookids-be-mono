@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.dto.out;
+package lookids.mono.chatting.dto.out;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -11,11 +11,11 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.chatting.chatting.domain.ChatRoom;
-import lookids.chatting.chatting.domain.Participant;
-import lookids.chatting.chatting.vo.out.ChatRoomResponseVo;
-import lookids.chatting.common.entity.BaseResponseStatus;
-import lookids.chatting.common.exception.BaseException;
+import lookids.mono.chatting.domain.ChatRoom;
+import lookids.mono.chatting.domain.Participant;
+import lookids.mono.chatting.vo.out.ChatRoomResponseVo;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
 
 @Getter
 @NoArgsConstructor
@@ -33,15 +33,14 @@ public class ChatRoomResponseDto {
 
 	public static ChatRoomResponseDto toDto(ChatRoom chatRoom, String userId) {
 		// 요청한 userId에 해당하는 Participant 찾기
-		Participant participant = chatRoom.getParticipants().stream()
+		Participant participant = chatRoom.getParticipants()
+			.stream()
 			.filter(p -> p.getUserId().equals(userId))
 			.findFirst()
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NOT_IN_USER));
 
 		// participants 리스트에서 userId만 추출
-		List<String> participantUserIds = chatRoom.getParticipants().stream()
-			.map(Participant::getUserId)
-			.toList();
+		List<String> participantUserIds = chatRoom.getParticipants().stream().map(Participant::getUserId).toList();
 
 		return ChatRoomResponseDto.builder()
 			.roomId(chatRoom.getId())
@@ -65,8 +64,7 @@ public class ChatRoomResponseDto {
 	public static ChatRoomResponseDto fromDocument(Document document, String userId) {
 		// participants 필드에서 userId 리스트를 추출
 		List<Document> participantDocs = document.getList("participants", Document.class);
-		List<String> participantUserIds = participantDocs.stream()
-			.map(p -> p.getString("userId")) // userId만 추출
+		List<String> participantUserIds = participantDocs.stream().map(p -> p.getString("userId")) // userId만 추출
 			.toList();
 
 		// 요청한 userId에 해당하는 Participant 데이터 찾기
@@ -84,10 +82,8 @@ public class ChatRoomResponseDto {
 			.participants(participantUserIds) // userId 리스트 추가
 			.lastChatMessageAt(document.getString("lastChatMessageAt"))
 
-			.createdAt(LocalDateTime.ofInstant(document.getDate("createdAt")
-				.toInstant(), ZoneId.of("Asia/Seoul")))
-			.updatedAt(LocalDateTime.ofInstant(document.getDate("updatedAt")
-				.toInstant(), ZoneId.of("Asia/Seoul")))
+			.createdAt(LocalDateTime.ofInstant(document.getDate("createdAt").toInstant(), ZoneId.of("Asia/Seoul")))
+			.updatedAt(LocalDateTime.ofInstant(document.getDate("updatedAt").toInstant(), ZoneId.of("Asia/Seoul")))
 
 			.build();
 	}

@@ -1,4 +1,4 @@
-package lookids.commentread.comment.adaptor.in.kafka.controller;
+package lookids.mono.commentread.adaptor.in.kafka.controller;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.commentread.comment.adaptor.in.kafka.event.CommentEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.NicknameEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.ProfileImageEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.ReplyEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.UserProfileEvent;
-import lookids.commentread.comment.application.mapper.CommentReadDtoMapper;
-import lookids.commentread.comment.application.port.in.CommentDeleteUseCase;
-import lookids.commentread.comment.application.port.in.CommentReadCreateUseCase;
-import lookids.commentread.comment.application.port.in.UserProfileUpdateUseCase;
+import lookids.mono.commentread.adaptor.in.kafka.event.CommentEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.NicknameEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.ProfileImageEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.ReplyEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.UserProfileEvent;
+import lookids.mono.commentread.application.mapper.CommentReadDtoMapper;
+import lookids.mono.commentread.application.port.in.CommentDeleteUseCase;
+import lookids.mono.commentread.application.port.in.CommentReadCreateUseCase;
+import lookids.mono.commentread.application.port.in.UserProfileUpdateUseCase;
 
 @Slf4j
 @RequiredArgsConstructor

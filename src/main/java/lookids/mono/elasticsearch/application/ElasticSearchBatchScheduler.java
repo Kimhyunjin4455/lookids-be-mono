@@ -1,4 +1,4 @@
-package lookids.elasticsearch.application;
+package lookids.mono.elasticsearch.application;
 
 import java.util.List;
 
@@ -10,12 +10,12 @@ import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.elasticsearch.domain.SearchFeed;
-import lookids.elasticsearch.domain.SearchPet;
-import lookids.elasticsearch.domain.SearchUser;
-import lookids.elasticsearch.infrastructure.SearchFeedRepository;
-import lookids.elasticsearch.infrastructure.SearchPetRepository;
-import lookids.elasticsearch.infrastructure.SearchUserRepository;
+import lookids.mono.elasticsearch.domain.SearchFeed;
+import lookids.mono.elasticsearch.domain.SearchPet;
+import lookids.mono.elasticsearch.domain.SearchUser;
+import lookids.mono.elasticsearch.infrastructure.SearchFeedRepository;
+import lookids.mono.elasticsearch.infrastructure.SearchPetRepository;
+import lookids.mono.elasticsearch.infrastructure.SearchUserRepository;
 
 @Slf4j
 @Component

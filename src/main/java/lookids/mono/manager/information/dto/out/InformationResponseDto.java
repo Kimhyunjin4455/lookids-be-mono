@@ -1,15 +1,15 @@
-package lookids.manager.information.dto.out;
+package lookids.mono.manager.information.dto.out;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.manager.information.domain.Information;
-import lookids.manager.information.vo.out.InformationResponseVo;
-
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
+import lookids.mono.manager.information.domain.Information;
+import lookids.mono.manager.information.vo.out.InformationResponseVo;
 
 @Getter
 @Builder
@@ -24,22 +24,20 @@ public class InformationResponseDto {
 
 	public static InformationResponseDto toDto(Information information) {
 		return InformationResponseDto.builder()
-				.title(information.getTitle())
-				.content(information.getContent())
-				.mediaUrls(information.getMediaUrls().stream()
-						.map(InformationMediaDto::new)
-						.collect(Collectors.toList()))
-				.createdAt(information.getCreatedAt())
-				.build();
+			.title(information.getTitle())
+			.content(information.getContent())
+			.mediaUrls(information.getMediaUrls().stream().map(InformationMediaDto::new).collect(Collectors.toList()))
+			.createdAt(information.getCreatedAt())
+			.build();
 	}
 
 	public InformationResponseVo toVo() {
 		return InformationResponseVo.builder()
-				.title(title)
-				.content(content)
-				.mediaUrls(mediaUrls)
-				.createdAt(createdAt)
-				.build();
+			.title(title)
+			.content(content)
+			.mediaUrls(mediaUrls)
+			.createdAt(createdAt)
+			.build();
 	}
 
 }

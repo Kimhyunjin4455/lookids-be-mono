@@ -1,4 +1,4 @@
-package lookids.manager.policy.domain;
+package lookids.mono.manager.policy.domain;
 
 import java.time.LocalDateTime;
 

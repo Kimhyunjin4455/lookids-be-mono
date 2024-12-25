@@ -1,4 +1,4 @@
-package lookids.alarm.notification.service;
+package lookids.mono.notification.service;
 
 import java.io.IOException;
 import java.util.Map;
@@ -13,12 +13,12 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.alarm.notification.domain.Notification;
+import lookids.mono.notification.domain.Notification;
 
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class NotificationSseServiceImpl implements NotificationSseService{
+public class NotificationSseServiceImpl implements NotificationSseService {
 
 	private final Map<String, SseEmitter> clients = new ConcurrentHashMap<>();
 
@@ -49,7 +49,6 @@ public class NotificationSseServiceImpl implements NotificationSseService{
 			log.info("Client disconnected: {}", userInfo);
 			clients.remove(userInfo);
 		});
-
 
 		// // 타임아웃 처리 시 emitter 삭제하지 않음
 		// emitter.onTimeout(() -> {
@@ -86,9 +85,10 @@ public class NotificationSseServiceImpl implements NotificationSseService{
 				clients.remove(userInfo);
 				log.error("Error while sending {} notification: {}", notification.getType(), e.getMessage());
 			}
-		}
-		else log.info("emitter is null");
+		} else
+			log.info("emitter is null");
 	}
+
 	public SseEmitter readExistingEmitter(String userInfo) {
 		return clients.get(userInfo); // 이미 등록된 emitter를 반환
 	}

@@ -1,4 +1,4 @@
-package lookids.commentread.comment.adaptor.in.kafka.config;
+package lookids.mono.commentread.adaptor.in.kafka.config;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,11 +15,11 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 
-import lookids.commentread.comment.adaptor.in.kafka.event.CommentEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.NicknameEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.ProfileImageEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.ReplyEvent;
-import lookids.commentread.comment.adaptor.in.kafka.event.UserProfileEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.CommentEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.NicknameEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.ProfileImageEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.ReplyEvent;
+import lookids.mono.commentread.adaptor.in.kafka.event.UserProfileEvent;
 
 @EnableKafka
 @Configuration

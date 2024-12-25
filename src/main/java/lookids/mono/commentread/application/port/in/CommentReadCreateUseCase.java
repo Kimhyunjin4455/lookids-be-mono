@@ -1,7 +1,7 @@
-package lookids.commentread.comment.application.port.in;
+package lookids.mono.commentread.application.port.in;
 
-import lookids.commentread.comment.application.port.dto.CommentCreateEventDto;
-import lookids.commentread.comment.application.port.dto.ReplyCreateEventDto;
+import lookids.mono.commentread.application.port.dto.CommentCreateEventDto;
+import lookids.mono.commentread.application.port.dto.ReplyCreateEventDto;
 
 public interface CommentReadCreateUseCase {
 

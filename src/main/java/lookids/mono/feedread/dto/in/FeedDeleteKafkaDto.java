@@ -1,15 +1,12 @@
-package lookids.feedread.dto.in;
+package lookids.mono.feedread.dto.in;
 
 import java.time.LocalDateTime;
-
-import org.apache.kafka.common.errors.FencedLeaderEpochException;
-import org.bson.types.ObjectId;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.feedread.domain.FeedRead;
+import lookids.mono.feedread.domain.FeedRead;
 
 @Getter
 @ToString

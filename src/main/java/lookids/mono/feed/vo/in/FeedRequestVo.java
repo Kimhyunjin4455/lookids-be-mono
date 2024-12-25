@@ -1,4 +1,4 @@
-package Lookids.Feed.feed.vo.in;
+package lookids.mono.feed.vo.in;
 
 import java.util.List;
 
@@ -9,9 +9,9 @@ import lombok.ToString;
 @ToString
 public class FeedRequestVo {
 
-    private List<String> petCode;
-    private String content;
-    private List<String> tagList;
-    private List<String> mediaUrlList;
+	private List<String> petCode;
+	private String content;
+	private List<String> tagList;
+	private List<String> mediaUrlList;
 
 }

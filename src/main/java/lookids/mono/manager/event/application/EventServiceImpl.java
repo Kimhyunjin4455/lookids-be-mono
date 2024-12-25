@@ -1,4 +1,4 @@
-package lookids.manager.event.application;
+package lookids.mono.manager.event.application;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -7,17 +7,17 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lookids.manager.common.entity.BaseResponseStatus;
-import lookids.manager.common.exception.BaseException;
-import lookids.manager.event.domain.Event;
-import lookids.manager.event.dto.in.EventRequestDto;
-import lookids.manager.event.dto.in.EventUpdateRequestDto;
-import lookids.manager.event.dto.out.EventResponseDto;
-import lookids.manager.event.infrastructure.EventRepository;
+import lookids.mono.common.entity.BaseResponseStatus;
+import lookids.mono.common.exception.BaseException;
+import lookids.mono.manager.event.domain.Event;
+import lookids.mono.manager.event.dto.in.EventRequestDto;
+import lookids.mono.manager.event.dto.in.EventUpdateRequestDto;
+import lookids.mono.manager.event.dto.out.EventResponseDto;
+import lookids.mono.manager.event.infrastructure.EventRepository;
 
 @Service
 @RequiredArgsConstructor
-public class EventServiceImpl implements EventService{
+public class EventServiceImpl implements EventService {
 
 	private final EventRepository eventRepository;
 
@@ -37,17 +37,13 @@ public class EventServiceImpl implements EventService{
 	@Override
 	public List<EventResponseDto> readGoingEventList() {
 		LocalDateTime currentTime = LocalDateTime.now();
-		return eventRepository.findByExpiredAtAfter(currentTime).stream()
-			.map(EventResponseDto::toDto)
-			.toList();
+		return eventRepository.findByExpiredAtAfter(currentTime).stream().map(EventResponseDto::toDto).toList();
 	}
 
 	@Override
 	public List<EventResponseDto> readExpiredEventList() {
 		LocalDateTime currentTime = LocalDateTime.now();
-		return eventRepository.findByExpiredAtBefore(currentTime).stream()
-			.map(EventResponseDto::toDto)
-			.toList();
+		return eventRepository.findByExpiredAtBefore(currentTime).stream().map(EventResponseDto::toDto).toList();
 	}
 
 	@Override

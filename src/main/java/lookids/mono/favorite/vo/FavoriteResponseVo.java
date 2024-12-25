@@ -1,11 +1,11 @@
-package lookids.favorite.favorite.vo;
+package lookids.mono.favorite.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import lookids.favorite.favorite.domain.FavoriteType;
+import lookids.mono.favorite.domain.FavoriteType;
 
 @Builder
 @NoArgsConstructor

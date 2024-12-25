@@ -70,8 +70,13 @@ public enum BaseResponseStatus {
 	/**
 	 * 4000: comment service error
 	 */
+	FAILURE(HttpStatus.CONFLICT, false, 3200, "실패!!"), NO_EXIST_CHATROOM(HttpStatus.NOT_FOUND, false, 3201,
+		"존재하지 않는 채팅방입니다"), NOT_IN_USER(HttpStatus.NOT_FOUND, false, 3202, "사용자가 채팅방 안에 없습니다"),
 
-	// Comment
+	NO_EXIST_MESSAGE(HttpStatus.NOT_FOUND, false, 3203, "메세지를 찾지 못했습니다"),
+
+	NOT_FOUND_MESSAGE(HttpStatus.NOT_FOUND, false, 3204, "채팅 메세지를 찾지 못했습니다"),
+
 	// Comment
 	NO_EXIST_COMMENT(HttpStatus.NOT_FOUND, false, 4001, "존재하지 않는 댓글입니다"), NO_DELETE_COMMENT_AUTHORITY(
 		HttpStatus.BAD_REQUEST, false, 4002, "댓글 삭제 권한이 없습니다"), NO_DELETE_RE_COMMENT_AUTHORITY(HttpStatus.BAD_REQUEST,
@@ -93,6 +98,18 @@ public enum BaseResponseStatus {
 	 */
 	// Media
 	NO_EXIST_MEDIA(HttpStatus.NOT_FOUND, false, 6001, "존재하지 않는 미디어입니다"),
+
+	// Event
+	NO_EXIST_EVENT(HttpStatus.NOT_FOUND, false, 3500, "해당 이벤트가 존재하지 않습니다"),
+
+	//Feed
+	NO_EXIST_FEED(HttpStatus.CONFLICT, false, 4005, "피드가 존재하지 않습니다."),
+
+	//policy
+	NO_EXIST_POLICY(HttpStatus.CONFLICT, false, 4007, "정책이 존재하지 않습니다."),
+
+	//map
+	NO_EXIST_PIN(HttpStatus.NOT_FOUND, false, 9001, "존재하지 않는 핀입니다."),
 
 	NO_EXIST_DATA(HttpStatus.NOT_FOUND, false, 404, "데이터를 찾을 수 없습니다");
 

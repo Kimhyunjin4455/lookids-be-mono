@@ -1,4 +1,4 @@
-package lookids.alarm.notification.service;
+package lookids.mono.notification.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,15 +12,15 @@ import com.google.firebase.messaging.Message;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.alarm.notification.domain.FcmToken;
-import lookids.alarm.notification.domain.Notification;
-import lookids.alarm.notification.dto.in.FcmTokenRequestDto;
-import lookids.alarm.notification.repository.FcmTokenRepository;
+import lookids.mono.notification.domain.FcmToken;
+import lookids.mono.notification.domain.Notification;
+import lookids.mono.notification.dto.in.FcmTokenRequestDto;
+import lookids.mono.notification.repository.FcmTokenRepository;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class NotificationPushServiceImpl implements NotificationPushService{
+public class NotificationPushServiceImpl implements NotificationPushService {
 
 	private final FcmTokenRepository fcmTokenRepository;
 	private final FirebaseMessaging firebaseMessaging;
@@ -28,16 +28,12 @@ public class NotificationPushServiceImpl implements NotificationPushService{
 	@Override
 	public void sendPushNotification(String token, Notification notification) {
 		// com.google.firebase.messaging.Notification 은 Builder 클래스에 대한 public 접근을 허용하지 않지만, Notification.builder()라는 정적 메서드를 제공
-		com.google.firebase.messaging.Notification fcmNotification =
-			com.google.firebase.messaging.Notification.builder() // builder() 메서드 사용
-				.setTitle(notification.getTitle())  // 제목 설정
-				.setBody(notification.getContent()) // 내용 설정
-				.build(); // 빌드하여 Notification 객체 생성
+		com.google.firebase.messaging.Notification fcmNotification = com.google.firebase.messaging.Notification.builder() // builder() 메서드 사용
+			.setTitle(notification.getTitle())  // 제목 설정
+			.setBody(notification.getContent()) // 내용 설정
+			.build(); // 빌드하여 Notification 객체 생성
 
-		Message message = Message.builder()
-			.setToken(token)
-			.setNotification(fcmNotification)
-			.build();
+		Message message = Message.builder().setToken(token).setNotification(fcmNotification).build();
 
 		try {
 			String response = firebaseMessaging.send(message);
@@ -46,8 +42,6 @@ public class NotificationPushServiceImpl implements NotificationPushService{
 			log.error("FCM Feed Notification Error: {}", e.getMessage());
 		}
 	}
-
-
 
 	@Override
 	public void createFcmToken(FcmTokenRequestDto fcmTokenRequestDto) {

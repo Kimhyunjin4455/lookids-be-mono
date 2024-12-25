@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.domain;
+package lookids.mono.chatting.domain;
 
 import java.time.LocalDateTime;
 import java.util.List;

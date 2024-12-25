@@ -1,4 +1,4 @@
-package lookids.chatting.chatting.vo.out;
+package lookids.mono.chatting.vo.out;
 
 import java.time.LocalDateTime;
 import java.util.List;

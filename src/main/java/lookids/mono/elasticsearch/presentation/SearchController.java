@@ -1,4 +1,4 @@
-package lookids.elasticsearch.presentation;
+package lookids.mono.elasticsearch.presentation;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
-import lookids.common.entity.BaseResponse;
-import lookids.elasticsearch.application.SearchService;
-import lookids.elasticsearch.dto.out.SearchFeedResponseDto;
-import lookids.elasticsearch.dto.out.SearchPetResponseDto;
-import lookids.elasticsearch.dto.out.SearchUserResponseDto;
-import lookids.elasticsearch.vo.SearchFeedResponseVo;
-import lookids.elasticsearch.vo.SearchPetResponseVo;
-import lookids.elasticsearch.vo.SearchUserResponseVo;
+import lookids.mono.common.entity.BaseResponse;
+import lookids.mono.elasticsearch.application.SearchService;
+import lookids.mono.elasticsearch.dto.out.SearchFeedResponseDto;
+import lookids.mono.elasticsearch.dto.out.SearchPetResponseDto;
+import lookids.mono.elasticsearch.dto.out.SearchUserResponseDto;
+import lookids.mono.elasticsearch.vo.SearchFeedResponseVo;
+import lookids.mono.elasticsearch.vo.SearchPetResponseVo;
+import lookids.mono.elasticsearch.vo.SearchUserResponseVo;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("read/search/")
+@RequestMapping("/search-service/read/search/")
 public class SearchController {
 
 	private final SearchService searchService;
@@ -39,11 +39,13 @@ public class SearchController {
 
 	@Operation(summary = "searchFeedByPetCode API", description = "searchFeedByPetCode API 펫코드로 피드를 검색, 펫 코드는 정확한 값을 입력")
 	@GetMapping("/feedPetCode")
-	public BaseResponse<Page<SearchFeedResponseVo>> searchFeedByPetCode(@RequestParam(defaultValue = "") String searchParam,
-		@RequestParam(defaultValue = "0") int page, @RequestParam(defaultValue = "10") int size) {
+	public BaseResponse<Page<SearchFeedResponseVo>> searchFeedByPetCode(
+		@RequestParam(defaultValue = "") String searchParam, @RequestParam(defaultValue = "0") int page,
+		@RequestParam(defaultValue = "10") int size) {
 
 		Pageable pageable = PageRequest.of(page, size);
-		Page<SearchFeedResponseDto> searchFeedResponseDtoList = searchService.searchFeedByPetCode(searchParam, pageable);
+		Page<SearchFeedResponseDto> searchFeedResponseDtoList = searchService.searchFeedByPetCode(searchParam,
+			pageable);
 
 		return new BaseResponse<>(searchFeedResponseDtoList.map(SearchFeedResponseDto::toVo));
 	}

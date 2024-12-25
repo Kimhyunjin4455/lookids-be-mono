@@ -1,4 +1,4 @@
-package lookids.favorite.favorite.application;
+package lookids.mono.favorite.application;
 
 import java.util.List;
 
@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.favorite.common.kafka.dto.out.FavoriteBatchDto;
-import lookids.favorite.common.kafka.dto.out.FavoriteNotificationDto;
-import lookids.favorite.favorite.domain.Favorite;
-import lookids.favorite.favorite.domain.FavoriteType;
-import lookids.favorite.favorite.dto.FavoriteRequestDto;
-import lookids.favorite.favorite.dto.FavoriteResponseDto;
-import lookids.favorite.favorite.infrastructure.FavoriteRepository;
+import lookids.mono.favorite.domain.Favorite;
+import lookids.mono.favorite.domain.FavoriteType;
+import lookids.mono.favorite.dto.FavoriteBatchDto;
+import lookids.mono.favorite.dto.FavoriteNotificationDto;
+import lookids.mono.favorite.dto.FavoriteRequestDto;
+import lookids.mono.favorite.dto.FavoriteResponseDto;
+import lookids.mono.favorite.infrastructure.FavoriteRepository;
 
 @Slf4j
 @Service
@@ -69,9 +69,8 @@ public class FavoriteServiceImpl implements FavoriteService {
 		int size) {
 		Pageable pageable = PageRequest.of(page, size);
 
-		return favoriteRepository.findByTargetCodeAndFavoriteTypeAndFavoriteStateTrue(
-			targetCode, favoriteType, pageable
-		).map(FavoriteResponseDto::toDto);
+		return favoriteRepository.findByTargetCodeAndFavoriteTypeAndFavoriteStateTrue(targetCode, favoriteType,
+			pageable).map(FavoriteResponseDto::toDto);
 	}
 
 	@Override

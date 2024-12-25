@@ -1,9 +1,9 @@
-package lookids.elasticsearch.dto.in;
+package lookids.mono.elasticsearch.dto.in;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.elasticsearch.domain.SearchPet;
+import lookids.mono.elasticsearch.domain.SearchPet;
 
 @Getter
 @NoArgsConstructor
@@ -18,15 +18,8 @@ public class KafkaPetUpdateRequestDto {
 	private String petType;
 
 	@Builder
-	public KafkaPetUpdateRequestDto(
-		String id,
-		String userNickname,
-		String userTag,
-		String petCode,
-		String image,
-		String petName,
-		String petType
-	) {
+	public KafkaPetUpdateRequestDto(String id, String userNickname, String userTag, String petCode, String image,
+		String petName, String petType) {
 		this.id = id;
 		this.userNickname = userNickname;
 		this.userTag = userTag;
@@ -36,7 +29,8 @@ public class KafkaPetUpdateRequestDto {
 		this.petType = petType;
 	}
 
-	public static KafkaPetUpdateRequestDto toUpdate(SearchPet searchPet, KafkaPetUpdateRequestDto kafkaPetUpdateRequestDto) {
+	public static KafkaPetUpdateRequestDto toUpdate(SearchPet searchPet,
+		KafkaPetUpdateRequestDto kafkaPetUpdateRequestDto) {
 		return KafkaPetUpdateRequestDto.builder()
 			.id(searchPet.getId())
 			.userNickname(searchPet.getUserNickname())

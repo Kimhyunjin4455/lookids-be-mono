@@ -1,4 +1,4 @@
-package lookids.manager.information.dto.out;
+package lookids.mono.manager.information.dto.out;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,10 +20,6 @@ public class InformationUpdateResponseDto {
 	private LocalDateTime updatedAt;
 
 	public InformationUpdateResponseDto toDto() {
-		return InformationUpdateResponseDto.builder()
-			.title(title)
-			.content(content)
-			.mediaUrls(mediaUrls)
-			.build();
+		return InformationUpdateResponseDto.builder().title(title).content(content).mediaUrls(mediaUrls).build();
 	}
 }

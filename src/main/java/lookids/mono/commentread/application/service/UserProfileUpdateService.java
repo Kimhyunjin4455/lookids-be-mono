@@ -1,14 +1,14 @@
-package lookids.commentread.comment.application.service;
+package lookids.mono.commentread.application.service;
 
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
-import lookids.commentread.comment.application.mapper.CommentReadDtoMapper;
-import lookids.commentread.comment.application.port.dto.UserProfileImageDto;
-import lookids.commentread.comment.application.port.dto.UserProfileNicknameDto;
-import lookids.commentread.comment.application.port.in.UserProfileUpdateUseCase;
-import lookids.commentread.comment.application.port.out.CommentRepositoryPort;
+import lookids.mono.commentread.application.mapper.CommentReadDtoMapper;
+import lookids.mono.commentread.application.port.dto.UserProfileImageDto;
+import lookids.mono.commentread.application.port.dto.UserProfileNicknameDto;
+import lookids.mono.commentread.application.port.in.UserProfileUpdateUseCase;
+import lookids.mono.commentread.application.port.out.CommentRepositoryPort;
 
 @RequiredArgsConstructor
 @Service

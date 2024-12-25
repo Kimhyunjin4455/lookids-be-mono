@@ -1,9 +1,9 @@
-package lookids.feedread.dto.out;
+package lookids.mono.feedread.dto.out;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.feedread.domain.FeedRead;
+import lookids.mono.feedread.domain.FeedRead;
 
 @Getter
 @NoArgsConstructor
@@ -21,8 +21,8 @@ public class FeedReadResponseDto {
 	public static FeedReadResponseDto toDto(FeedRead feedRead) {
 		return FeedReadResponseDto.builder()
 			.feedCode(feedRead.getFeedCode())
-			.mediaUrl(feedRead.getMediaUrlList() != null && !feedRead.getMediaUrlList().isEmpty()
-				?feedRead.getMediaUrlList().get(0) : null)
+			.mediaUrl(feedRead.getMediaUrlList() != null && !feedRead.getMediaUrlList().isEmpty() ?
+				feedRead.getMediaUrlList().get(0) : null)
 			.build();
 	}
 }
