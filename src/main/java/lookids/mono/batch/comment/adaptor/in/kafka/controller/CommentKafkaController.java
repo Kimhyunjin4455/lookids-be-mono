@@ -12,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lookids.mono.batch.comment.adaptor.in.kafka.event.CommentEvent;
 import lookids.mono.batch.comment.adaptor.in.kafka.event.ReplyEvent;
-import lookids.mono.batch.comment.adaptor.in.kafka.mapper.CommentKafkaVoMapper;
 import lookids.mono.batch.comment.application.mapper.CommentDtoMapper;
 import lookids.mono.batch.comment.application.port.in.CommentLogUseCase;
 
@@ -23,10 +22,9 @@ public class CommentKafkaController {
 
 	private final CommentLogUseCase commentLogUseCase;
 	private final CommentDtoMapper commentDtoMapper;
-	private final CommentKafkaVoMapper commentKafkaVoMapper;
 	private final KafkaTemplate<String, String> favoritekafkaTemplate;
 
-	@KafkaListener(topics = "${comment.create}", groupId = "${group-id}", containerFactory = "commentEventListenerContainerFactory")
+	@KafkaListener(topics = "${comment.create}", groupId = "${group-id.batch}", containerFactory = "commentBatchListenerContainerFactory")
 	public void consumeCommentEvents(List<CommentEvent> commentEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("comment create log processing start");
@@ -44,7 +42,7 @@ public class CommentKafkaController {
 		}
 	}
 
-	@KafkaListener(topics = "${comment.delete}", groupId = "${group-id}", containerFactory = "commentEventListenerContainerFactory")
+	@KafkaListener(topics = "${comment.delete}", groupId = "${group-id.batch}", containerFactory = "commentBatchListenerContainerFactory")
 	public void consumeCommentDeleteEvents(List<CommentEvent> commentEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("comment delete log processing start");
@@ -62,7 +60,7 @@ public class CommentKafkaController {
 		}
 	}
 
-	@KafkaListener(topics = "${reply.create}", groupId = "${group-id}", containerFactory = "replyEventListenerContainerFactory")
+	@KafkaListener(topics = "${reply.create}", groupId = "${group-id.batch}", containerFactory = "replyBatchListenerContainerFactory")
 	public void consumeReplyEvents(List<ReplyEvent> replyEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("reply create log processing start");
@@ -80,7 +78,7 @@ public class CommentKafkaController {
 		}
 	}
 
-	@KafkaListener(topics = "${reply.delete}", groupId = "${group-id}", containerFactory = "replyEventListenerContainerFactory")
+	@KafkaListener(topics = "${reply.delete}", groupId = "${group-id.batch}", containerFactory = "replyBatchListenerContainerFactory")
 	public void consumeReplyDeleteEvents(List<ReplyEvent> replyEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("reply delete log processing start");

@@ -26,7 +26,7 @@ public class CommentKafkaConfig {
 	@Value("${spring.kafka.bootstrap-servers}")
 	private String bootstrapServers;
 
-	@Value("${group-id}")
+	@Value("${group-id.batch}")
 	private String groupId;
 
 	private Map<String, Object> commonConsumerProps(String groupId) {
@@ -68,23 +68,23 @@ public class CommentKafkaConfig {
 	}
 
 	@Bean
-	public ConsumerFactory<String, CommentEvent> commentConsumerFactory() {
+	public ConsumerFactory<String, CommentEvent> commentBatchConsumerFactory() {
 		return createConsumerFactory(CommentEvent.class, groupId);
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, CommentEvent> commentEventListenerContainerFactory() {
-		return createBatchListenerContainerFactory(commentConsumerFactory());
+	public ConcurrentKafkaListenerContainerFactory<String, CommentEvent> commentBatchListenerContainerFactory() {
+		return createBatchListenerContainerFactory(commentBatchConsumerFactory());
 	}
 
 	@Bean
-	public ConsumerFactory<String, ReplyEvent> replyConsumerFactory() {
+	public ConsumerFactory<String, ReplyEvent> replyBatchConsumerFactory() {
 		return createConsumerFactory(ReplyEvent.class, groupId);
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, ReplyEvent> replyEventListenerContainerFactory() {
-		return createBatchListenerContainerFactory(replyConsumerFactory());
+	public ConcurrentKafkaListenerContainerFactory<String, ReplyEvent> replyBatchListenerContainerFactory() {
+		return createBatchListenerContainerFactory(replyBatchConsumerFactory());
 	}
 
 }

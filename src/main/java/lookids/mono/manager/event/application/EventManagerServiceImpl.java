@@ -9,56 +9,56 @@ import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
 import lookids.mono.common.entity.BaseResponseStatus;
 import lookids.mono.common.exception.BaseException;
-import lookids.mono.manager.event.domain.Event;
+import lookids.mono.manager.event.domain.EventManager;
 import lookids.mono.manager.event.dto.in.EventRequestDto;
 import lookids.mono.manager.event.dto.in.EventUpdateRequestDto;
 import lookids.mono.manager.event.dto.out.EventResponseDto;
-import lookids.mono.manager.event.infrastructure.EventRepository;
+import lookids.mono.manager.event.infrastructure.EventManagerRepository;
 
 @Service
 @RequiredArgsConstructor
-public class EventServiceImpl implements EventService {
+public class EventManagerServiceImpl implements EventManagerService {
 
-	private final EventRepository eventRepository;
+	private final EventManagerRepository eventManagerRepository;
 
 	@Override
 	public void createEvent(EventRequestDto eventRequestDto) {
 		String eventCode;
 		eventCode = UUID.randomUUID().toString();
-		eventRepository.save(eventRequestDto.toEntity(eventCode));
+		eventManagerRepository.save(eventRequestDto.toEntity(eventCode));
 	}
 
 	@Override
 	public EventResponseDto readEvent(String eventCode) {
-		return EventResponseDto.toDto(eventRepository.findByEventCode(eventCode)
+		return EventResponseDto.toDto(eventManagerRepository.findByEventCode(eventCode)
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_EVENT)));
 	}
 
 	@Override
 	public List<EventResponseDto> readGoingEventList() {
 		LocalDateTime currentTime = LocalDateTime.now();
-		return eventRepository.findByExpiredAtAfter(currentTime).stream().map(EventResponseDto::toDto).toList();
+		return eventManagerRepository.findByExpiredAtAfter(currentTime).stream().map(EventResponseDto::toDto).toList();
 	}
 
 	@Override
 	public List<EventResponseDto> readExpiredEventList() {
 		LocalDateTime currentTime = LocalDateTime.now();
-		return eventRepository.findByExpiredAtBefore(currentTime).stream().map(EventResponseDto::toDto).toList();
+		return eventManagerRepository.findByExpiredAtBefore(currentTime).stream().map(EventResponseDto::toDto).toList();
 	}
 
 	@Override
 	public void updateEvent(String eventCode, EventUpdateRequestDto eventUpdateRequestDto) {
-		Event event = eventRepository.findByEventCode(eventCode)
+		EventManager eventManager = eventManagerRepository.findByEventCode(eventCode)
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_EVENT));
-		event.update(eventUpdateRequestDto);
-		eventRepository.save(event);
+		eventManager.update(eventUpdateRequestDto);
+		eventManagerRepository.save(eventManager);
 	}
 
 	@Override
 	public void deleteEvent(String eventCode) {
-		Event event = eventRepository.findByEventCode(eventCode)
+		EventManager eventManager = eventManagerRepository.findByEventCode(eventCode)
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_EVENT));
-		eventRepository.deleteByEventCode(eventCode);
+		eventManagerRepository.deleteByEventCode(eventCode);
 	}
 
 }

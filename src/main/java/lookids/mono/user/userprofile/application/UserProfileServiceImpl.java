@@ -166,7 +166,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 	@Value("${feed.join}")
 	private String feedJoinTopic;
 
-	@KafkaListener(topics = "${comment.create}", groupId = "${group-id}", containerFactory = "commentEventListenerContainerFactory")
+	@KafkaListener(topics = "${comment.create}", groupId = "${group-id.user}", containerFactory = "commentEventListenerContainerFactory")
 	public void consumeCommentEvent(CommentEventVo commentEventVo) {
 
 		log.info("consumeCommentEvent: {}", commentEventVo);
@@ -176,7 +176,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 		sendMessage(commentJoinTopic, UserProfileKafkaDto.toDto(userProfile).toVo());
 	}
 
-	@KafkaListener(topics = "${reply.create}", groupId = "${group-id}", containerFactory = "replyEventListenerContainerFactory")
+	@KafkaListener(topics = "${reply.create}", groupId = "${group-id.user}", containerFactory = "replyEventListenerContainerFactory")
 	public void consumeReplyEvent(ReplyEventVo replyEventVo) {
 
 		log.info("consumeReplyEvent: {}", replyEventVo);
@@ -187,7 +187,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 		sendMessage(replyJoinTopic, UserProfileKafkaDto.toDto(userProfile).toVo());
 	}
 
-	@KafkaListener(topics = "${feed.create}", groupId = "${group-id}", containerFactory = "feedEventListenerContainerFactory")
+	@KafkaListener(topics = "${feed.create}", groupId = "${group-id.user}", containerFactory = "feedEventListenerContainerFactory")
 	public void consumeFeedEvent(FeedEventVo feedEventVo) {
 
 		log.info("consumeFeedEvent: {}", feedEventVo);
@@ -202,7 +202,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 	@Value("${follow.join}")
 	private String followJoinTopic;
 
-	@KafkaListener(topics = "${follow.create}", groupId = "${group-id}", containerFactory = "followEventListenerContainerFactory")
+	@KafkaListener(topics = "${follow.create}", groupId = "${group-id.user}", containerFactory = "followEventListenerContainerFactory")
 	public void consumeFollowEvent(FollowEventVo feedEventVo) {
 
 		log.info("consumeFollowEvent: {}", feedEventVo);

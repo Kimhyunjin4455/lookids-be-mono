@@ -25,7 +25,7 @@ public class FollowKafkaConfig {
 	@Value("${spring.kafka.bootstrap-servers}")
 	private String bootstrapServers;
 
-	@Value("${group-id}")
+	@Value("${group-id.batch}")
 	private String groupId;
 
 	private Map<String, Object> commonConsumerProps(String groupId) {

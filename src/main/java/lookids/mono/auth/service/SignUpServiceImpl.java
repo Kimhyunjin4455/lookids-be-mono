@@ -1,19 +1,14 @@
 package lookids.mono.auth.service;
 
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClientException;
 
-import feign.FeignException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import lookids.mono.auth.dto.in.PostUserRequestDto;
 import lookids.mono.auth.dto.in.SignUpRequestDto;
 import lookids.mono.auth.repository.AuthRepository;
-import lookids.mono.common.entity.BaseResponse;
 import lookids.mono.common.entity.BaseResponseStatus;
 import lookids.mono.common.exception.BaseException;
 import lookids.mono.common.utils.UuidGenerator;
@@ -25,7 +20,7 @@ import lookids.mono.user.userprofile.application.UserProfileService;
 public class SignUpServiceImpl implements SignUpService {
 
 	private final AuthRepository authRepository;
-	private final UserServiceClient userServiceClient;
+	//private final UserServiceClient userServiceClient;
 	private final PasswordEncoder passwordEncoder;
 	private final RedisTemplate<String, String> redisTemplate;
 	private final int TRY_CNT_LIMIT = 3;
@@ -65,30 +60,30 @@ public class SignUpServiceImpl implements SignUpService {
 	}
 
 	// User 서비스에 전달할 데이터 생성
-	public void writeUserProfile(String uuid, String nickname) {
-		try {
-			// 요청 바디 생성
-			PostUserRequestDto requestDto = PostUserRequestDto.toDto(uuid, nickname);
-
-			BaseResponse<Void> response = userServiceClient.writeUserProfile(requestDto);
-
-			log.info("API URL: {}", response);
-
-			if (response.httpStatus() == HttpStatus.OK) {
-				log.info("외부 API 호출 성공 - UUID: {}, Nickname: {}", uuid, nickname);
-			} else {
-				log.error("외부 API 호출 실패 - status: {}", response.httpStatus());
-				throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
-			}
-
-		} catch (FeignException e) {
-			// FeignException에서 상태 코드와 메시지를 로그에 추가
-			log.error("FeignException 발생: 상태 코드: {}, 메시지: {}", e.status(), e.getMessage());
-			throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
-		} catch (RestClientException e) {
-			log.error("외부 API 호출 중 예외 발생", e);
-			throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
-		}
-
-	}
+	// public void writeUserProfile(String uuid, String nickname) {
+	// 	try {
+	// 		// 요청 바디 생성
+	// 		PostUserRequestDto requestDto = PostUserRequestDto.toDto(uuid, nickname);
+	//
+	// 		BaseResponse<Void> response = userServiceClient.writeUserProfile(requestDto);
+	//
+	// 		log.info("API URL: {}", response);
+	//
+	// 		if (response.httpStatus() == HttpStatus.OK) {
+	// 			log.info("외부 API 호출 성공 - UUID: {}, Nickname: {}", uuid, nickname);
+	// 		} else {
+	// 			log.error("외부 API 호출 실패 - status: {}", response.httpStatus());
+	// 			throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
+	// 		}
+	//
+	// 	} catch (FeignException e) {
+	// 		// FeignException에서 상태 코드와 메시지를 로그에 추가
+	// 		log.error("FeignException 발생: 상태 코드: {}, 메시지: {}", e.status(), e.getMessage());
+	// 		throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
+	// 	} catch (RestClientException e) {
+	// 		log.error("외부 API 호출 중 예외 발생", e);
+	// 		throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
+	// 	}
+	//
+	// }
 }

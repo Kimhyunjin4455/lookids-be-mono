@@ -16,8 +16,8 @@ import lookids.mono.common.entity.BaseResponse;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/read/feed")
-public class FeedReadController {
+@RequestMapping("/batch-service/read/feed")
+public class FeedBatchController {
 	private final FeedCountReadUseCase feedCountReadUseCase;
 	private final FeedWebVoMapper feedWebVoMapper;
 

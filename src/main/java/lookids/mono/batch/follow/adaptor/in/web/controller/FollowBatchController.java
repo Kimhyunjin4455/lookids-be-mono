@@ -16,8 +16,8 @@ import lookids.mono.common.entity.BaseResponse;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/read/follow")
-public class FollowReadController {
+@RequestMapping("/batch-service/read/follow")
+public class FollowBatchController {
 	private final FollowCountReadUseCase followCountReadUseCase;
 	private final FollowWebVoMapper followWebVoMapper;
 

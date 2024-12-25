@@ -6,22 +6,18 @@ import java.time.ZoneId;
 import java.util.Random;
 
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClientException;
 
-import feign.FeignException;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lookids.mono.auth.domain.Auth;
 import lookids.mono.auth.domain.OAuth;
 import lookids.mono.auth.dto.in.OAuthSignUpRequestDto;
-import lookids.mono.auth.dto.in.PostUserRequestDto;
 import lookids.mono.auth.dto.in.RefreshTokenRequestDto;
 import lookids.mono.auth.dto.in.SignInRequestDto;
 import lookids.mono.auth.dto.out.RefreshTokenResponseDto;
@@ -30,7 +26,6 @@ import lookids.mono.auth.repository.AuthRepository;
 import lookids.mono.auth.repository.OAuthRepository;
 import lookids.mono.auth.userdetails.AuthUserDetails;
 import lookids.mono.common.config.RefreshToken;
-import lookids.mono.common.entity.BaseResponse;
 import lookids.mono.common.entity.BaseResponseStatus;
 import lookids.mono.common.entity.OAuthAuthenticationToken;
 import lookids.mono.common.exception.BaseException;
@@ -55,7 +50,7 @@ public class SignInServiceImpl implements SignInService {
 	private final RedisTemplate<String, String> redisTemplate;
 
 	// User 서비스에 전달할 데이터 생성, 스파로스 측 와이파이 연결 필요,,,
-	private final UserServiceClient userServiceClient;
+	//private final UserServiceClient userServiceClient;
 
 	//페인 클라이언트 대신 유저 서비스 호출
 	private final UserProfileService userProfileService;
@@ -203,34 +198,34 @@ public class SignInServiceImpl implements SignInService {
 	}
 
 	// User 서비스에 전달할 데이터 생성
-	public void writeUserProfile(String uuid, String nickname) {
-		try {
-			// 요청 바디 생성
-			PostUserRequestDto requestDto = PostUserRequestDto.toDto(uuid, nickname);
-
-			BaseResponse<Void> response = userServiceClient.writeUserProfile(requestDto);
-
-			log.info("API URL: {}", response);
-
-			//JSON parse error: Cannot deserialize value of type `int` from String "OK": not a valid `int` value
-
-			if (response.httpStatus() == HttpStatus.OK) {
-				log.info("외부 API 호출 성공 - UUID: {}, Nickname: {}", uuid, nickname);
-			} else {
-				log.error("외부 API 호출 실패 - status: {}", response.httpStatus());
-				throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
-			}
-
-		} catch (FeignException e) {
-			// FeignException에서 상태 코드와 메시지를 로그에 추가
-			log.error("FeignException 발생: 상태 코드: {}, 메시지: {}", e.status(), e.getMessage());
-			throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
-		} catch (RestClientException e) {
-			log.error("외부 API 호출 중 예외 발생", e);
-			throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
-		}
-
-	}
+	// public void writeUserProfile(String uuid, String nickname) {
+	// 	try {
+	// 		// 요청 바디 생성
+	// 		PostUserRequestDto requestDto = PostUserRequestDto.toDto(uuid, nickname);
+	//
+	// 		BaseResponse<Void> response = userServiceClient.writeUserProfile(requestDto);
+	//
+	// 		log.info("API URL: {}", response);
+	//
+	// 		//JSON parse error: Cannot deserialize value of type `int` from String "OK": not a valid `int` value
+	//
+	// 		if (response.httpStatus() == HttpStatus.OK) {
+	// 			log.info("외부 API 호출 성공 - UUID: {}, Nickname: {}", uuid, nickname);
+	// 		} else {
+	// 			log.error("외부 API 호출 실패 - status: {}", response.httpStatus());
+	// 			throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
+	// 		}
+	//
+	// 	} catch (FeignException e) {
+	// 		// FeignException에서 상태 코드와 메시지를 로그에 추가
+	// 		log.error("FeignException 발생: 상태 코드: {}, 메시지: {}", e.status(), e.getMessage());
+	// 		throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
+	// 	} catch (RestClientException e) {
+	// 		log.error("외부 API 호출 중 예외 발생", e);
+	// 		throw new BaseException(BaseResponseStatus.EXTERNAL_API_ERROR);
+	// 	}
+	//
+	// }
 
 	// 소셜 로그인 시 랜덤 닉네임 생성
 	public String generateRandomNickName() {

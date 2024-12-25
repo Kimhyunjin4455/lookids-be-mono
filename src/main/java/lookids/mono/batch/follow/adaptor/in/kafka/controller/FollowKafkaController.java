@@ -25,7 +25,7 @@ public class FollowKafkaController {
 	private final FollowKafkaVoMapper followKafkaVoMapper;
 	private final KafkaTemplate<String, String> favoritekafkaTemplate;
 
-	@KafkaListener(topics = "${follow.create}", groupId = "${group-id}", containerFactory = "followEventListenerContainerFactory")
+	@KafkaListener(topics = "${follow.create}", groupId = "${group-id.batch}", containerFactory = "followEventListenerContainerFactory")
 	public void consumeFollowEvents(List<FollowEvent> followEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("follow create log processing start");
@@ -42,7 +42,7 @@ public class FollowKafkaController {
 		}
 	}
 
-	@KafkaListener(topics = "${follow.delete}", groupId = "${group-id}", containerFactory = "followEventListenerContainerFactory")
+	@KafkaListener(topics = "${follow.delete}", groupId = "${group-id.batch}", containerFactory = "followEventListenerContainerFactory")
 	public void consumeFollowDeleteEvents(List<FollowEvent> followEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("follow delete log processing start");

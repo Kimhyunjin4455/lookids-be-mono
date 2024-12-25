@@ -19,7 +19,7 @@ import lookids.mono.manager.event.dto.in.EventUpdateRequestDto;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Event extends BaseEntity {
+public class EventManager extends BaseEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

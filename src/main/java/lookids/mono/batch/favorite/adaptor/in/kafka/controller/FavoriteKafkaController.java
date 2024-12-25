@@ -21,7 +21,7 @@ public class FavoriteKafkaController {
 	private final FavoriteKafkaVoMapper favoriteKafkaVoMapper;
 	private final KafkaTemplate<String, String> favoritekafkaTemplate;
 
-	@KafkaListener(topics = "${favorite.update}", groupId = "${group-id}", containerFactory = "favoriteEventListenerContainerFactory")
+	@KafkaListener(topics = "${favorite.update}", groupId = "${group-id.batch}", containerFactory = "favoriteEventListenerContainerFactory")
 	public void consumeFavoriteEvents(FavoriteEvent favoriteEvent) {
 		try {
 			log.info("favorite start");

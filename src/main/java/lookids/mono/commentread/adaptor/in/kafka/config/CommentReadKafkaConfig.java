@@ -23,7 +23,7 @@ import lookids.mono.commentread.adaptor.in.kafka.event.UserProfileEvent;
 
 @EnableKafka
 @Configuration
-public class KafkaConfig {
+public class CommentReadKafkaConfig {
 
 	@Value("${spring.kafka.bootstrap-servers}")
 	private String bootstrapServers;

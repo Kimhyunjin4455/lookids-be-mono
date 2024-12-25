@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.mono.manager.event.domain.Event;
+import lookids.mono.manager.event.domain.EventManager;
 import lookids.mono.manager.event.vo.in.EventRequestVo;
 
 @Getter
@@ -21,8 +21,8 @@ public class EventRequestDto {
 	private String description;
 	private LocalDateTime expiredAt;
 
-	public Event toEntity(String eventCode) {
-		return Event.builder()
+	public EventManager toEntity(String eventCode) {
+		return EventManager.builder()
 			.eventCode(eventCode)
 			.thumbnail(thumbnail)
 			.eventName(eventName)

@@ -35,17 +35,17 @@ public class KafkaConsumerController {
 	private final ConcurrentHashMap<String, CompletableFuture<UserProfileEvent>> userProfileEventFutureMap = new ConcurrentHashMap<>();
 	private final ConcurrentHashMap<String, CompletableFuture<ReplyEvent>> replyCommentEventFutureMap = new ConcurrentHashMap<>(); // 대댓글을 위한 맵 추가
 
-	@KafkaListener(topics = "${profile.nickname.update}", groupId = "${group-id}", containerFactory = "nicknameEventListenerContainerFactory")
+	@KafkaListener(topics = "${profile.nickname.update}", groupId = "${group-id.commentread}", containerFactory = "nicknameEventListenerContainerFactory")
 	public void consumeNicknameEvent(NicknameEvent nicknameEvent) {
 		userProfileUpdateUseCase.updateNickname(commentReadDtoMapper.toNicknameDto(nicknameEvent));
 	}
 
-	@KafkaListener(topics = "${profile.image.update}", groupId = "${group-id}", containerFactory = "profileImageEventListenerContainerFactory")
+	@KafkaListener(topics = "${profile.image.update}", groupId = "${group-id.commentread}", containerFactory = "profileImageEventListenerContainerFactory")
 	public void consumeNicknameEvent(ProfileImageEvent profileImageEvent) {
 		userProfileUpdateUseCase.updateProfileImage(commentReadDtoMapper.toProfileImageDto(profileImageEvent));
 	}
 
-	@KafkaListener(topics = "${comment.create}", groupId = "${group-id}", containerFactory = "commentEventListenerContainerFactory")
+	@KafkaListener(topics = "${comment.create}", groupId = "${group-id.commentread}", containerFactory = "commentEventListenerContainerFactory")
 	public void consumeCommentEvent(CommentEvent commentEvent) {
 		String userUuid = commentEvent.getUuid();
 		CompletableFuture<CommentEvent> feedEventFuture = commentEventFutureMap.computeIfAbsent(userUuid,
@@ -58,7 +58,7 @@ public class KafkaConsumerController {
 		checkAndCreateCommentEventListener(userUuid);
 	}
 
-	@KafkaListener(topics = "${comment.join}", groupId = "${group-id}", containerFactory = "userProfileEventListenerContainerFactory")
+	@KafkaListener(topics = "${comment.join}", groupId = "${group-id.commentread}", containerFactory = "userProfileEventListenerContainerFactory")
 	public void consumeCommentJoinEvent(UserProfileEvent userProfileEvent) {
 		String userUuid = userProfileEvent.getUuid();
 		CompletableFuture<UserProfileEvent> userProfileEventFuture = userProfileEventFutureMap.computeIfAbsent(userUuid,
@@ -71,7 +71,7 @@ public class KafkaConsumerController {
 	}
 
 	// 대댓글을 처리하는 리스너
-	@KafkaListener(topics = "${reply.create}", groupId = "${group-id}", containerFactory = "replyEventListenerContainerFactory")
+	@KafkaListener(topics = "${reply.create}", groupId = "${group-id.commentread}", containerFactory = "replyEventListenerContainerFactory")
 	public void consumeReplyEvent(ReplyEvent replyEvent) {
 		String userUuid = replyEvent.getUuid();
 		CompletableFuture<ReplyEvent> replyEventFuture = replyCommentEventFutureMap.computeIfAbsent(userUuid,
@@ -83,19 +83,19 @@ public class KafkaConsumerController {
 		checkAndCreateReplyEventListener(userUuid);
 	}
 
-	@KafkaListener(topics = "${comment.delete}", groupId = "${group-id}", containerFactory = "commentEventListenerContainerFactory")
+	@KafkaListener(topics = "${comment.delete}", groupId = "${group-id.commentread}", containerFactory = "commentEventListenerContainerFactory")
 	public void consumeCommentDeleteEvent(CommentEvent commentEvent) {
 		log.info("commentEvent: {}", commentEvent);
 		commentDeleteUseCase.deleteComment(commentReadDtoMapper.toCommentDeleteDto(commentEvent));
 	}
 
-	@KafkaListener(topics = "${reply.delete}", groupId = "${group-id}", containerFactory = "replyEventListenerContainerFactory")
+	@KafkaListener(topics = "${reply.delete}", groupId = "${group-id.commentread}", containerFactory = "replyEventListenerContainerFactory")
 	public void consumeReplyDeleteEvent(ReplyEvent replyEvent) {
 		log.info("replyEvent: {}", replyEvent);
 		commentDeleteUseCase.deleteReply(commentReadDtoMapper.toReplyDeleteDto(replyEvent));
 	}
 
-	@KafkaListener(topics = "${reply.join}", groupId = "${group-id}", containerFactory = "userProfileEventListenerContainerFactory")
+	@KafkaListener(topics = "${reply.join}", groupId = "${group-id.commentread}", containerFactory = "userProfileEventListenerContainerFactory")
 	public void consumeReplyJoinEvent(UserProfileEvent userProfileEvent) {
 		String userUuid = userProfileEvent.getUuid();
 		CompletableFuture<UserProfileEvent> userProfileEventFuture = userProfileEventFutureMap.computeIfAbsent(userUuid,

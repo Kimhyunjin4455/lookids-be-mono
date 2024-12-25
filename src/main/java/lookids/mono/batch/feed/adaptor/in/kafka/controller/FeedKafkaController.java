@@ -26,7 +26,7 @@ public class FeedKafkaController {
 	private final FeedKafkaVoMapper feedKafkaVoMapper;
 	private final KafkaTemplate<String, String> favoritekafkaTemplate;
 
-	@KafkaListener(topics = "${feed.create}", groupId = "${group-id}", containerFactory = "feedEventListenerContainerFactory")
+	@KafkaListener(topics = "${feed.create}", groupId = "${group-id.batch}", containerFactory = "feedEventListenerContainerFactory")
 	public void consumeFeedEvents(List<FeedEvent> feedEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("feed create log processing start");
@@ -44,7 +44,7 @@ public class FeedKafkaController {
 		}
 	}
 
-	@KafkaListener(topics = "${feed.delete}", groupId = "${group-id}", containerFactory = "feedDeleteEventListenerContainerFactory")
+	@KafkaListener(topics = "${feed.delete}", groupId = "${group-id.batch}", containerFactory = "feedDeleteEventListenerContainerFactory")
 	public void consumeFeedDeleteEvents(List<FeedDeleteEvent> feedDeleteEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("feed delete log start");

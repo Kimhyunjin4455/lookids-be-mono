@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lookids.mono.manager.event.domain.Event;
+import lookids.mono.manager.event.domain.EventManager;
 import lookids.mono.manager.event.vo.out.EventResponseVo;
 
 @Getter
@@ -22,14 +22,14 @@ public class EventResponseDto {
 	private String description;
 	private LocalDateTime expiredAt;
 
-	public static EventResponseDto toDto(Event event) {
+	public static EventResponseDto toDto(EventManager eventManager) {
 		return EventResponseDto.builder()
-			.eventCode(event.getEventCode())
-			.thumbnail(event.getThumbnail())
-			.eventName(event.getEventName())
-			.content(event.getContent())
-			.description(event.getDescription())
-			.expiredAt(event.getExpiredAt())
+			.eventCode(eventManager.getEventCode())
+			.thumbnail(eventManager.getThumbnail())
+			.eventName(eventManager.getEventName())
+			.content(eventManager.getContent())
+			.description(eventManager.getDescription())
+			.expiredAt(eventManager.getExpiredAt())
 			.build();
 	}
 

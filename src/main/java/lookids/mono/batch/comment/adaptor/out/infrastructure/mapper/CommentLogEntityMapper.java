@@ -6,7 +6,7 @@ import lookids.mono.batch.comment.adaptor.out.infrastructure.entity.CommentLogEn
 import lookids.mono.batch.comment.application.port.dto.CommentLogSaveDto;
 
 @Component
-public class CommentEntityMapper {
+public class CommentLogEntityMapper {
 
 	public CommentLogEntity toCommentLogEntity(CommentLogSaveDto commentLogSaveDto) {
 		return CommentLogEntity.builder()

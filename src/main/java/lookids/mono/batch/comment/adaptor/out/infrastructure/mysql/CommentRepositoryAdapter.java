@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lookids.mono.batch.comment.adaptor.out.infrastructure.entity.CommentLogEntity;
-import lookids.mono.batch.comment.adaptor.out.infrastructure.mapper.CommentEntityMapper;
+import lookids.mono.batch.comment.adaptor.out.infrastructure.mapper.CommentLogEntityMapper;
 import lookids.mono.batch.comment.application.port.dto.CommentLogSaveDto;
 import lookids.mono.batch.comment.application.port.out.CommentRepositoryPort;
 
@@ -16,12 +16,12 @@ import lookids.mono.batch.comment.application.port.out.CommentRepositoryPort;
 @Repository
 public class CommentRepositoryAdapter implements CommentRepositoryPort {
 	private final CommentLogRepository commentLogRepository;
-	private final CommentEntityMapper commentEntityMapper;
+	private final CommentLogEntityMapper commentLogEntityMapper;
 
 	@Override
 	public void createLog(List<CommentLogSaveDto> commentLogSaveDtoList) {
 		List<CommentLogEntity> commentLogEntityList = commentLogSaveDtoList.stream()
-			.map(commentEntityMapper::toCommentLogEntity)
+			.map(commentLogEntityMapper::toCommentLogEntity)
 			.toList();
 		commentLogRepository.saveAll(commentLogEntityList);
 	}

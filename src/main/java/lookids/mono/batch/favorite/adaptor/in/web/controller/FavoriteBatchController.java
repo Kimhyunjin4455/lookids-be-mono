@@ -17,8 +17,8 @@ import lookids.mono.common.entity.BaseResponse;
 @Slf4j
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/read/favorite")
-public class FavoriteReadController {
+@RequestMapping("/batch-service/read/favorite")
+public class FavoriteBatchController {
 	private final FavoriteCountReadUseCase favoriteCountReadUseCase;
 	private final FavoriteWebVoMapper favoriteWebVoMapper;
 

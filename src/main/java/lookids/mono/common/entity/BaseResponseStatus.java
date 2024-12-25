@@ -111,6 +111,9 @@ public enum BaseResponseStatus {
 	//map
 	NO_EXIST_PIN(HttpStatus.NOT_FOUND, false, 9001, "존재하지 않는 핀입니다."),
 
+	//report
+	NOT_FOUND_REPORT(HttpStatus.NOT_FOUND, false, 1000, "신고/문의 정보가 존재하지 않습니다."),
+
 	NO_EXIST_DATA(HttpStatus.NOT_FOUND, false, 404, "데이터를 찾을 수 없습니다");
 
 	private final HttpStatus httpStatus;

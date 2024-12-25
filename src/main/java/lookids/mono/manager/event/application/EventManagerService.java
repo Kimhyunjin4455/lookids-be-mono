@@ -6,7 +6,7 @@ import lookids.mono.manager.event.dto.in.EventRequestDto;
 import lookids.mono.manager.event.dto.in.EventUpdateRequestDto;
 import lookids.mono.manager.event.dto.out.EventResponseDto;
 
-public interface EventService {
+public interface EventManagerService {
 
 	void createEvent(EventRequestDto eventRequestDto);
 
