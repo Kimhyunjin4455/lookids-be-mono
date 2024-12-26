@@ -5,7 +5,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -28,7 +27,6 @@ import lookids.mono.map.infrastructure.MapRepository;
 public class MapServiceImpl implements MapService {
 
 	private final MapRepository mapRepository;
-	private final KafkaTemplate<String, String> kafkaTemplate;
 
 	// 비동기 작업 관리를 위한 ConcurrentHashMap
 	private final ConcurrentHashMap<String, CompletableFuture<String>> mediaUrlFuture = new ConcurrentHashMap<>();

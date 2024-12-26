@@ -20,7 +20,7 @@ import lookids.mono.batch.favorite.adaptor.in.kafka.event.FavoriteEvent;
 
 @EnableKafka
 @Configuration
-public class FavoriteKafkaConfig {
+public class FavoriteBatchKafkaConfig {
 
 	@Value("${spring.kafka.bootstrap-servers}")
 	private String bootstrapServers;
@@ -67,12 +67,12 @@ public class FavoriteKafkaConfig {
 	}
 
 	@Bean
-	public ConsumerFactory<String, FavoriteEvent> favoriteConsumerFactory() {
+	public ConsumerFactory<String, FavoriteEvent> favoriteBatchConsumerFactory() {
 		return createConsumerFactory(FavoriteEvent.class, groupId);
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, FavoriteEvent> favoriteEventListenerContainerFactory() {
-		return createListenerContainerFactory(favoriteConsumerFactory());
+	public ConcurrentKafkaListenerContainerFactory<String, FavoriteEvent> favoriteBatchListenerContainerFactory() {
+		return createListenerContainerFactory(favoriteBatchConsumerFactory());
 	}
 }

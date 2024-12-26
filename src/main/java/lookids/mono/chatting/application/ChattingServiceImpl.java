@@ -51,7 +51,7 @@ public class ChattingServiceImpl implements ChattingService {
 	private final ChatRoomRepositoryCustom chatRoomRepositoryCustom;
 	private final ChatMessageRepository chatMessageRepository;
 	private final ReactiveMongoTemplate reactiveMongoTemplate;
-	private final KafkaTemplate<String, NotificationKafkaRequestDto> kafkaTemplate;
+	private final KafkaTemplate<String, NotificationKafkaRequestDto> chattingKafkaTemplate;
 
 	@Override
 	public RoomIdResponseDto createChatRoom(ChatRoomRequestDto chatRoomRequestDto) { // 채팅방 생성
@@ -88,7 +88,7 @@ public class ChattingServiceImpl implements ChattingService {
 
 			// Kafka 알림: 오프라인 사용자에게만 전송
 			if (!offlineReceiverUuids.isEmpty()) {
-				kafkaTemplate.send("chatting-create",
+				chattingKafkaTemplate.send("chatting-create",
 					NotificationKafkaRequestDto.toDto(savedChatMessage, offlineReceiverUuids));
 			}
 		});

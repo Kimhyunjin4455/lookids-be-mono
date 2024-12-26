@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lookids.mono.batch.feed.adaptor.in.kafka.event.FeedDeleteEvent;
 import lookids.mono.batch.feed.adaptor.in.kafka.event.FeedEvent;
-import lookids.mono.batch.feed.adaptor.in.kafka.mapper.FeedKafkaVoMapper;
 import lookids.mono.batch.feed.application.mapper.FeedDtoMapper;
 import lookids.mono.batch.feed.application.port.in.FeedLogUseCase;
 
@@ -23,10 +21,8 @@ public class FeedKafkaController {
 
 	private final FeedLogUseCase feedLogUseCase;
 	private final FeedDtoMapper feedDtoMapper;
-	private final FeedKafkaVoMapper feedKafkaVoMapper;
-	private final KafkaTemplate<String, String> favoritekafkaTemplate;
 
-	@KafkaListener(topics = "${feed.create}", groupId = "${group-id.batch}", containerFactory = "feedEventListenerContainerFactory")
+	@KafkaListener(topics = "${feed.create}", groupId = "${group-id.batch}", containerFactory = "feedBatchListenerContainerFactory")
 	public void consumeFeedEvents(List<FeedEvent> feedEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("feed create log processing start");
@@ -44,7 +40,7 @@ public class FeedKafkaController {
 		}
 	}
 
-	@KafkaListener(topics = "${feed.delete}", groupId = "${group-id.batch}", containerFactory = "feedDeleteEventListenerContainerFactory")
+	@KafkaListener(topics = "${feed.delete}", groupId = "${group-id.batch}", containerFactory = "feedDeleteBatchListenerContainerFactory")
 	public void consumeFeedDeleteEvents(List<FeedDeleteEvent> feedDeleteEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("feed delete log start");

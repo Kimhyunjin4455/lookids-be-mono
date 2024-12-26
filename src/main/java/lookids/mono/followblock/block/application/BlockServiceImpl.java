@@ -20,7 +20,7 @@ import lookids.mono.followblock.block.infrastructure.BlockRepository;
 @RequiredArgsConstructor
 public class BlockServiceImpl implements BlockService {
 
-	private final KafkaTemplate<String, KafkaBlockResponseDto> kafkaTemplate;
+	private final KafkaTemplate<String, KafkaBlockResponseDto> blockResKafkaTemplate;
 	private final BlockRepository blockRepository;
 
 	@Override
@@ -54,7 +54,7 @@ public class BlockServiceImpl implements BlockService {
 			.blockUuid(blockList)
 			.build();
 
-		kafkaTemplate.send("block-response", kafkaBlockResponseDto);
+		blockResKafkaTemplate.send("block-response", kafkaBlockResponseDto);
 
 	}
 

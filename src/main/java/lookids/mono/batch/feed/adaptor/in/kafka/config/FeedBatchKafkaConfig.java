@@ -21,7 +21,7 @@ import lookids.mono.batch.feed.adaptor.in.kafka.event.FeedEvent;
 
 @EnableKafka
 @Configuration
-public class FeedKafkaConfig {
+public class FeedBatchKafkaConfig {
 
 	@Value("${spring.kafka.bootstrap-servers}")
 	private String bootstrapServers;
@@ -61,23 +61,23 @@ public class FeedKafkaConfig {
 	}
 
 	@Bean
-	public ConsumerFactory<String, FeedEvent> feedConsumerFactory() {
+	public ConsumerFactory<String, FeedEvent> feedBatchConsumerFactory() {
 		return createConsumerFactory(FeedEvent.class, groupId);
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, FeedEvent> feedEventListenerContainerFactory() {
-		return createBatchListenerContainerFactory(feedConsumerFactory());
+	public ConcurrentKafkaListenerContainerFactory<String, FeedEvent> feedBatchListenerContainerFactory() {
+		return createBatchListenerContainerFactory(feedBatchConsumerFactory());
 	}
 
 	@Bean
-	public ConsumerFactory<String, FeedDeleteEvent> feedDeleteConsumerFactory() {
+	public ConsumerFactory<String, FeedDeleteEvent> feedDeleteBatchConsumerFactory() {
 		return createConsumerFactory(FeedDeleteEvent.class, groupId);
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, FeedDeleteEvent> feedDeleteEventListenerContainerFactory() {
-		return createBatchListenerContainerFactory(feedDeleteConsumerFactory());
+	public ConcurrentKafkaListenerContainerFactory<String, FeedDeleteEvent> feedDeleteBatchListenerContainerFactory() {
+		return createBatchListenerContainerFactory(feedDeleteBatchConsumerFactory());
 	}
 
 }

@@ -68,7 +68,7 @@ public class FeedReadServiceImpl implements FeedReadService {
 		futureFeedCodeList.complete(favoriteResponseDto);
 	}
 
-	@KafkaListener(topics = "block-response", groupId = "feed-read-group", containerFactory = "blockEventListenerContainerFactory")
+	@KafkaListener(topics = "block-response", groupId = "feed-read-group", containerFactory = "userBlockEventListenerContainerFactory")
 	public void readBlockUuid(BlockKafkaDto blockKafkaDto) {
 		String uuid = blockKafkaDto.getUuid();
 		CompletableFuture<BlockKafkaDto> futureBlockList = blockEventFutureMap.get(uuid);

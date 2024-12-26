@@ -21,7 +21,7 @@ import lookids.mono.subscribe.repository.SubscribeRepository;
 public class SubscribeKafkaListener {
 
 	private final SubscribeRepository subscribeRepository;
-	private final KafkaTemplate<String, NotificationKafkaRequestDto> kafkaTemplate;
+	private final KafkaTemplate<String, NotificationKafkaRequestDto> subscribekafkaTemplate;
 	private final String TYPE = "feed";
 
 	@Value("${feed.create-join-subscribe}")
@@ -33,7 +33,7 @@ public class SubscribeKafkaListener {
 	// 구독자들에게 알람을 보내기 위한 새로운 메시지를 생성
 	// 알람 메시지를 feed-create-join-subscribe 토픽으로 발행
 
-	@KafkaListener(topics = "${feed.create}", groupId = "feed-join-subscribe", containerFactory = "feedEventListenerContainerFactory")
+	@KafkaListener(topics = "${feed.create}", groupId = "feed-join-subscribe", containerFactory = "subscribeFeedEventListenerContainerFactory")
 	public void consumeFeedEvent(FeedKafkaRequestDto kafkaFeedRequestDto) {
 
 		String feedContent = kafkaFeedRequestDto.getContent();
@@ -53,6 +53,6 @@ public class SubscribeKafkaListener {
 	}
 
 	public void sendMessage(String topic, NotificationKafkaRequestDto kafkaAlarmRequestDto) {
-		kafkaTemplate.send(topic, kafkaAlarmRequestDto);
+		subscribekafkaTemplate.send(topic, kafkaAlarmRequestDto);
 	}
 }

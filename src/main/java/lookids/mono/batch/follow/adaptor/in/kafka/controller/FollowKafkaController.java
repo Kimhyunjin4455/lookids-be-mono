@@ -4,14 +4,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lookids.mono.batch.follow.adaptor.in.kafka.event.FollowEvent;
-import lookids.mono.batch.follow.adaptor.in.kafka.mapper.FollowKafkaVoMapper;
 import lookids.mono.batch.follow.application.mapper.FollowDtoMapper;
 import lookids.mono.batch.follow.application.port.in.FollowLogUseCase;
 
@@ -22,10 +20,8 @@ public class FollowKafkaController {
 
 	private final FollowLogUseCase followLogUseCase;
 	private final FollowDtoMapper followDtoMapper;
-	private final FollowKafkaVoMapper followKafkaVoMapper;
-	private final KafkaTemplate<String, String> favoritekafkaTemplate;
 
-	@KafkaListener(topics = "${follow.create}", groupId = "${group-id.batch}", containerFactory = "followEventListenerContainerFactory")
+	@KafkaListener(topics = "${follow.create}", groupId = "${group-id.batch}", containerFactory = "followBatchListenerContainerFactory")
 	public void consumeFollowEvents(List<FollowEvent> followEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("follow create log processing start");
@@ -42,7 +38,7 @@ public class FollowKafkaController {
 		}
 	}
 
-	@KafkaListener(topics = "${follow.delete}", groupId = "${group-id.batch}", containerFactory = "followEventListenerContainerFactory")
+	@KafkaListener(topics = "${follow.delete}", groupId = "${group-id.batch}", containerFactory = "followBatchListenerContainerFactory")
 	public void consumeFollowDeleteEvents(List<FollowEvent> followEventList, Acknowledgment acknowledgment) {
 		try {
 			log.info("follow delete log processing start");

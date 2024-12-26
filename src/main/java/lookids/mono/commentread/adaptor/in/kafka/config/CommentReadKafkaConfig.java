@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
+import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +14,15 @@ import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
 import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.core.DefaultKafkaProducerFactory;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
+import org.springframework.kafka.support.serializer.JsonSerializer;
 
+import lookids.mono.comment.vo.out.CommentKafkaVo;
+import lookids.mono.comment.vo.out.ReplyKafkaVo;
 import lookids.mono.commentread.adaptor.in.kafka.event.CommentEvent;
 import lookids.mono.commentread.adaptor.in.kafka.event.NicknameEvent;
 import lookids.mono.commentread.adaptor.in.kafka.event.ProfileImageEvent;
@@ -56,53 +64,81 @@ public class CommentReadKafkaConfig {
 	}
 
 	@Bean
-	public ConsumerFactory<String, CommentEvent> commentConsumerFactory() {
+	public ConsumerFactory<String, CommentEvent> commentReadConsumerFactory() {
 		return createConsumerFactory(CommentEvent.class, "comment-read-group");
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, CommentEvent> commentEventListenerContainerFactory() {
-		return createListenerContainerFactory(commentConsumerFactory());
+	public ConcurrentKafkaListenerContainerFactory<String, CommentEvent> commentReadListenerContainerFactory() {
+		return createListenerContainerFactory(commentReadConsumerFactory());
 	}
 
 	@Bean
-	public ConsumerFactory<String, ReplyEvent> replyConsumerFactory() {
+	public ConsumerFactory<String, ReplyEvent> replyReadConsumerFactory() {
 		return createConsumerFactory(ReplyEvent.class, "comment-read-group");
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, ReplyEvent> replyEventListenerContainerFactory() {
-		return createListenerContainerFactory(replyConsumerFactory());
+	public ConcurrentKafkaListenerContainerFactory<String, ReplyEvent> replyReadListenerContainerFactory() {
+		return createListenerContainerFactory(replyReadConsumerFactory());
 	}
 
 	@Bean
-	public ConsumerFactory<String, UserProfileEvent> userProfileConsumerFactory() {
+	public ConsumerFactory<String, UserProfileEvent> userProfileCommentConsumerFactory() {
 		return createConsumerFactory(UserProfileEvent.class, "comment-read-group");
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, UserProfileEvent> userProfileEventListenerContainerFactory() {
-		return createListenerContainerFactory(userProfileConsumerFactory());
+	public ConcurrentKafkaListenerContainerFactory<String, UserProfileEvent> userProfileCommentListenerContainerFactory() {
+		return createListenerContainerFactory(userProfileCommentConsumerFactory());
 	}
 
 	@Bean
-	public ConsumerFactory<String, NicknameEvent> nicknameConsumerFactory() {
+	public ConsumerFactory<String, NicknameEvent> nicknameCommentConsumerFactory() {
 		return createConsumerFactory(NicknameEvent.class, "comment-read-group");
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, NicknameEvent> nicknameEventListenerContainerFactory() {
-		return createListenerContainerFactory(nicknameConsumerFactory());
+	public ConcurrentKafkaListenerContainerFactory<String, NicknameEvent> nicknameCommentListenerContainerFactory() {
+		return createListenerContainerFactory(nicknameCommentConsumerFactory());
 	}
 
 	@Bean
-	public ConsumerFactory<String, ProfileImageEvent> profileImageConsumerFactory() {
+	public ConsumerFactory<String, ProfileImageEvent> profileImageCommentConsumerFactory() {
 		return createConsumerFactory(ProfileImageEvent.class, "comment-read-group");
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, ProfileImageEvent> profileImageEventListenerContainerFactory() {
-		return createListenerContainerFactory(profileImageConsumerFactory());
+	public ConcurrentKafkaListenerContainerFactory<String, ProfileImageEvent> profileImageCommentListenerContainerFactory() {
+		return createListenerContainerFactory(profileImageCommentConsumerFactory());
 	}
 
+	@Bean
+	public Map<String, Object> commentProducerConfigs() {
+		Map<String, Object> producerProps = new HashMap<>();
+		producerProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServers);
+		producerProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+		producerProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JsonSerializer.class);
+		return producerProps;
+	}
+
+	@Bean
+	public ProducerFactory<String, CommentKafkaVo> createCommentEvent() {
+		return new DefaultKafkaProducerFactory<>(commentProducerConfigs());
+	}
+
+	@Bean
+	public KafkaTemplate<String, CommentKafkaVo> commentkafkaTemplate() {
+		return new KafkaTemplate<>(createCommentEvent());
+	}
+
+	@Bean
+	public ProducerFactory<String, ReplyKafkaVo> createReplyEvent() {
+		return new DefaultKafkaProducerFactory<>(commentProducerConfigs());
+	}
+
+	@Bean
+	public KafkaTemplate<String, ReplyKafkaVo> replykafkaTemplate() {
+		return new KafkaTemplate<>(createReplyEvent());
+	}
 }

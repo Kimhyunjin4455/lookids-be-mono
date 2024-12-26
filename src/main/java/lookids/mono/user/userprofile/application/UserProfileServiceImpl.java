@@ -155,7 +155,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 		return tag;
 	}
 
-	private final KafkaTemplate<String, UserProfileKafkaVo> kafkaTemplate;
+	private final KafkaTemplate<String, UserProfileKafkaVo> userProfileKafkaTemplate;
 
 	@Value("${comment.join}")
 	private String commentJoinTopic;
@@ -166,7 +166,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 	@Value("${feed.join}")
 	private String feedJoinTopic;
 
-	@KafkaListener(topics = "${comment.create}", groupId = "${group-id.user}", containerFactory = "commentEventListenerContainerFactory")
+	@KafkaListener(topics = "${comment.create}", groupId = "${group-id.user}", containerFactory = "commentUserListenerContainerFactory")
 	public void consumeCommentEvent(CommentEventVo commentEventVo) {
 
 		log.info("consumeCommentEvent: {}", commentEventVo);
@@ -176,7 +176,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 		sendMessage(commentJoinTopic, UserProfileKafkaDto.toDto(userProfile).toVo());
 	}
 
-	@KafkaListener(topics = "${reply.create}", groupId = "${group-id.user}", containerFactory = "replyEventListenerContainerFactory")
+	@KafkaListener(topics = "${reply.create}", groupId = "${group-id.user}", containerFactory = "replyUserListenerContainerFactory")
 	public void consumeReplyEvent(ReplyEventVo replyEventVo) {
 
 		log.info("consumeReplyEvent: {}", replyEventVo);
@@ -187,7 +187,7 @@ public class UserProfileServiceImpl implements UserProfileService {
 		sendMessage(replyJoinTopic, UserProfileKafkaDto.toDto(userProfile).toVo());
 	}
 
-	@KafkaListener(topics = "${feed.create}", groupId = "${group-id.user}", containerFactory = "feedEventListenerContainerFactory")
+	@KafkaListener(topics = "${feed.create}", groupId = "${group-id.user}", containerFactory = "feedUserListenerContainerFactory")
 	public void consumeFeedEvent(FeedEventVo feedEventVo) {
 
 		log.info("consumeFeedEvent: {}", feedEventVo);
@@ -198,11 +198,11 @@ public class UserProfileServiceImpl implements UserProfileService {
 		sendMessage(feedJoinTopic, UserProfileKafkaDto.toDto(userProfile).toVo());
 	}
 
-	private final KafkaTemplate<String, FollowKafkaVo> followKafkaTemplate;
+	private final KafkaTemplate<String, FollowKafkaVo> followJoinKafkaTemplate;
 	@Value("${follow.join}")
 	private String followJoinTopic;
 
-	@KafkaListener(topics = "${follow.create}", groupId = "${group-id.user}", containerFactory = "followEventListenerContainerFactory")
+	@KafkaListener(topics = "${follow.create}", groupId = "${group-id.user}", containerFactory = "followUserListenerContainerFactory")
 	public void consumeFollowEvent(FollowEventVo feedEventVo) {
 
 		log.info("consumeFollowEvent: {}", feedEventVo);
@@ -212,10 +212,10 @@ public class UserProfileServiceImpl implements UserProfileService {
 		UserProfile receiverProfile = userProfileRepository.findByUserUuid(feedEventVo.getReceiverUuid())
 			.orElseThrow(() -> new BaseException(BaseResponseStatus.NO_EXIST_DATA));
 
-		followKafkaTemplate.send(followJoinTopic, FollowKafkaDto.toDto(senderProfile, receiverProfile).toVo());
+		followJoinKafkaTemplate.send(followJoinTopic, FollowKafkaDto.toDto(senderProfile, receiverProfile).toVo());
 	}
 
 	public void sendMessage(String topic, UserProfileKafkaVo userProfileKafkaVo) {
-		kafkaTemplate.send(topic, userProfileKafkaVo);
+		userProfileKafkaTemplate.send(topic, userProfileKafkaVo);
 	}
 }

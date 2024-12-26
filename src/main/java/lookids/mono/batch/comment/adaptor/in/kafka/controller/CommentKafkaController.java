@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +21,6 @@ public class CommentKafkaController {
 
 	private final CommentLogUseCase commentLogUseCase;
 	private final CommentDtoMapper commentDtoMapper;
-	private final KafkaTemplate<String, String> favoritekafkaTemplate;
 
 	@KafkaListener(topics = "${comment.create}", groupId = "${group-id.batch}", containerFactory = "commentBatchListenerContainerFactory")
 	public void consumeCommentEvents(List<CommentEvent> commentEventList, Acknowledgment acknowledgment) {

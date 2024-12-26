@@ -20,7 +20,7 @@ import lookids.mono.batch.follow.adaptor.in.kafka.event.FollowEvent;
 
 @EnableKafka
 @Configuration
-public class FollowKafkaConfig {
+public class FollowBatchKafkaConfig {
 
 	@Value("${spring.kafka.bootstrap-servers}")
 	private String bootstrapServers;
@@ -60,13 +60,13 @@ public class FollowKafkaConfig {
 	}
 
 	@Bean
-	public ConsumerFactory<String, FollowEvent> followConsumerFactory() {
+	public ConsumerFactory<String, FollowEvent> followBatchConsumerFactory() {
 		return createConsumerFactory(FollowEvent.class, groupId);
 	}
 
 	@Bean
-	public ConcurrentKafkaListenerContainerFactory<String, FollowEvent> followEventListenerContainerFactory() {
-		return createBatchListenerContainerFactory(followConsumerFactory());
+	public ConcurrentKafkaListenerContainerFactory<String, FollowEvent> followBatchListenerContainerFactory() {
+		return createBatchListenerContainerFactory(followBatchConsumerFactory());
 	}
 
 }

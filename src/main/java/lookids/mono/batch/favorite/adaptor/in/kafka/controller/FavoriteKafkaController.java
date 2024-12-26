@@ -1,13 +1,11 @@
 package lookids.mono.batch.favorite.adaptor.in.kafka.controller;
 
 import org.springframework.kafka.annotation.KafkaListener;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lookids.mono.batch.favorite.adaptor.in.kafka.event.FavoriteEvent;
-import lookids.mono.batch.favorite.adaptor.in.kafka.mapper.FavoriteKafkaVoMapper;
 import lookids.mono.batch.favorite.application.mapper.FavoriteDtoMapper;
 import lookids.mono.batch.favorite.application.port.in.FavoriteLogUseCase;
 
@@ -18,10 +16,8 @@ public class FavoriteKafkaController {
 
 	private final FavoriteLogUseCase favoriteLogUseCase;
 	private final FavoriteDtoMapper favoriteDtoMapper;
-	private final FavoriteKafkaVoMapper favoriteKafkaVoMapper;
-	private final KafkaTemplate<String, String> favoritekafkaTemplate;
 
-	@KafkaListener(topics = "${favorite.update}", groupId = "${group-id.batch}", containerFactory = "favoriteEventListenerContainerFactory")
+	@KafkaListener(topics = "${favorite.update}", groupId = "${group-id.batch}", containerFactory = "favoriteBatchListenerContainerFactory")
 	public void consumeFavoriteEvents(FavoriteEvent favoriteEvent) {
 		try {
 			log.info("favorite start");

@@ -20,7 +20,7 @@ public class favoriteKafkaListener {
 	private final FavoriteService favoriteService;
 	private final KafkaTemplate<String, FavoriteFeedDto> kafkaTemplate;
 
-	@KafkaListener(topics = "favorite-request", groupId = "favorite-join-feed", containerFactory = "feedEventListenerContainerFactory")
+	@KafkaListener(topics = "favorite-request", groupId = "favorite-join-feed", containerFactory = "feedFavoriteEventListenerContainerFactory")
 	public void consumeFeed(FeedKafkaRequestDto requestDto) {
 		String uuid = requestDto.getUuid(); // UUID 추출
 		List<FavoriteResponseDto> responseDtos = favoriteService.readUserFavoriteList(uuid);

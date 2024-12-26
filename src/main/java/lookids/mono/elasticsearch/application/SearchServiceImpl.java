@@ -127,7 +127,7 @@ public class SearchServiceImpl implements SearchService {
 
 	}
 
-	@KafkaListener(topics = "feed-create", groupId = "feedcreate-group", containerFactory = "FeedCreateContainerFactory")
+	@KafkaListener(topics = "feed-create", groupId = "feedcreate-group", containerFactory = "searchFeedCreateContainerFactory")
 	public void consumeFeedCreate(KafkaFeedCreateRequestDto kafkaFeedCreateRequestDto) {
 
 		SearchFeed searchFeed = SearchFeed.builder()
@@ -141,7 +141,7 @@ public class SearchServiceImpl implements SearchService {
 
 	}
 
-	@KafkaListener(topics = "feed-delete", groupId = "feeddelete-group", containerFactory = "FeedDeleteContainerFactory")
+	@KafkaListener(topics = "feed-delete", groupId = "feeddelete-group", containerFactory = "searchFeedDeleteContainerFactory")
 	public void consumeFeedDelete(KafkaFeedDeleteRequestDto kafkaFeedDeleteRequestDto) {
 
 		kafkaBatchCollector.addFeedDeleteBatch(kafkaFeedDeleteRequestDto.getFeedCode());
