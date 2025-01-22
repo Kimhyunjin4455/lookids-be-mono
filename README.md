@@ -167,6 +167,10 @@
 
 ![아키텍처흐름도](https://github.com/user-attachments/assets/a8282d39-549f-4fe7-bf68-3c3bc2e8afc2)
 
+### 2d 아키텍처
+![msaArchitecture](https://github.com/user-attachments/assets/cf93fef5-24f6-4323-b1bb-3d8e3487d407)
+
+
 ---
 
 | Auth - 회원가입 |
@@ -182,10 +186,10 @@
 | 알림 - 이벤트 기반 |
 | --- |
 |  |
-| ![notification](https://github.com/user-attachments/assets/6efd865d-cd5b-49c0-9b39-09b4710dea2e)| 
+| ![notification](https://github.com/user-attachments/assets/868ca0ec-640e-4011-ae73-4b6ee3e2094b)
 |  |
 
----
+
 ---
 
 | RDB - MySQL |
